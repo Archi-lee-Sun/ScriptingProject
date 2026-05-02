@@ -483,6 +483,39 @@
   flex-wrap: wrap;
 }
 
+/*
+  AFFORDANCE — Write a Review button.
+  UX principle: a ghost/outline button is low-affordance — it looks
+  inactive or disabled to many users. A filled green CTA with a
+  pencil icon makes the action unmistakably clickable.
+  Size bump (btn--write-review) gives it Fitts' Law target weight too.
+*/
+.btn--write-review {
+  padding: 12px 22px;
+  font-size: 0.92rem;
+  gap: 8px;
+  /* Subtle pulsing glow animation draws the eye on first load */
+  animation: reviewBtnPulse 2.8s ease-in-out 1.2s 2;
+}
+
+@keyframes reviewBtnPulse {
+  0%, 100% { box-shadow: none; }
+  50%       { box-shadow: var(--shadow-glow); }
+}
+
+/* When the form is open, the button flips to a ghost "close" state */
+.btn--write-review[aria-expanded="true"] {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-hover);
+  animation: none;
+}
+.btn--write-review[aria-expanded="true"]:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  box-shadow: none;
+}
+
 .subsection-title {
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -645,10 +678,19 @@
 }
 
 .review-empty {
-  padding: var(--sp-xl);
+  padding: var(--sp-xl) var(--sp-xl) var(--sp-2xl);
   text-align: center;
   border: 1px dashed var(--border);
   border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-lg);
+}
+
+/* The inline "Write the first review" CTA inside the empty state */
+.review-empty-cta {
+  /* Identical styling to the header button — consistent affordance */
 }
 
 .review-card {

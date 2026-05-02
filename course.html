@@ -175,11 +175,13 @@
           <h2 class="subsection-title" id="reviews-heading">Student Reviews</h2>
           <button
             id="write-review-btn"
-            class="btn btn--ghost btn--sm"
+            class="btn btn--primary btn--write-review"
             aria-expanded="false"
             aria-controls="review-form-panel"
             type="button"
-          >Write a Review</button>
+          >
+            <span aria-hidden="true">✏</span> Write a Review
+          </button>
         </div>
 
         <!-- ── REVIEW FORM — hidden until "Write a Review" is clicked ── -->
@@ -267,8 +269,15 @@
         <div class="reviews-list" id="reviews-list">
           <div class="review-empty" id="review-empty">
             <p class="detail-description">
-              No reviews yet. Be the first to share your experience with this course.
+              No reviews yet. Be the first — tell the next student what to expect.
             </p>
+            <button
+              class="btn btn--primary btn--write-review review-empty-cta"
+              type="button"
+              onclick="document.getElementById('write-review-btn').click(); this.closest('.review-empty').querySelector('p').scrollIntoView({behavior:'smooth'});"
+            >
+              <span aria-hidden="true">✏</span> Write the first review
+            </button>
           </div>
         </div>
 
@@ -276,19 +285,18 @@
     </section>
 
     <!-- ============================================================
-         RELATED COURSES — same course name, different professor
-         Shown at the very bottom, after reviews.
+         RELATED COURSES — same course name, different professor.
+         Hidden by default. JS removes [hidden] only when same-title
+         courses actually exist in the data.
     ============================================================ -->
-    <section class="related-courses" aria-labelledby="related-heading">
+    <section class="related-courses" id="related-section" aria-labelledby="related-heading" hidden>
       <div class="related-inner">
         <h2 class="subsection-title" id="related-heading">Same Course, Other Professors</h2>
         <p class="subsection-sub">
-          This course has been offered in other semesters under different professors.
+          This course has been offered in other semesters under a different professor.
           Each offering has its own rating and reviews.
         </p>
-        <div class="related-grid" id="related-grid">
-          <!-- Populated by JS based on courseData -->
-        </div>
+        <div class="related-grid" id="related-grid"></div>
       </div>
     </section>
 
@@ -619,14 +627,24 @@
            </li>`;
 
       /* ------------------------------------------------------------------
-         RELATED COURSES — same course title base, different professor
+         RELATED COURSES
+         A course is "related" only if it shares the EXACT same title
+         but belongs to a different courseData key (i.e. different professor
+         or semester). Right now all 6 courses have unique titles, so this
+         will correctly produce no results and keep the section hidden.
+         When the data grows and a second professor teaches the same course,
+         this logic will surface them automatically.
       ------------------------------------------------------------------ */
-      const related = (course.related || []).map(key => courseData[key]).filter(Boolean);
-      if (related.length) {
-        relatedGrid.innerHTML = related.map(r => `
+      const relatedSection = document.getElementById('related-section');
+      const sameTitleCourses = Object.entries(courseData).filter(
+        ([key, c]) => key !== courseKey && c.title === course.title
+      );
+
+      if (sameTitleCourses.length > 0) {
+        relatedSection.hidden = false;
+        relatedGrid.innerHTML = sameTitleCourses.map(([key, r]) => `
           <article class="related-card">
-            <a href="course.html?course=${Object.keys(courseData).find(k => courseData[k] === r)}"
-               class="related-card-link">
+            <a href="course.html?course=${key}" class="related-card-link">
               <div class="related-poster ${r.posterClass}"></div>
               <div class="related-info">
                 <h3 class="related-title">${r.title}</h3>
@@ -636,9 +654,8 @@
             </a>
           </article>
         `).join('');
-      } else {
-        relatedGrid.innerHTML = '<p class="detail-description">No related offerings found.</p>';
       }
+      /* Section stays hidden (default) when no same-title courses exist */
 
     } /* end if (course) */
 
