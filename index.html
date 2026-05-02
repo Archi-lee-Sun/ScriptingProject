@@ -17,16 +17,15 @@
   <header class="site-header">
     <nav class="nav-inner" aria-label="Primary navigation">
 
-      <a href="#" class="brand" aria-label="SYLLABUS home">
+      <a href="index.html" class="brand" aria-label="SYLLABUS home">
         <span class="brand-icon">◈</span>
         <span class="brand-name">SYLLABUS</span>
         <span class="brand-sub">KIU</span>
       </a>
 
       <ul class="nav-links" role="list">
-        <li><a href="#catalogue" class="nav-link">Catalogue</a></li>
-        <li><a href="#professor-profiles" class="nav-link">Professors</a></li>
-        <li><a href="#course-detail" class="nav-link">Course</a></li>
+        <li><a href="index.html" class="nav-link nav-link--active" aria-current="page">Catalogue</a></li>
+        <li><a href="index.html#professor-profiles" class="nav-link">Professors</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
       </ul>
 
@@ -48,8 +47,9 @@
   <main>
 
     <!-- ============================================================
-         HERO — clean, direct. No film references.
-         Fade-in + slide-up via @keyframes.
+         HERO
+         Clean, direct value proposition. No fluff.
+         Staggered fadeSlideUp entrance via CSS keyframes.
     ============================================================ -->
     <section class="hero" aria-label="Site hero">
       <div class="hero-bg-grid" aria-hidden="true"></div>
@@ -68,7 +68,7 @@
         <a href="#catalogue" class="btn btn--primary hero-cta">Browse the Catalogue</a>
       </div>
 
-      <!-- Decorative course poster previews — fade-in staggered -->
+      <!-- Decorative course poster previews — right side, staggered fade-in -->
       <div class="hero-posters" aria-hidden="true">
         <div class="hero-poster hero-poster--1"></div>
         <div class="hero-poster hero-poster--2"></div>
@@ -78,8 +78,8 @@
 
     <!-- ============================================================
          FILTER / SORT BAR
-         Semester: I through VIII chips as required.
-         Hick's Law — grouped controls reduce cognitive load.
+         Sticky below nav. Hick's Law — grouped controls.
+         Semester chips I–VIII as required.
     ============================================================ -->
     <section class="filter-bar" aria-label="Filter and sort courses">
       <div class="filter-bar-inner">
@@ -128,11 +128,11 @@
     </section>
 
     <!-- ============================================================
-         MAIN CATALOGUE GRID — 3 columns
-         Each card = unique Course + Professor pairing.
-         All names/ratings use [bracket] placeholders — no fake data.
-         Gestalt — Proximity: course name + professor tightly grouped.
-         Gestalt — Similarity: identical card structure throughout.
+         CATALOGUE GRID — 3 columns
+         Clicking any poster or title navigates to course.html.
+         Gestalt — Proximity: title + professor tightly grouped under poster.
+         Gestalt — Similarity: all cards share identical structure.
+         Fitts' Law: entire poster area is the primary tap target.
     ============================================================ -->
     <section class="catalogue" id="catalogue" aria-labelledby="catalogue-heading">
       <div class="section-header">
@@ -142,8 +142,9 @@
 
       <div class="course-grid">
 
+        <!-- Card 1 -->
         <article class="course-card" aria-label="[course_name] with [professor_name]">
-          <a href="#course-detail" class="card-poster-link">
+          <a href="course.html" class="card-poster-link">
             <div class="card-poster card-poster--1">
               <div class="poster-overlay">
                 <div class="poster-meta"><span class="poster-dept">[dept] · [code]</span></div>
@@ -166,14 +167,15 @@
             </div>
           </a>
           <div class="card-info">
-            <h3 class="card-title">[course_name]</h3>
-            <p class="card-professor"><a href="#professor-profiles" class="prof-link">[professor_name]</a></p>
+            <h3 class="card-title"><a href="course.html" class="card-title-link">[course_name]</a></h3>
+            <p class="card-professor"><a href="professor.html" class="prof-link">[professor_name]</a></p>
             <p class="card-degree-tag">[degree_name]</p>
           </div>
         </article>
 
+        <!-- Card 2 -->
         <article class="course-card" aria-label="[course_name] with [professor_name]">
-          <a href="#course-detail" class="card-poster-link">
+          <a href="course.html" class="card-poster-link">
             <div class="card-poster card-poster--2">
               <div class="poster-overlay">
                 <div class="poster-meta"><span class="poster-dept">[dept] · [code]</span></div>
@@ -196,14 +198,15 @@
             </div>
           </a>
           <div class="card-info">
-            <h3 class="card-title">[course_name]</h3>
-            <p class="card-professor"><a href="#professor-profiles" class="prof-link">[professor_name]</a></p>
+            <h3 class="card-title"><a href="course.html" class="card-title-link">[course_name]</a></h3>
+            <p class="card-professor"><a href="professor.html" class="prof-link">[professor_name]</a></p>
             <p class="card-degree-tag">[degree_name]</p>
           </div>
         </article>
 
+        <!-- Card 3 -->
         <article class="course-card" aria-label="[course_name] with [professor_name]">
-          <a href="#course-detail" class="card-poster-link">
+          <a href="course.html" class="card-poster-link">
             <div class="card-poster card-poster--3">
               <div class="poster-overlay">
                 <div class="poster-meta"><span class="poster-dept">[dept] · [code]</span></div>
@@ -226,14 +229,15 @@
             </div>
           </a>
           <div class="card-info">
-            <h3 class="card-title">[course_name]</h3>
-            <p class="card-professor"><a href="#professor-profiles" class="prof-link">[professor_name]</a></p>
+            <h3 class="card-title"><a href="course.html" class="card-title-link">[course_name]</a></h3>
+            <p class="card-professor"><a href="professor.html" class="prof-link">[professor_name]</a></p>
             <p class="card-degree-tag">[degree_name]</p>
           </div>
         </article>
 
+        <!-- Card 4 -->
         <article class="course-card" aria-label="[course_name] with [professor_name]">
-          <a href="#course-detail" class="card-poster-link">
+          <a href="course.html" class="card-poster-link">
             <div class="card-poster card-poster--4">
               <div class="poster-overlay">
                 <div class="poster-meta"><span class="poster-dept">[dept] · [code]</span></div>
@@ -256,14 +260,15 @@
             </div>
           </a>
           <div class="card-info">
-            <h3 class="card-title">[course_name]</h3>
-            <p class="card-professor"><a href="#professor-profiles" class="prof-link">[professor_name]</a></p>
+            <h3 class="card-title"><a href="course.html" class="card-title-link">[course_name]</a></h3>
+            <p class="card-professor"><a href="professor.html" class="prof-link">[professor_name]</a></p>
             <p class="card-degree-tag">[degree_name]</p>
           </div>
         </article>
 
+        <!-- Card 5 -->
         <article class="course-card" aria-label="[course_name] with [professor_name]">
-          <a href="#course-detail" class="card-poster-link">
+          <a href="course.html" class="card-poster-link">
             <div class="card-poster card-poster--5">
               <div class="poster-overlay">
                 <div class="poster-meta"><span class="poster-dept">[dept] · [code]</span></div>
@@ -286,14 +291,15 @@
             </div>
           </a>
           <div class="card-info">
-            <h3 class="card-title">[course_name]</h3>
-            <p class="card-professor"><a href="#professor-profiles" class="prof-link">[professor_name]</a></p>
+            <h3 class="card-title"><a href="course.html" class="card-title-link">[course_name]</a></h3>
+            <p class="card-professor"><a href="professor.html" class="prof-link">[professor_name]</a></p>
             <p class="card-degree-tag">[degree_name]</p>
           </div>
         </article>
 
+        <!-- Card 6 -->
         <article class="course-card" aria-label="[course_name] with [professor_name]">
-          <a href="#course-detail" class="card-poster-link">
+          <a href="course.html" class="card-poster-link">
             <div class="card-poster card-poster--6">
               <div class="poster-overlay">
                 <div class="poster-meta"><span class="poster-dept">[dept] · [code]</span></div>
@@ -316,8 +322,8 @@
             </div>
           </a>
           <div class="card-info">
-            <h3 class="card-title">[course_name]</h3>
-            <p class="card-professor"><a href="#professor-profiles" class="prof-link">[professor_name]</a></p>
+            <h3 class="card-title"><a href="course.html" class="card-title-link">[course_name]</a></h3>
+            <p class="card-professor"><a href="professor.html" class="prof-link">[professor_name]</a></p>
             <p class="card-degree-tag">[degree_name]</p>
           </div>
         </article>
@@ -326,374 +332,8 @@
     </section>
 
     <!-- ============================================================
-         COURSE DETAIL PAGE
-         Layout: poster col left, metadata col right — Letterboxd style.
-         Contains: syllabus summary, professor link, aggregate rating,
-         course materials, student reviews, related courses (same
-         course name, different professor).
-         Rating happens here — no separate "log" page.
-    ============================================================ -->
-    <section class="course-detail" id="course-detail" aria-labelledby="detail-heading">
-      <div class="detail-layout">
-
-        <!-- Left column: poster + rate block + materials -->
-        <aside class="detail-poster-col">
-
-          <div class="detail-poster card-poster--1"></div>
-
-          <!-- Inline star rating — user rates from this page -->
-          <div class="detail-rate-block">
-            <p class="rate-label">Rate this course</p>
-            <div class="rate-stars" role="group" aria-label="Rate from 1 to 5 stars">
-              <!-- Stars in reverse DOM order so CSS sibling trick lights them left-to-right -->
-              <input type="radio" id="r5" name="rate" value="5" class="sr-only" />
-              <label for="r5" class="rate-star" aria-label="5 stars">★</label>
-              <input type="radio" id="r4" name="rate" value="4" class="sr-only" />
-              <label for="r4" class="rate-star" aria-label="4 stars">★</label>
-              <input type="radio" id="r3" name="rate" value="3" class="sr-only" />
-              <label for="r3" class="rate-star" aria-label="3 stars">★</label>
-              <input type="radio" id="r2" name="rate" value="2" class="sr-only" />
-              <label for="r2" class="rate-star" aria-label="2 stars">★</label>
-              <input type="radio" id="r1" name="rate" value="1" class="sr-only" />
-              <label for="r1" class="rate-star" aria-label="1 star">★</label>
-            </div>
-            <p class="rate-hint">Click a star to rate</p>
-          </div>
-
-          <!-- Course materials: student-uploaded files -->
-          <div class="materials-block">
-            <div class="materials-header">
-              <span class="materials-title">📂 Course Materials</span>
-              <span class="materials-count">[n] files</span>
-            </div>
-            <ul class="materials-list" role="list">
-              <li class="material-item">
-                <span class="material-icon" aria-hidden="true">📄</span>
-                <div class="material-info">
-                  <span class="material-name">[filename.pdf]</span>
-                  <span class="material-meta">Midterm · [student_name]</span>
-                </div>
-                <a href="#" class="material-download" aria-label="Download [filename.pdf]">↓</a>
-              </li>
-              <li class="material-item">
-                <span class="material-icon" aria-hidden="true">📄</span>
-                <div class="material-info">
-                  <span class="material-name">[filename.pdf]</span>
-                  <span class="material-meta">Exercises · [student_name]</span>
-                </div>
-                <a href="#" class="material-download" aria-label="Download [filename.pdf]">↓</a>
-              </li>
-              <li class="material-item">
-                <span class="material-icon" aria-hidden="true">📄</span>
-                <div class="material-info">
-                  <span class="material-name">[filename.pdf]</span>
-                  <span class="material-meta">Notes · [student_name]</span>
-                </div>
-                <a href="#" class="material-download" aria-label="Download [filename.pdf]">↓</a>
-              </li>
-            </ul>
-            <button class="upload-btn">+ Upload a file</button>
-          </div>
-
-        </aside>
-
-        <!-- Right column: all course metadata -->
-        <div class="detail-meta">
-
-          <span class="detail-dept-tag">[degree_name] · [dept] [code]</span>
-
-          <h2 class="detail-title" id="detail-heading">[course_name]</h2>
-
-          <!-- Professor attribution — clicking goes to professor profile -->
-          <p class="detail-with-prof">
-            with
-            <a href="#professor-profiles" class="detail-professor-link">[professor_name]</a>
-            <span class="detail-semester">· Semester [I–VIII] · [year]</span>
-          </p>
-
-          <!-- Aggregate rating -->
-          <div class="detail-rating-row">
-            <div class="star-display star-display--lg" aria-label="Rating [x.x] out of 5">
-              <span class="star star--full">★</span>
-              <span class="star star--full">★</span>
-              <span class="star star--full">★</span>
-              <span class="star star--full">★</span>
-              <span class="star star--half">★</span>
-            </div>
-            <span class="detail-score">[x.x]</span>
-            <span class="detail-review-count">based on [n] reviews</span>
-          </div>
-
-          <!-- Syllabus summary -->
-          <div class="detail-syllabus">
-            <h3 class="detail-section-label">About this course</h3>
-            <p class="detail-description">
-              [Syllabus summary — a few sentences describing the course content,
-              structure, topics covered, and what students will learn over the semester.
-              This is either pulled from the official syllabus or contributed by students.]
-            </p>
-          </div>
-
-          <!-- Offering history table: 4 cols × 4 rows -->
-          <div class="detail-offering-info">
-            <h3 class="detail-section-label">Previous Offerings</h3>
-            <table class="offering-table" aria-label="Previous offerings of this course">
-              <caption class="sr-only">Course offered across semesters with different professors</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Semester</th>
-                  <th scope="col">Professor</th>
-                  <th scope="col">Year</th>
-                  <th scope="col">Rating</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="table-row--current">
-                  <td>Semester [I–VIII]</td>
-                  <td><a href="#professor-profiles" class="prof-link">[professor_name]</a></td>
-                  <td>[year]</td>
-                  <td><span class="table-rating">[x.x] ★</span></td>
-                </tr>
-                <tr>
-                  <td>Semester [I–VIII]</td>
-                  <td><a href="#professor-profiles" class="prof-link">[professor_name]</a></td>
-                  <td>[year]</td>
-                  <td><span class="table-rating">[x.x] ★</span></td>
-                </tr>
-                <tr>
-                  <td>Semester [I–VIII]</td>
-                  <td><a href="#professor-profiles" class="prof-link">[professor_name]</a></td>
-                  <td>[year]</td>
-                  <td><span class="table-rating">[x.x] ★</span></td>
-                </tr>
-                <tr>
-                  <td>Semester [I–VIII]</td>
-                  <td><a href="#professor-profiles" class="prof-link">[professor_name]</a></td>
-                  <td>[year]</td>
-                  <td><span class="table-rating">[x.x] ★</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-        </div><!-- /detail-meta -->
-      </div><!-- /detail-layout -->
-
-      <!-- ── STUDENT REVIEWS ── -->
-      <div class="reviews-section" aria-labelledby="reviews-heading">
-        <div class="reviews-header">
-          <h3 class="subsection-title" id="reviews-heading">Student Reviews</h3>
-          <button class="btn btn--ghost btn--sm">Write a Review</button>
-        </div>
-
-        <!-- Write a review form — Letterboxd-style, inline -->
-        <div class="review-form-panel">
-          <form class="review-form" action="#" method="post" aria-label="Write a course review">
-            <div class="review-form-top">
-              <div class="form-group">
-                <label for="reviewer-name" class="form-label">Your Name</label>
-                <input type="text" id="reviewer-name" name="name" class="form-input" placeholder="[your_name]" required />
-              </div>
-              <div class="form-group">
-                <label for="reviewer-email" class="form-label">KIU Email</label>
-                <input type="email" id="reviewer-email" name="email" class="form-input" placeholder="[you@kiu.edu.ge]" required />
-              </div>
-              <div class="form-group">
-                <label for="reviewer-degree" class="form-label">Your Degree</label>
-                <select id="reviewer-degree" name="degree" class="form-select" required>
-                  <option value="" disabled selected>Select degree</option>
-                  <option value="cs">Computer Science</option>
-                  <option value="management">Management</option>
-                  <option value="psychology">Psychology</option>
-                  <option value="law">Law</option>
-                  <option value="medicine">Medicine</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- 1–5 star rating input, CSS-only -->
-            <fieldset class="star-fieldset">
-              <legend class="form-label">Your Rating</legend>
-              <div class="star-radio-group" role="group" aria-label="Rate 1 to 5 stars">
-                <input type="radio" id="fs5" name="rating" value="5" class="sr-only" required />
-                <label for="fs5" class="star-radio-label" aria-label="5 stars">★</label>
-                <input type="radio" id="fs4" name="rating" value="4" class="sr-only" />
-                <label for="fs4" class="star-radio-label" aria-label="4 stars">★</label>
-                <input type="radio" id="fs3" name="rating" value="3" class="sr-only" />
-                <label for="fs3" class="star-radio-label" aria-label="3 stars">★</label>
-                <input type="radio" id="fs2" name="rating" value="2" class="sr-only" />
-                <label for="fs2" class="star-radio-label" aria-label="2 stars">★</label>
-                <input type="radio" id="fs1" name="rating" value="1" class="sr-only" />
-                <label for="fs1" class="star-radio-label" aria-label="1 star">★</label>
-              </div>
-            </fieldset>
-
-            <div class="form-group">
-              <label for="review-body" class="form-label">Review</label>
-              <textarea id="review-body" name="review" class="form-textarea" rows="4"
-                placeholder="Share your experience with this course and professor…" required></textarea>
-            </div>
-            <div class="form-actions">
-              <button type="submit" class="btn btn--primary">Submit Review</button>
-              <button type="reset" class="btn btn--ghost">Cancel</button>
-            </div>
-          </form>
-        </div>
-
-        <!-- Existing review cards — placeholder structure -->
-        <div class="reviews-list">
-
-          <article class="review-card" aria-label="Review by [student_name]">
-            <div class="review-header">
-              <div class="reviewer-avatar" aria-hidden="true">[XX]</div>
-              <div class="reviewer-info">
-                <span class="reviewer-name">[student_name]</span>
-                <span class="reviewer-degree">[degree_name]</span>
-              </div>
-              <div class="review-rating" aria-label="Rated [x] out of 5">
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--empty" aria-hidden="true">★</span>
-              </div>
-              <time class="review-date">Semester [I–VIII] · [year]</time>
-            </div>
-            <p class="review-body">
-              [Student review text — honest experience with this course under this professor.
-              What was the workload like? What should future students know? Any tips for passing?]
-            </p>
-            <div class="review-helpful">
-              <button class="helpful-btn">↑ Helpful <span class="helpful-count">([n])</span></button>
-            </div>
-          </article>
-
-          <article class="review-card" aria-label="Review by [student_name]">
-            <div class="review-header">
-              <div class="reviewer-avatar" aria-hidden="true">[XX]</div>
-              <div class="reviewer-info">
-                <span class="reviewer-name">[student_name]</span>
-                <span class="reviewer-degree">[degree_name]</span>
-              </div>
-              <div class="review-rating" aria-label="Rated [x] out of 5">
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-              </div>
-              <time class="review-date">Semester [I–VIII] · [year]</time>
-            </div>
-            <p class="review-body">
-              [Student review text — honest experience with this course under this professor.
-              What was the workload like? What should future students know? Any tips for passing?]
-            </p>
-            <div class="review-helpful">
-              <button class="helpful-btn">↑ Helpful <span class="helpful-count">([n])</span></button>
-            </div>
-          </article>
-
-          <article class="review-card" aria-label="Review by [student_name]">
-            <div class="review-header">
-              <div class="reviewer-avatar" aria-hidden="true">[XX]</div>
-              <div class="reviewer-info">
-                <span class="reviewer-name">[student_name]</span>
-                <span class="reviewer-degree">[degree_name]</span>
-              </div>
-              <div class="review-rating" aria-label="Rated [x] out of 5">
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--empty" aria-hidden="true">★</span>
-                <span class="star star--empty" aria-hidden="true">★</span>
-              </div>
-              <time class="review-date">Semester [I–VIII] · [year]</time>
-            </div>
-            <p class="review-body">
-              [Student review text — honest experience with this course under this professor.
-              What was the workload like? What should future students know? Any tips for passing?]
-            </p>
-            <div class="review-helpful">
-              <button class="helpful-btn">↑ Helpful <span class="helpful-count">([n])</span></button>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-      <!-- ── RELATED COURSES ──
-           Relationship = same course name, different professor.
-           No other connection implied. Placeholder-only.
-      -->
-      <div class="related-courses" aria-labelledby="related-heading">
-        <h3 class="subsection-title" id="related-heading">Same Course, Other Professors</h3>
-        <p class="subsection-sub">
-          This course was offered in other semesters under different professors.
-          Each is rated independently.
-        </p>
-        <div class="related-grid">
-
-          <article class="related-card">
-            <div class="related-poster card-poster--2"></div>
-            <div class="related-info">
-              <h4 class="related-title">[course_name]</h4>
-              <p class="related-prof"><a href="#professor-profiles" class="prof-link">[professor_name]</a></p>
-              <p class="related-semester">Semester [I–VIII] · [year]</p>
-              <div class="star-display star-display--sm">
-                <span class="star star--full">★</span>
-                <span class="star star--full">★</span>
-                <span class="star star--full">★</span>
-                <span class="star star--empty">★</span>
-                <span class="star star--empty">★</span>
-                <span class="rating-score">[x.x]</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="related-card">
-            <div class="related-poster card-poster--4"></div>
-            <div class="related-info">
-              <h4 class="related-title">[course_name]</h4>
-              <p class="related-prof"><a href="#professor-profiles" class="prof-link">[professor_name]</a></p>
-              <p class="related-semester">Semester [I–VIII] · [year]</p>
-              <div class="star-display star-display--sm">
-                <span class="star star--full">★</span>
-                <span class="star star--full">★</span>
-                <span class="star star--full">★</span>
-                <span class="star star--full">★</span>
-                <span class="star star--empty">★</span>
-                <span class="rating-score">[x.x]</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="related-card">
-            <div class="related-poster card-poster--5"></div>
-            <div class="related-info">
-              <h4 class="related-title">[course_name]</h4>
-              <p class="related-prof"><a href="#professor-profiles" class="prof-link">[professor_name]</a></p>
-              <p class="related-semester">Semester [I–VIII] · [year]</p>
-              <div class="star-display star-display--sm">
-                <span class="star star--full">★</span>
-                <span class="star star--full">★</span>
-                <span class="star star--full">★</span>
-                <span class="star star--full">★</span>
-                <span class="star star--half">★</span>
-                <span class="rating-score">[x.x]</span>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ============================================================
          PROFESSOR PROFILES
-         NOT called directors. Rating shown = average across all their
-         courses — NOT a personal rating of the professor themselves.
-         Clicking professor name anywhere in the app leads here.
+         Rating = average across all their courses. Not personal.
     ============================================================ -->
     <section class="professor-profiles" id="professor-profiles" aria-labelledby="prof-heading">
       <div class="section-header">
@@ -730,21 +370,21 @@
             <div class="prof-courses-label">Courses taught at KIU</div>
             <ul class="prof-courses-list" role="list">
               <li class="prof-course-item">
-                <a href="#course-detail" class="prof-course-link">
+                <a href="course.html" class="prof-course-link">
                   <span class="prof-course-name">[course_name]</span>
                   <span class="prof-course-meta">Sem [I–VIII] · [year]</span>
                   <span class="prof-course-rating">[x.x] ★</span>
                 </a>
               </li>
               <li class="prof-course-item">
-                <a href="#course-detail" class="prof-course-link">
+                <a href="course.html" class="prof-course-link">
                   <span class="prof-course-name">[course_name]</span>
                   <span class="prof-course-meta">Sem [I–VIII] · [year]</span>
                   <span class="prof-course-rating">[x.x] ★</span>
                 </a>
               </li>
               <li class="prof-course-item">
-                <a href="#course-detail" class="prof-course-link">
+                <a href="course.html" class="prof-course-link">
                   <span class="prof-course-name">[course_name]</span>
                   <span class="prof-course-meta">Sem [I–VIII] · [year]</span>
                   <span class="prof-course-rating">[x.x] ★</span>
@@ -779,14 +419,14 @@
             <div class="prof-courses-label">Courses taught at KIU</div>
             <ul class="prof-courses-list" role="list">
               <li class="prof-course-item">
-                <a href="#course-detail" class="prof-course-link">
+                <a href="course.html" class="prof-course-link">
                   <span class="prof-course-name">[course_name]</span>
                   <span class="prof-course-meta">Sem [I–VIII] · [year]</span>
                   <span class="prof-course-rating">[x.x] ★</span>
                 </a>
               </li>
               <li class="prof-course-item">
-                <a href="#course-detail" class="prof-course-link">
+                <a href="course.html" class="prof-course-link">
                   <span class="prof-course-name">[course_name]</span>
                   <span class="prof-course-meta">Sem [I–VIII] · [year]</span>
                   <span class="prof-course-rating">[x.x] ★</span>
@@ -821,21 +461,21 @@
             <div class="prof-courses-label">Courses taught at KIU</div>
             <ul class="prof-courses-list" role="list">
               <li class="prof-course-item">
-                <a href="#course-detail" class="prof-course-link">
+                <a href="course.html" class="prof-course-link">
                   <span class="prof-course-name">[course_name]</span>
                   <span class="prof-course-meta">Sem [I–VIII] · [year]</span>
                   <span class="prof-course-rating">[x.x] ★</span>
                 </a>
               </li>
               <li class="prof-course-item">
-                <a href="#course-detail" class="prof-course-link">
+                <a href="course.html" class="prof-course-link">
                   <span class="prof-course-name">[course_name]</span>
                   <span class="prof-course-meta">Sem [I–VIII] · [year]</span>
                   <span class="prof-course-rating">[x.x] ★</span>
                 </a>
               </li>
               <li class="prof-course-item">
-                <a href="#course-detail" class="prof-course-link">
+                <a href="course.html" class="prof-course-link">
                   <span class="prof-course-name">[course_name]</span>
                   <span class="prof-course-meta">Sem [I–VIII] · [year]</span>
                   <span class="prof-course-rating">[x.x] ★</span>
@@ -851,7 +491,7 @@
   </main>
 
   <!-- ============================================================
-       FOOTER — minimal
+       FOOTER
   ============================================================ -->
   <footer class="site-footer">
     <div class="footer-inner">
@@ -861,14 +501,27 @@
         <span class="footer-tagline">KIU Academic Catalogue · Built by students, for students</span>
       </div>
       <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="#catalogue" class="footer-link">Catalogue</a>
-        <a href="#professor-profiles" class="footer-link">Professors</a>
-        <a href="#course-detail" class="footer-link">Reviews</a>
+        <a href="index.html" class="footer-link">Catalogue</a>
+        <a href="index.html#professor-profiles" class="footer-link">Professors</a>
         <a href="about.html" class="footer-link">About</a>
       </nav>
       <p class="footer-copy">© 2026 SYLLABUS · Not an official KIU product</p>
     </div>
   </footer>
+
+  <script>
+    // Semester chip toggle — Shneiderman: immediate feedback
+    document.querySelectorAll('.sem-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.sem-chip').forEach(c => {
+          c.classList.remove('sem-chip--active');
+          c.setAttribute('aria-pressed', 'false');
+        });
+        chip.classList.add('sem-chip--active');
+        chip.setAttribute('aria-pressed', 'true');
+      });
+    });
+  </script>
 
 </body>
 </html>

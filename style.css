@@ -13,20 +13,14 @@
    8.  Section Headers (shared)
    9.  Filter / Sort Bar
    10. Catalogue Grid & Course Cards
-   11. Course Detail Page
-   12. Offerings Table
-   13. Course Materials
-   14. Student Reviews & Review Form
-   15. Related Courses
-   16. Professor Profiles
-   17. Footer
-   18. Responsive — @media (max-width: 768px)
+   11. Professor Profiles
+   12. Footer
+   13. Responsive — @media (max-width: 768px)
 ================================================================ */
 
 
 /* ================================================================
    1. CSS VARIABLES & DESIGN TOKENS
-   Dark-Academic-Sleek palette.
 ================================================================ */
 :root {
   /* Core Palette */
@@ -135,9 +129,6 @@ button { cursor: pointer; font-family: var(--font-body); }
 
 /* ================================================================
    3. TYPOGRAPHY
-   Playfair Display — editorial headings
-   DM Sans — clean body + UI text
-   DM Mono — metadata, labels, stats
 ================================================================ */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
@@ -158,7 +149,7 @@ em { font-style: italic; color: var(--accent-green); }
 
 /* ================================================================
    4. BUTTONS
-   Fitts' Law: generous padding = larger tap targets
+   Fitts' Law: generous padding = larger tap targets.
 ================================================================ */
 .btn {
   display: inline-flex;
@@ -204,20 +195,16 @@ em { font-style: italic; color: var(--accent-green); }
    5. ANIMATIONS & KEYFRAMES
    GPU-accelerated: only opacity + transform animated.
 ================================================================ */
-
-/* Slide up + fade — hero text, card entrances */
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(26px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Fade only — hero decorative posters */
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-/* Slow pulse — brand icon */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.45; }
@@ -233,13 +220,12 @@ em { font-style: italic; color: var(--accent-green); }
   top: 0;
   z-index: 100;
   height: var(--nav-h);
-  background: rgba(20, 24, 28, 0.9);
+  background: rgba(20, 24, 28, 0.92);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border);
 }
 
-/* Flexbox: logo | nav links | search */
 .nav-inner {
   display: flex;
   align-items: center;
@@ -300,6 +286,10 @@ em { font-style: italic; color: var(--accent-green); }
 }
 .nav-link:hover { color: var(--text-primary); }
 
+.nav-link--active {
+  color: var(--accent-green) !important;
+}
+
 /* Search bar */
 .search-wrapper {
   position: relative;
@@ -338,8 +328,6 @@ em { font-style: italic; color: var(--accent-green); }
 
 /* ================================================================
    7. HERO SECTION
-   Staggered fadeSlideUp on text. Decorative posters fade in right.
-   No film references — just the straight value proposition.
 ================================================================ */
 .hero {
   position: relative;
@@ -350,7 +338,6 @@ em { font-style: italic; color: var(--accent-green); }
   padding: var(--sp-3xl) var(--sp-xl);
 }
 
-/* Subtle grid overlay */
 .hero-bg-grid {
   position: absolute;
   inset: 0;
@@ -403,7 +390,6 @@ em { font-style: italic; color: var(--accent-green); }
   animation-delay: 0.52s;
 }
 
-/* Decorative poster strip — right side of hero */
 .hero-posters {
   position: absolute;
   right: var(--sp-xl);
@@ -421,7 +407,6 @@ em { font-style: italic; color: var(--accent-green); }
   box-shadow: var(--shadow-deep);
 }
 
-/* Poster 1 — green tinted */
 .hero-poster--1 {
   background: linear-gradient(155deg, #0d2a18 0%, #091408 100%);
   border: 1px solid rgba(0, 230, 118, 0.18);
@@ -432,8 +417,7 @@ em { font-style: italic; color: var(--accent-green); }
 }
 .hero-poster--1::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background: linear-gradient(to bottom, transparent 45%, rgba(0,0,0,0.82) 100%);
   border-radius: var(--r-md);
 }
@@ -449,7 +433,6 @@ em { font-style: italic; color: var(--accent-green); }
   line-height: 1.45;
 }
 
-/* Poster 2 — blue tinted */
 .hero-poster--2 {
   background: linear-gradient(155deg, #0a1a2e 0%, #060e1c 100%);
   border: 1px solid rgba(64, 200, 244, 0.18);
@@ -460,8 +443,7 @@ em { font-style: italic; color: var(--accent-green); }
 }
 .hero-poster--2::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background: linear-gradient(to bottom, transparent 45%, rgba(0,0,0,0.82) 100%);
   border-radius: var(--r-md);
 }
@@ -477,7 +459,6 @@ em { font-style: italic; color: var(--accent-green); }
   line-height: 1.45;
 }
 
-/* Poster 3 — gold tinted */
 .hero-poster--3 {
   background: linear-gradient(155deg, #271800 0%, #140c00 100%);
   border: 1px solid rgba(245, 166, 35, 0.18);
@@ -488,8 +469,7 @@ em { font-style: italic; color: var(--accent-green); }
 }
 .hero-poster--3::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background: linear-gradient(to bottom, transparent 45%, rgba(0,0,0,0.82) 100%);
   border-radius: var(--r-md);
 }
@@ -526,8 +506,7 @@ em { font-style: italic; color: var(--accent-green); }
 
 /* ================================================================
    9. FILTER / SORT BAR
-   Semester chips I–VIII as required.
-   Hick's Law: grouped, labeled, minimal choice overhead.
+   Sticky below nav. Hick's Law: grouped, labeled controls.
 ================================================================ */
 .filter-bar {
   background: var(--bg-surface);
@@ -585,7 +564,6 @@ em { font-style: italic; color: var(--accent-green); }
   border-color: var(--accent-green);
 }
 
-/* Semester chips: I through VIII */
 .semester-group { flex-direction: column; }
 
 .semester-chips {
@@ -611,7 +589,6 @@ em { font-style: italic; color: var(--accent-green); }
   color: var(--accent-green);
 }
 
-/* Active semester chip */
 .sem-chip--active,
 .sem-chip[aria-pressed="true"] {
   background: var(--accent-green-dim);
@@ -631,10 +608,10 @@ em { font-style: italic; color: var(--accent-green); }
 
 /* ================================================================
    10. CATALOGUE GRID & COURSE CARDS
-   3-column Flexbox grid.
+   3-column grid. Click poster OR title → course.html.
    Gestalt — Similarity: identical card structure.
    Gestalt — Proximity: title + professor tightly grouped below poster.
-   Transition: poster scales 1.05x on hover (rubric requirement).
+   Fitts' Law: full poster area is the primary tap target.
 ================================================================ */
 .catalogue {
   max-width: var(--max-w);
@@ -642,7 +619,6 @@ em { font-style: italic; color: var(--accent-green); }
   padding: var(--sp-3xl) var(--sp-xl);
 }
 
-/* 3-column Flexbox grid */
 .course-grid {
   display: flex;
   flex-wrap: wrap;
@@ -666,7 +642,7 @@ em { font-style: italic; color: var(--accent-green); }
 .course-card:nth-child(5) { animation-delay: 0.40s; }
 .course-card:nth-child(6) { animation-delay: 0.48s; }
 
-/* Full poster area is the tap target — Fitts' Law */
+/* Full poster area is the tap target */
 .card-poster-link {
   display: block;
   text-decoration: none;
@@ -680,7 +656,6 @@ em { font-style: italic; color: var(--accent-green); }
   aspect-ratio: 2 / 3;
   border-radius: var(--r-md);
   overflow: hidden;
-  /* Scale 1.05x on hover as required by rubric */
   transition: transform var(--t-slow), box-shadow var(--t-slow);
 }
 
@@ -689,18 +664,14 @@ em { font-style: italic; color: var(--accent-green); }
   box-shadow: var(--shadow-deep);
 }
 
-/* ── 6 DISTINCT POSTER DESIGNS ──
-   Each uses a different color key to distinguish courses visually.
-   No difficulty badges — removed as requested.
-*/
+/* ── 6 DISTINCT POSTER DESIGNS ── */
 .card-poster--1 {
   background: linear-gradient(145deg, #0b2417 0%, #081509 100%);
   border: 1px solid rgba(0, 230, 118, 0.14);
 }
 .card-poster--1::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background: repeating-linear-gradient(
     0deg, transparent, transparent 3px,
     rgba(0, 230, 118, 0.025) 3px, rgba(0, 230, 118, 0.025) 4px
@@ -713,8 +684,7 @@ em { font-style: italic; color: var(--accent-green); }
 }
 .card-poster--2::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background:
     linear-gradient(rgba(64, 200, 244, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(64, 200, 244, 0.03) 1px, transparent 1px);
@@ -732,8 +702,7 @@ em { font-style: italic; color: var(--accent-green); }
 }
 .card-poster--4::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background: radial-gradient(ellipse at 50% 25%, rgba(180, 120, 255, 0.07) 0%, transparent 65%);
 }
 
@@ -743,8 +712,7 @@ em { font-style: italic; color: var(--accent-green); }
 }
 .card-poster--5::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background: repeating-linear-gradient(
     45deg, transparent, transparent 7px,
     rgba(255,255,255,0.02) 7px, rgba(255,255,255,0.02) 8px
@@ -756,9 +724,7 @@ em { font-style: italic; color: var(--accent-green); }
   border: 1px solid rgba(255, 82, 82, 0.14);
 }
 
-/* ── POSTER OVERLAY LAYOUT ──
-   Flexbox column: dept tag → title + prof → rating footer
-*/
+/* ── POSTER OVERLAY ── */
 .poster-overlay {
   position: absolute;
   inset: 0;
@@ -798,7 +764,6 @@ em { font-style: italic; color: var(--accent-green); }
   padding-bottom: var(--sp-sm);
 }
 
-/* Course title on poster */
 .poster-title {
   font-family: var(--font-display);
   font-size: 1.25rem;
@@ -809,7 +774,6 @@ em { font-style: italic; color: var(--accent-green); }
   text-shadow: 0 2px 10px rgba(0,0,0,0.55);
 }
 
-/* Professor credit on poster */
 .poster-professor {
   font-size: 0.78rem;
   font-weight: 400;
@@ -829,7 +793,7 @@ em { font-style: italic; color: var(--accent-green); }
   color: var(--text-muted);
 }
 
-/* ── STAR RATING DISPLAY ── */
+/* ── STAR RATING ── */
 .star-display {
   display: flex;
   align-items: center;
@@ -852,19 +816,25 @@ em { font-style: italic; color: var(--accent-green); }
 .star-display--lg .star { font-size: 1.35rem; }
 .star-display--sm .star { font-size: 0.75rem; }
 
-/* ── CARD INFO — below poster ──
-   Gestalt — Proximity: info directly beneath its poster, close-grouped.
-*/
+/* ── CARD INFO — below poster ── */
 .card-info {
   padding: var(--sp-md) var(--sp-sm) var(--sp-sm);
 }
 
+/* Course title link below poster — Gestalt Proximity */
 .card-title {
   font-size: 0.98rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 2px;
 }
+
+.card-title-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+.card-title-link:hover { color: var(--accent-green); }
 
 .card-professor {
   font-size: 0.82rem;
@@ -887,654 +857,14 @@ em { font-style: italic; color: var(--accent-green); }
 
 
 /* ================================================================
-   11. COURSE DETAIL PAGE
-   Two-column layout: poster col left, metadata right.
-   Letterboxd page structure: poster → attribution → rating → syllabus → table.
-================================================================ */
-.course-detail {
-  background: var(--bg-surface);
-  border-top: 1px solid var(--border);
-  padding: var(--sp-3xl) var(--sp-xl);
-}
-
-/* Two-column flex layout */
-.detail-layout {
-  max-width: var(--max-w);
-  margin: 0 auto var(--sp-3xl);
-  display: flex;
-  gap: var(--sp-3xl);
-  align-items: flex-start;
-}
-
-/* Left column */
-.detail-poster-col {
-  flex-shrink: 0;
-  width: 240px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-lg);
-}
-
-.detail-poster {
-  aspect-ratio: 2 / 3;
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow-deep);
-  width: 100%;
-}
-
-/* Inline star rating block */
-.detail-rate-block {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: var(--sp-md);
-  text-align: center;
-}
-
-.rate-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: var(--sp-sm);
-}
-
-/* CSS-only interactive stars — flex row-reverse trick */
-.rate-stars {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  gap: 3px;
-  margin-bottom: 6px;
-}
-
-.rate-star {
-  font-size: 1.7rem;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: color var(--t-fast), transform var(--t-fast);
-  line-height: 1;
-}
-.rate-star:hover {
-  transform: scale(1.15);
-}
-
-/* Highlight clicked star and all to its left */
-.rate-stars input[type="radio"]:checked ~ label,
-.rate-stars input[type="radio"]:checked + label {
-  color: var(--accent-gold);
-}
-
-/* Hover: fill hovered star and those to the right (earlier in DOM) */
-.rate-star:hover,
-.rate-star:hover ~ label {
-  color: var(--accent-gold);
-}
-
-.rate-hint {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-/* Right column: all metadata */
-.detail-meta {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-lg);
-}
-
-.detail-dept-tag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent-green);
-}
-
-.detail-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 900;
-}
-
-.detail-with-prof {
-  font-size: 1rem;
-  color: var(--text-secondary);
-}
-
-.detail-professor-link {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--accent-blue);
-}
-.detail-professor-link:hover { color: var(--accent-green); }
-
-.detail-semester {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-}
-
-.detail-rating-row {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-md);
-  flex-wrap: wrap;
-}
-
-.detail-score {
-  font-family: var(--font-mono);
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: var(--accent-gold);
-}
-
-.detail-review-count {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-
-.detail-section-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: var(--sp-sm);
-  font-weight: 500;
-}
-
-.detail-description {
-  font-size: 0.95rem;
-  line-height: 1.82;
-  color: var(--text-secondary);
-}
-
-
-/* ================================================================
-   12. OFFERINGS TABLE
-   4 columns × 4 data rows. Semantic <table> with <caption>.
-   Shows same course across semesters/professors.
-================================================================ */
-.detail-offering-info {
-  margin-top: var(--sp-sm);
-}
-
-.offering-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.88rem;
-  border-radius: var(--r-md);
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.offering-table thead {
-  background: var(--bg-card);
-}
-
-.offering-table th {
-  padding: var(--sp-md) var(--sp-lg);
-  text-align: left;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  border-bottom: 1px solid var(--border);
-}
-
-.offering-table td {
-  padding: 12px var(--sp-lg);
-  border-bottom: 1px solid var(--border);
-  color: var(--text-secondary);
-  vertical-align: middle;
-}
-
-.offering-table tbody tr { transition: background var(--t-fast); }
-.offering-table tbody tr:hover { background: var(--bg-card); }
-.offering-table tbody tr:last-child td { border-bottom: none; }
-
-/* Highlight the current semester row */
-.table-row--current { background: var(--accent-green-dim); }
-.table-row--current td { color: var(--text-primary); }
-
-.table-rating {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--accent-gold);
-}
-
-/* Subsection headings — used in detail & related sections */
-.subsection-title {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: var(--sp-sm);
-}
-
-.subsection-sub {
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  margin-bottom: var(--sp-lg);
-  max-width: 560px;
-}
-
-
-/* ================================================================
-   13. COURSE MATERIALS
-   Student-uploaded files list.
-   Accessible: keyboard-navigable list items with download links.
-================================================================ */
-.materials-block {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  overflow: hidden;
-}
-
-.materials-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--sp-md);
-  border-bottom: 1px solid var(--border);
-}
-
-.materials-title {
-  font-weight: 600;
-  font-size: 0.88rem;
-  color: var(--text-primary);
-}
-
-.materials-count {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-}
-
-.materials-list {
-  list-style: none;
-  padding: var(--sp-sm) 0;
-}
-
-.material-item {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-sm);
-  padding: 8px var(--sp-md);
-  transition: background var(--t-fast);
-}
-.material-item:hover { background: var(--bg-card-hover); }
-
-.material-icon { font-size: 1rem; flex-shrink: 0; }
-
-.material-info {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.material-name {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.material-meta {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text-muted);
-}
-
-.material-download {
-  font-size: 1rem;
-  color: var(--text-muted);
-  padding: 4px 6px;
-  border-radius: var(--r-sm);
-  transition: color var(--t-fast), background var(--t-fast);
-  flex-shrink: 0;
-}
-.material-download:hover {
-  color: var(--accent-green);
-  background: var(--accent-green-dim);
-}
-
-.upload-btn {
-  display: block;
-  width: 100%;
-  padding: var(--sp-sm) var(--sp-md);
-  background: none;
-  border: none;
-  border-top: 1px solid var(--border);
-  color: var(--accent-green);
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-align: center;
-  cursor: pointer;
-  transition: background var(--t-fast);
-}
-.upload-btn:hover { background: var(--accent-green-dim); }
-
-
-/* ================================================================
-   14. STUDENT REVIEWS & REVIEW FORM
-================================================================ */
-.reviews-section {
-  max-width: var(--max-w);
-  margin: 0 auto var(--sp-3xl);
-}
-
-.reviews-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--sp-xl);
-}
-
-/* Review write form */
-.review-form-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  padding: var(--sp-xl);
-  margin-bottom: var(--sp-xl);
-}
-
-.review-form-top {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-md);
-  margin-bottom: var(--sp-md);
-}
-
-.form-group {
-  flex: 1 1 180px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.form-label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-.form-input,
-.form-select,
-.form-textarea {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-sm);
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  padding: 9px 13px;
-  width: 100%;
-  transition: border-color var(--t-fast), box-shadow var(--t-fast);
-}
-.form-input::placeholder,
-.form-textarea::placeholder { color: var(--text-muted); }
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  outline: none;
-  border-color: var(--accent-green);
-  box-shadow: 0 0 0 3px var(--accent-green-dim);
-}
-
-.form-select {
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%235c6878' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  padding-right: 30px;
-  cursor: pointer;
-}
-
-.form-textarea {
-  resize: vertical;
-  min-height: 100px;
-  line-height: 1.7;
-}
-
-/* ── STAR RATING FIELDSET in review form ──
-   Reverse DOM order + flex-direction: row-reverse.
-   Clicking a star fills it and all to its left.
-*/
-.star-fieldset {
-  border: none;
-  padding: 0;
-  margin: var(--sp-sm) 0;
-}
-
-.star-fieldset legend {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: var(--sp-sm);
-  display: block;
-}
-
-.star-radio-group {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  gap: 3px;
-}
-
-.star-radio-label {
-  font-size: 1.8rem;
-  color: var(--text-muted);
-  cursor: pointer;
-  line-height: 1;
-  transition: color var(--t-fast), transform var(--t-fast);
-}
-.star-radio-label:hover { transform: scale(1.12); }
-
-/* Fill on checked */
-.star-radio-group input[type="radio"]:checked ~ label,
-.star-radio-group input[type="radio"]:checked + label {
-  color: var(--accent-gold);
-}
-
-/* Fill on hover */
-.star-radio-label:hover,
-.star-radio-label:hover ~ label {
-  color: var(--accent-gold);
-}
-
-.form-actions {
-  display: flex;
-  gap: var(--sp-md);
-  padding-top: var(--sp-md);
-  border-top: 1px solid var(--border);
-}
-
-/* ── REVIEW CARDS ── */
-.reviews-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-md);
-}
-
-.review-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: var(--sp-lg);
-  transition: border-color var(--t-fast);
-}
-.review-card:hover { border-color: var(--border-hover); }
-
-.review-header {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-md);
-  margin-bottom: var(--sp-md);
-  flex-wrap: wrap;
-}
-
-.reviewer-avatar {
-  width: 38px;
-  height: 38px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  flex-shrink: 0;
-}
-
-.reviewer-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.reviewer-name {
-  font-weight: 600;
-  font-size: 0.88rem;
-  color: var(--text-primary);
-}
-
-.reviewer-degree {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text-muted);
-}
-
-.review-rating { display: flex; gap: 1px; }
-
-.review-date {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  margin-left: auto;
-}
-
-.review-body {
-  font-size: 0.9rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin-bottom: var(--sp-md);
-}
-
-.helpful-btn {
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: var(--r-pill);
-  color: var(--text-muted);
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  padding: 4px 12px;
-  cursor: pointer;
-  transition: all var(--t-fast);
-}
-.helpful-btn:hover {
-  border-color: var(--accent-green);
-  color: var(--accent-green);
-}
-
-.helpful-count { font-family: var(--font-mono); }
-
-
-/* ================================================================
-   15. RELATED COURSES
-   Relationship = same course name, different professor.
-   Displayed as small horizontal cards.
-================================================================ */
-.related-courses {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding-bottom: var(--sp-xl);
-}
-
-.related-grid {
-  display: flex;
-  gap: var(--sp-lg);
-  flex-wrap: wrap;
-}
-
-.related-card {
-  display: flex;
-  gap: var(--sp-md);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: var(--sp-md);
-  flex: 1;
-  min-width: 220px;
-  transition: border-color var(--t-fast), box-shadow var(--t-fast);
-  text-decoration: none;
-}
-.related-card:hover {
-  border-color: var(--border-hover);
-  box-shadow: var(--shadow-card);
-}
-
-.related-poster {
-  width: 58px;
-  height: 87px;
-  border-radius: var(--r-sm);
-  flex-shrink: 0;
-}
-
-.related-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  justify-content: center;
-}
-
-.related-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.related-prof {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.related-semester {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--text-muted);
-}
-
-
-/* ================================================================
-   16. PROFESSOR PROFILES
-   NOT "directors". Rating = average of all courses they've taught.
-   Each course this professor ran is listed and links to its detail page.
+   11. PROFESSOR PROFILES
+   Rating = average of all courses taught. Not a personal rating.
 ================================================================ */
 .professor-profiles {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: var(--sp-3xl) var(--sp-xl);
+  border-top: 1px solid var(--border);
 }
 
 .prof-grid {
@@ -1562,7 +892,6 @@ em { font-style: italic; color: var(--accent-green); }
   box-shadow: var(--shadow-deep);
 }
 
-/* Avatar: initials-based, unique gradient per professor */
 .prof-avatar {
   width: 64px; height: 64px;
   border-radius: 50%;
@@ -1592,10 +921,7 @@ em { font-style: italic; color: var(--accent-green); }
   box-shadow: 0 0 14px rgba(224, 64, 251, 0.28);
 }
 
-.prof-name {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
+.prof-name { font-size: 1.2rem; font-weight: 700; }
 
 .prof-dept {
   font-family: var(--font-mono);
@@ -1605,7 +931,6 @@ em { font-style: italic; color: var(--accent-green); }
   color: var(--text-muted);
 }
 
-/* Avg rating row — clearly labeled as course average, not personal */
 .prof-rating-row {
   display: flex;
   align-items: center;
@@ -1621,12 +946,8 @@ em { font-style: italic; color: var(--accent-green); }
   color: var(--text-muted);
 }
 
-.prof-bio {
-  font-size: 0.86rem;
-  line-height: 1.78;
-}
+.prof-bio { font-size: 0.86rem; line-height: 1.78; }
 
-/* List of courses this professor has ever run */
 .prof-courses-label {
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -1678,7 +999,7 @@ em { font-style: italic; color: var(--accent-green); }
 
 
 /* ================================================================
-   17. FOOTER — minimal
+   12. FOOTER
 ================================================================ */
 .site-footer {
   background: var(--bg-surface);
@@ -1741,16 +1062,14 @@ em { font-style: italic; color: var(--accent-green); }
 
 
 /* ================================================================
-   18. RESPONSIVE — @media (max-width: 768px)
-   3-column grid → 1-column on mobile.
-   All flex rows → columns.
-   Rubric requirement.
+   13. RESPONSIVE — @media (max-width: 768px)
+   3-col grid → 1-col. All flex rows → columns.
 ================================================================ */
 @media (max-width: 768px) {
 
   /* Nav */
   .nav-inner { padding: 0 var(--sp-md); gap: var(--sp-md); }
-  .nav-links  { display: none; } /* collapsed on mobile */
+  .nav-links  { display: none; }
   .search-wrapper { max-width: 180px; }
   .brand-sub { display: none; }
 
@@ -1780,39 +1099,17 @@ em { font-style: italic; color: var(--accent-green); }
   }
   .filter-meta { display: none; }
 
-  /* Semester chips — scroll horizontally */
   .semester-chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; }
 
-  /* Course grid: 3-col → 1-col */
+  /* Catalogue: 3-col → 1-col */
   .catalogue { padding: var(--sp-xl) var(--sp-md); }
   .course-grid { flex-direction: column; gap: var(--sp-lg); }
   .course-card { flex: 1 1 100%; max-width: 100%; }
-
-  /* Course detail */
-  .course-detail { padding: var(--sp-xl) var(--sp-md); }
-  .detail-layout {
-    flex-direction: column;
-    gap: var(--sp-xl);
-  }
-  .detail-poster-col { width: 100%; max-width: 200px; }
-
-  /* Table horizontal scroll */
-  .detail-offering-info { overflow-x: auto; }
-  .offering-table { min-width: 440px; }
-
-  /* Related courses */
-  .related-grid { flex-direction: column; }
 
   /* Professor grid: 3-col → 1-col */
   .professor-profiles { padding: var(--sp-xl) var(--sp-md); }
   .prof-grid { flex-direction: column; }
   .prof-card { flex: 1 1 100%; min-width: unset; }
-
-  /* Review form */
-  .review-form-top { flex-direction: column; }
-  .form-group { flex: 1 1 100%; }
-  .form-actions { flex-direction: column; }
-  .form-actions .btn { justify-content: center; }
 
   /* Footer */
   .site-footer { padding: var(--sp-xl) var(--sp-md); }
