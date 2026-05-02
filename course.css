@@ -688,11 +688,6 @@
   gap: var(--sp-lg);
 }
 
-/* The inline "Write the first review" CTA inside the empty state */
-.review-empty-cta {
-  /* Identical styling to the header button — consistent affordance */
-}
-
 .review-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
