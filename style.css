@@ -149,7 +149,6 @@ em { font-style: italic; color: var(--accent-green); }
 
 /* ================================================================
    4. BUTTONS
-   Fitts' Law: generous padding = larger tap targets.
 ================================================================ */
 .btn {
   display: inline-flex;
@@ -193,7 +192,6 @@ em { font-style: italic; color: var(--accent-green); }
 
 /* ================================================================
    5. ANIMATIONS & KEYFRAMES
-   GPU-accelerated: only opacity + transform animated.
 ================================================================ */
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(26px); }
@@ -213,7 +211,6 @@ em { font-style: italic; color: var(--accent-green); }
 
 /* ================================================================
    6. HEADER / NAV
-   Sticky, backdrop-blurred, minimal.
 ================================================================ */
 .site-header {
   position: sticky;
@@ -285,12 +282,8 @@ em { font-style: italic; color: var(--accent-green); }
   transition: color var(--t-fast);
 }
 .nav-link:hover { color: var(--text-primary); }
+.nav-link--active { color: var(--accent-green) !important; }
 
-.nav-link--active {
-  color: var(--accent-green) !important;
-}
-
-/* Search bar */
 .search-wrapper {
   position: relative;
   display: flex;
@@ -422,7 +415,7 @@ em { font-style: italic; color: var(--accent-green); }
   border-radius: var(--r-md);
 }
 .hero-poster--1::after {
-  content: '[course_name]\A [professor_name]';
+  content: 'Blockchain &\A Cryptography';
   white-space: pre;
   position: absolute;
   bottom: 14px; left: 12px; right: 12px;
@@ -448,7 +441,7 @@ em { font-style: italic; color: var(--accent-green); }
   border-radius: var(--r-md);
 }
 .hero-poster--2::after {
-  content: '[course_name]\A [professor_name]';
+  content: 'Database 1\A Eva Knirsch';
   white-space: pre;
   position: absolute;
   bottom: 14px; left: 12px; right: 12px;
@@ -474,7 +467,7 @@ em { font-style: italic; color: var(--accent-green); }
   border-radius: var(--r-md);
 }
 .hero-poster--3::after {
-  content: '[course_name]\A [professor_name]';
+  content: 'Applied LLM\A Systems';
   white-space: pre;
   position: absolute;
   bottom: 14px; left: 12px; right: 12px;
@@ -506,7 +499,6 @@ em { font-style: italic; color: var(--accent-green); }
 
 /* ================================================================
    9. FILTER / SORT BAR
-   Sticky below nav. Hick's Law: grouped, labeled controls.
 ================================================================ */
 .filter-bar {
   background: var(--bg-surface);
@@ -608,10 +600,6 @@ em { font-style: italic; color: var(--accent-green); }
 
 /* ================================================================
    10. CATALOGUE GRID & COURSE CARDS
-   3-column grid. Click poster OR title → course.html.
-   Gestalt — Similarity: identical card structure.
-   Gestalt — Proximity: title + professor tightly grouped below poster.
-   Fitts' Law: full poster area is the primary tap target.
 ================================================================ */
 .catalogue {
   max-width: var(--max-w);
@@ -634,7 +622,6 @@ em { font-style: italic; color: var(--accent-green); }
   animation: fadeSlideUp 0.55s ease both;
 }
 
-/* Staggered card entrance */
 .course-card:nth-child(1) { animation-delay: 0.08s; }
 .course-card:nth-child(2) { animation-delay: 0.16s; }
 .course-card:nth-child(3) { animation-delay: 0.24s; }
@@ -642,7 +629,6 @@ em { font-style: italic; color: var(--accent-green); }
 .course-card:nth-child(5) { animation-delay: 0.40s; }
 .course-card:nth-child(6) { animation-delay: 0.48s; }
 
-/* Full poster area is the tap target */
 .card-poster-link {
   display: block;
   text-decoration: none;
@@ -650,7 +636,6 @@ em { font-style: italic; color: var(--accent-green); }
   overflow: hidden;
 }
 
-/* ── POSTER BASE ── */
 .card-poster {
   position: relative;
   aspect-ratio: 2 / 3;
@@ -664,7 +649,7 @@ em { font-style: italic; color: var(--accent-green); }
   box-shadow: var(--shadow-deep);
 }
 
-/* ── 6 DISTINCT POSTER DESIGNS ── */
+/* 6 DISTINCT POSTER DESIGNS */
 .card-poster--1 {
   background: linear-gradient(145deg, #0b2417 0%, #081509 100%);
   border: 1px solid rgba(0, 230, 118, 0.14);
@@ -724,7 +709,7 @@ em { font-style: italic; color: var(--accent-green); }
   border: 1px solid rgba(255, 82, 82, 0.14);
 }
 
-/* ── POSTER OVERLAY ── */
+/* POSTER OVERLAY */
 .poster-overlay {
   position: absolute;
   inset: 0;
@@ -793,7 +778,7 @@ em { font-style: italic; color: var(--accent-green); }
   color: var(--text-muted);
 }
 
-/* ── STAR RATING ── */
+/* STAR RATING */
 .star-display {
   display: flex;
   align-items: center;
@@ -816,12 +801,11 @@ em { font-style: italic; color: var(--accent-green); }
 .star-display--lg .star { font-size: 1.35rem; }
 .star-display--sm .star { font-size: 0.75rem; }
 
-/* ── CARD INFO — below poster ── */
+/* CARD INFO */
 .card-info {
   padding: var(--sp-md) var(--sp-sm) var(--sp-sm);
 }
 
-/* Course title link below poster — Gestalt Proximity */
 .card-title {
   font-size: 0.98rem;
   font-weight: 700;
@@ -858,7 +842,6 @@ em { font-style: italic; color: var(--accent-green); }
 
 /* ================================================================
    11. PROFESSOR PROFILES
-   Rating = average of all courses taught. Not a personal rating.
 ================================================================ */
 .professor-profiles {
   max-width: var(--max-w);
@@ -892,22 +875,49 @@ em { font-style: italic; color: var(--accent-green); }
   box-shadow: var(--shadow-deep);
 }
 
+/* ── PROFESSOR AVATAR — supports real photo ── */
 .prof-avatar {
-  width: 64px; height: 64px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--border-hover);
 }
 
-.prof-initials {
+.prof-avatar--photo {
+  background: var(--bg-card);
+  border: 2px solid var(--border-hover);
+  position: relative;
+}
+
+.prof-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 50%;
+}
+
+.prof-initials-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-mono);
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #fff;
   letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #00b259, #00e676);
 }
 
+/* legacy colour-only avatars */
 .prof-avatar--a {
   background: linear-gradient(135deg, #00b259, #00e676);
   box-shadow: 0 0 14px rgba(0, 230, 118, 0.28);
@@ -919,6 +929,14 @@ em { font-style: italic; color: var(--accent-green); }
 .prof-avatar--c {
   background: linear-gradient(135deg, #7b1fa2, #e040fb);
   box-shadow: 0 0 14px rgba(224, 64, 251, 0.28);
+}
+
+.prof-initials {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: 0.05em;
 }
 
 .prof-name { font-size: 1.2rem; font-weight: 700; }
@@ -1026,7 +1044,6 @@ em { font-style: italic; color: var(--accent-green); }
 }
 
 .footer-brand .brand-icon { color: var(--accent-green); font-size: 1.3rem; }
-
 .footer-brand .brand-name {
   font-family: var(--font-display);
   font-weight: 900;
@@ -1035,10 +1052,7 @@ em { font-style: italic; color: var(--accent-green); }
   color: var(--text-primary);
 }
 
-.footer-tagline {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
+.footer-tagline { font-size: 0.82rem; color: var(--text-muted); }
 
 .footer-nav {
   display: flex;
@@ -1062,18 +1076,15 @@ em { font-style: italic; color: var(--accent-green); }
 
 
 /* ================================================================
-   13. RESPONSIVE — @media (max-width: 768px)
-   3-col grid → 1-col. All flex rows → columns.
+   13. RESPONSIVE
 ================================================================ */
 @media (max-width: 768px) {
 
-  /* Nav */
   .nav-inner { padding: 0 var(--sp-md); gap: var(--sp-md); }
   .nav-links  { display: none; }
   .search-wrapper { max-width: 180px; }
   .brand-sub { display: none; }
 
-  /* Hero */
   .hero {
     flex-direction: column;
     align-items: flex-start;
@@ -1090,7 +1101,6 @@ em { font-style: italic; color: var(--accent-green); }
   }
   .hero-poster { width: 85px; height: 128px; }
 
-  /* Filter bar */
   .filter-bar-inner {
     padding: 0 var(--sp-md);
     gap: var(--sp-md);
@@ -1098,20 +1108,16 @@ em { font-style: italic; color: var(--accent-green); }
     flex-wrap: nowrap;
   }
   .filter-meta { display: none; }
-
   .semester-chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; }
 
-  /* Catalogue: 3-col → 1-col */
   .catalogue { padding: var(--sp-xl) var(--sp-md); }
   .course-grid { flex-direction: column; gap: var(--sp-lg); }
   .course-card { flex: 1 1 100%; max-width: 100%; }
 
-  /* Professor grid: 3-col → 1-col */
   .professor-profiles { padding: var(--sp-xl) var(--sp-md); }
   .prof-grid { flex-direction: column; }
   .prof-card { flex: 1 1 100%; min-width: unset; }
 
-  /* Footer */
   .site-footer { padding: var(--sp-xl) var(--sp-md); }
   .footer-nav { gap: var(--sp-md); }
 }
