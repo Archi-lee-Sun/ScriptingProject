@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Database 1 — SYLLABUS · KIU</title>
+  <title>Course — SYLLABUS · KIU</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -12,6 +12,9 @@
 </head>
 <body class="course-page">
 
+  <!-- ============================================================
+       HEADER — identical nav across all pages
+  ============================================================ -->
   <header class="site-header">
     <nav class="nav-inner" aria-label="Primary navigation">
       <a href="index.html" class="brand" aria-label="SYLLABUS home">
@@ -34,32 +37,45 @@
 
   <main>
 
+    <!-- Blurred backdrop — course poster colour bleeds behind the page header area -->
     <div class="course-backdrop" aria-hidden="true">
-      <div class="course-backdrop-poster card-poster--2"></div>
+      <div id="course-backdrop-poster" class="course-backdrop-poster card-poster--1"></div>
       <div class="course-backdrop-vignette"></div>
     </div>
 
+    <!-- Breadcrumb: Catalogue › Degree › Course Title -->
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <div class="breadcrumb-inner">
         <a href="index.html" class="bc-link">Catalogue</a>
         <span class="bc-sep" aria-hidden="true">›</span>
-        <span class="bc-link bc-link--degree">Computer Science</span>
+        <span id="breadcrumb-degree" class="bc-link bc-link--degree">Computer Science</span>
         <span class="bc-sep" aria-hidden="true">›</span>
-        <span class="bc-current" aria-current="page">Database 1</span>
+        <span id="breadcrumb-current" class="bc-current" aria-current="page">Course title</span>
       </div>
     </nav>
 
+    <!-- ============================================================
+         COURSE DETAIL — 2-column Letterboxd layout
+         LEFT:  poster (sticky) · inline rate stars · materials
+         RIGHT: dept tag · title · professor link · short tagline ·
+                full description · assessment table · workflow · tip
+    ============================================================ -->
     <section class="course-detail" aria-labelledby="detail-heading">
       <div class="detail-layout">
 
-        <!-- LEFT COLUMN -->
+        <!-- ── LEFT COLUMN ── -->
         <aside class="detail-poster-col">
 
-          <div class="detail-poster card-poster--2" role="img" aria-label="Database 1 course poster"></div>
+          <!-- Course poster -->
+          <div id="detail-poster" class="detail-poster card-poster--1"
+               role="img" aria-label="Course poster"></div>
 
+          <!-- Inline star rating — user rates directly from this page, Letterboxd-style -->
           <div class="detail-rate-block">
             <p class="rate-label">Rate this course</p>
             <div class="rate-stars" role="group" aria-label="Rate from 1 to 5 stars">
+              <!-- Stars listed 5→1 in DOM; flex row-reverse makes them display 1→5 visually.
+                   This lets the CSS sibling selector fill stars correctly on hover/check. -->
               <input type="radio" id="r5" name="rate" value="5" class="sr-only" />
               <label for="r5" class="rate-star" aria-label="5 stars">★</label>
               <input type="radio" id="r4" name="rate" value="4" class="sr-only" />
@@ -74,193 +90,125 @@
             <p class="rate-hint">Click a star to rate</p>
           </div>
 
+          <!-- Student-uploaded course materials -->
           <div class="materials-block">
             <div class="materials-header">
-              <span class="materials-title">📂 Course Materials</span>
-              <span class="materials-count">4 files</span>
+              <span class="materials-title">Course Materials</span>
+              <span id="materials-count" class="materials-count">0 files</span>
             </div>
-            <ul class="materials-list" role="list">
+            <ul id="materials-list" class="materials-list" role="list">
               <li class="material-item">
                 <span class="material-icon" aria-hidden="true">📄</span>
                 <div class="material-info">
-                  <span class="material-name">DB1_Midterm_2024.pdf</span>
-                  <span class="material-meta">Midterm · Nino Tsiklauri</span>
+                  <span class="material-name">No materials yet</span>
+                  <span class="material-meta">Files will appear once uploaded.</span>
                 </div>
-                <a href="#" class="material-download" aria-label="Download DB1_Midterm_2024.pdf">↓</a>
-              </li>
-              <li class="material-item">
-                <span class="material-icon" aria-hidden="true">📄</span>
-                <div class="material-info">
-                  <span class="material-name">SQL_Lab_Exercises.pdf</span>
-                  <span class="material-meta">Exercises · Giorgi Kvaratskhelia</span>
-                </div>
-                <a href="#" class="material-download" aria-label="Download SQL_Lab_Exercises.pdf">↓</a>
-              </li>
-              <li class="material-item">
-                <span class="material-icon" aria-hidden="true">📄</span>
-                <div class="material-info">
-                  <span class="material-name">ER_Model_Notes_S3.pdf</span>
-                  <span class="material-meta">Notes · Tamar Jgerenaia</span>
-                </div>
-                <a href="#" class="material-download" aria-label="Download ER_Model_Notes_S3.pdf">↓</a>
-              </li>
-              <li class="material-item">
-                <span class="material-icon" aria-hidden="true">📄</span>
-                <div class="material-info">
-                  <span class="material-name">DB1_Final_2023.pdf</span>
-                  <span class="material-meta">Final Exam · Davit Mtskhvetadze</span>
-                </div>
-                <a href="#" class="material-download" aria-label="Download DB1_Final_2023.pdf">↓</a>
               </li>
             </ul>
-            <button class="upload-btn">+ Upload a file</button>
+            <button class="upload-btn" type="button">+ Upload a file</button>
           </div>
 
         </aside>
 
-        <!-- RIGHT COLUMN -->
+        <!-- ── RIGHT COLUMN ── -->
         <div class="detail-meta">
 
-          <span class="detail-dept-tag">Computer Science · BSc · AC_PROG_FORM 001</span>
+          <!-- Dept / degree / code / credits badge -->
+          <span id="detail-dept-tag" class="detail-dept-tag">Computer Science · BSc · 6 ECTS</span>
 
-          <h1 class="detail-title" id="detail-heading">Database 1</h1>
+          <!-- Course title — primary H1 of the page -->
+          <h1 class="detail-title" id="detail-heading">Course title</h1>
 
+          <!-- Professor line — clicking leads to their profile section -->
           <p class="detail-with-prof">
-            with
-            <a href="index.html#professor-profiles" class="detail-professor-link">Eva Maria Knirsch</a>
-            <span class="detail-semester">· Semester III · 2024–25</span>
+            with <a id="detail-prof-link" href="index.html#professor-profiles"
+                    class="detail-professor-link">Professor name</a>
           </p>
 
-          <div class="detail-rating-row">
-            <div class="star-display star-display--lg" aria-label="Rating 4.7 out of 5">
-              <span class="star star--full">★</span>
-              <span class="star star--full">★</span>
-              <span class="star star--full">★</span>
-              <span class="star star--full">★</span>
-              <span class="star star--half">★</span>
-            </div>
-            <span class="detail-score">4.7</span>
-            <span class="detail-review-count">based on 61 reviews</span>
-          </div>
-
+          <!-- ── ABOUT THIS COURSE ──
+               Letterboxd approach: a punchy short summary at the very top,
+               then the full detailed syllabus description below it.
+               Both are filled from the same description field in courseData.
+          -->
           <div class="detail-syllabus">
             <h2 class="detail-section-label">About this course</h2>
-            <p class="detail-description">
-              This course takes you from zero to fully functional relational databases. You start
-              with conceptual design — learning to model the real world using Entity-Relationship
-              diagrams — then work through the entire pipeline: mapping ER models into database
-              schemas, writing SQL DDL to implement them, and applying normalization rules to
-              ensure clean, non-redundant designs. A heavy portion of the course is devoted to
-              SQL querying, starting from basics and progressing to complex joins, CTEs, and
-              window functions. The final weeks cover physical data organization and index
-              structures so you understand not just what queries return, but how fast they do it.
-              <br><br>
-              Workload is substantial — 60 contact hours plus 120 hours of self-study are expected.
-              Prof. Knirsch runs a tight ship: participation grade rewards students who engage
-              in lectures, complete individual Learning Journals, and deliver lab tasks on schedule.
-              Industry orientation is central to her teaching philosophy; expect real-world datasets
-              and problems from the start.
-            </p>
+            <p class="detail-description" id="detail-description"></p>
+            <p class="detail-prerequisite" id="detail-prerequisite"></p>
           </div>
 
-          <!-- Assessment breakdown -->
+          <!-- ── ASSESSMENT BREAKDOWN ── table injected by JS -->
           <div class="detail-syllabus">
             <h2 class="detail-section-label">Assessment Breakdown</h2>
-            <table class="offering-table" aria-label="Assessment breakdown">
-              <thead>
-                <tr>
-                  <th>Component</th>
-                  <th>Weight</th>
-                  <th>Details</th>
-                  <th>Min. to Pass</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Active Participation</td>
-                  <td class="table-rating">20%</td>
-                  <td>Lectures (7pt) + Learning Journals (7pt) + Labs (7pt)</td>
-                  <td>—</td>
-                </tr>
-                <tr>
-                  <td>Midterm Exam</td>
-                  <td class="table-rating">40%</td>
-                  <td>Written exam, mid-semester</td>
-                  <td>—</td>
-                </tr>
-                <tr class="table-row--current">
-                  <td>Final Exam</td>
-                  <td class="table-rating">40%</td>
-                  <td>Comprehensive written exam</td>
-                  <td>21 / 40</td>
-                </tr>
-              </tbody>
-            </table>
-            <p style="font-size:0.82rem; color: var(--text-muted); margin-top: 10px;">
-              ⚠ You must earn at least <strong style="color:var(--accent-gold)">25 / 60 points</strong> across
-              Midterm + Participation to be eligible for the Final. Minimum <strong style="color:var(--accent-gold)">21 / 40</strong> on the Final Exam to pass.
-            </p>
+            <div id="assessment-breakdown"></div>
           </div>
 
-          <!-- Offering history -->
-          <div class="detail-syllabus detail-offering-info">
-            <h2 class="detail-section-label">Offering History</h2>
-            <table class="offering-table" aria-label="Offering history for Database 1">
-              <thead>
-                <tr>
-                  <th>Semester</th>
-                  <th>Year</th>
-                  <th>Professor</th>
-                  <th>Rating</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="table-row--current">
-                  <td>III</td>
-                  <td>2024–25</td>
-                  <td>Eva Maria Knirsch</td>
-                  <td class="table-rating">4.7 ★</td>
-                </tr>
-                <tr>
-                  <td>III</td>
-                  <td>2023–24</td>
-                  <td>Eva Maria Knirsch</td>
-                  <td class="table-rating">4.6 ★</td>
-                </tr>
-                <tr>
-                  <td>III</td>
-                  <td>2022–23</td>
-                  <td>Lasha Iashvili</td>
-                  <td class="table-rating">3.9 ★</td>
-                </tr>
-              </tbody>
-            </table>
+          <!-- ── WORKFLOW ── -->
+          <div class="detail-syllabus">
+            <h2 class="detail-section-label">Workflow</h2>
+            <p id="detail-workflow" class="detail-description"></p>
           </div>
 
-        </div>
+          <!-- ── SURVIVAL TIP ── highlighted callout box -->
+          <div class="detail-syllabus">
+            <h2 class="detail-section-label">Survival Tip</h2>
+            <div class="survival-tip-box">
+              <span class="survival-tip-icon" aria-hidden="true">⚠</span>
+              <p id="detail-survival-tip" class="detail-description"></p>
+            </div>
+          </div>
 
-      </div>
+        </div><!-- /detail-meta -->
+      </div><!-- /detail-layout -->
     </section>
 
-    <!-- STUDENT REVIEWS -->
+    <!-- ============================================================
+         STUDENT REVIEWS
+         Full-width section below the two-column layout.
+         "Write a Review" button toggles the full form open.
+         The form has: name, email, degree select, star radio fieldset,
+         textarea — exactly as specified.
+    ============================================================ -->
     <section class="reviews-section" aria-labelledby="reviews-heading">
       <div class="reviews-inner">
 
         <div class="reviews-header">
           <h2 class="subsection-title" id="reviews-heading">Student Reviews</h2>
-          <button class="btn btn--ghost btn--sm" aria-expanded="false" aria-controls="review-form-panel" id="write-review-btn">Write a Review</button>
+          <button
+            id="write-review-btn"
+            class="btn btn--ghost btn--sm"
+            aria-expanded="false"
+            aria-controls="review-form-panel"
+            type="button"
+          >Write a Review</button>
         </div>
 
+        <!-- ── REVIEW FORM — hidden until "Write a Review" is clicked ── -->
         <div class="review-form-panel" id="review-form-panel" hidden>
           <form class="review-form" action="#" method="post" aria-label="Write a course review">
+
+            <!-- Row 1: name · email · degree -->
             <div class="review-form-top">
               <div class="form-group">
                 <label for="reviewer-name" class="form-label">Your Name</label>
-                <input type="text" id="reviewer-name" name="name" class="form-input" placeholder="Ana Beridze" required />
+                <input
+                  type="text"
+                  id="reviewer-name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Ana Beridze"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="reviewer-email" class="form-label">KIU Email</label>
-                <input type="email" id="reviewer-email" name="email" class="form-input" placeholder="you@kiu.edu.ge" required />
+                <input
+                  type="email"
+                  id="reviewer-email"
+                  name="email"
+                  class="form-input"
+                  placeholder="you@kiu.edu.ge"
+                  required
+                />
               </div>
               <div class="form-group">
                 <label for="reviewer-degree" class="form-label">Your Degree</label>
@@ -274,9 +222,12 @@
                 </select>
               </div>
             </div>
+
+            <!-- Row 2: 1–5 star CSS radio fieldset -->
             <fieldset class="star-fieldset">
               <legend class="form-label">Your Rating</legend>
               <div class="star-radio-group" role="group" aria-label="Rate 1 to 5 stars">
+                <!-- Stars in reverse DOM order + flex row-reverse = correct left-to-right fill -->
                 <input type="radio" id="fs5" name="rating" value="5" class="sr-only" required />
                 <label for="fs5" class="star-radio-label" aria-label="5 stars">★</label>
                 <input type="radio" id="fs4" name="rating" value="4" class="sr-only" />
@@ -289,176 +240,54 @@
                 <label for="fs1" class="star-radio-label" aria-label="1 star">★</label>
               </div>
             </fieldset>
-            <div class="form-group">
+
+            <!-- Row 3: review textarea -->
+            <div class="form-group form-group--full">
               <label for="review-body" class="form-label">Review</label>
-              <textarea id="review-body" name="review" class="form-textarea" rows="4" placeholder="Share your experience with this course and professor…" required></textarea>
+              <textarea
+                id="review-body"
+                name="review"
+                class="form-textarea"
+                rows="4"
+                placeholder="Share your experience with this course and professor…"
+                required
+              ></textarea>
             </div>
+
+            <!-- Actions -->
             <div class="form-actions">
               <button type="submit" class="btn btn--primary">Submit Review</button>
               <button type="button" class="btn btn--ghost" id="cancel-review-btn">Cancel</button>
             </div>
+
           </form>
+        </div><!-- /review-form-panel -->
+
+        <!-- ── EXISTING REVIEWS LIST ── populated by JS or empty state -->
+        <div class="reviews-list" id="reviews-list">
+          <div class="review-empty" id="review-empty">
+            <p class="detail-description">
+              No reviews yet. Be the first to share your experience with this course.
+            </p>
+          </div>
         </div>
 
-        <div class="reviews-list">
-
-          <article class="review-card" aria-label="Review by Nino Tsiklauri">
-            <div class="review-header">
-              <div class="reviewer-avatar" aria-hidden="true">NT</div>
-              <div class="reviewer-info">
-                <span class="reviewer-name">Nino Tsiklauri</span>
-                <span class="reviewer-degree">Computer Science</span>
-              </div>
-              <div class="review-rating" aria-label="Rated 5 out of 5">
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-              </div>
-              <time class="review-date">Semester III · 2024–25</time>
-            </div>
-            <p class="review-body">
-              Easily the best CS course I've had at KIU so far. Prof. Knirsch brings 30+ years of
-              real industry experience into every lecture — she doesn't just teach you SQL, she
-              teaches you to think like a database engineer. The Learning Journals sound annoying
-              but they genuinely force you to consolidate what you learned each week. Lab tasks are
-              graded fairly. The final exam is hard but very doable if you've kept up with the
-              exercises. Start the SQL labs early and don't skip the normalization lectures.
-            </p>
-            <div class="review-helpful">
-              <button class="helpful-btn">↑ Helpful <span class="helpful-count">(27)</span></button>
-            </div>
-          </article>
-
-          <article class="review-card" aria-label="Review by Giorgi Kvaratskhelia">
-            <div class="review-header">
-              <div class="reviewer-avatar" aria-hidden="true">GK</div>
-              <div class="reviewer-info">
-                <span class="reviewer-name">Giorgi Kvaratskhelia</span>
-                <span class="reviewer-degree">Computer Science</span>
-              </div>
-              <div class="review-rating" aria-label="Rated 4 out of 5">
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--empty" aria-hidden="true">★</span>
-              </div>
-              <time class="review-date">Semester III · 2023–24</time>
-            </div>
-            <p class="review-body">
-              Very solid course. The ER modelling section is properly taught — not just theory,
-              but actual hands-on mapping sessions. CTEs and window functions in Week 10 were a
-              wake-up call difficulty-wise; if you haven't touched advanced SQL before, dedicate
-              an extra 3–4 hours that week. Knirsch is demanding but fair. She replies to emails
-              quickly and the lab sessions are genuinely useful. One minus: the participation
-              grading feels a bit subjective for lecture contributions.
-            </p>
-            <div class="review-helpful">
-              <button class="helpful-btn">↑ Helpful <span class="helpful-count">(19)</span></button>
-            </div>
-          </article>
-
-          <article class="review-card" aria-label="Review by Mariam Gogitidze">
-            <div class="review-header">
-              <div class="reviewer-avatar" aria-hidden="true">MG</div>
-              <div class="reviewer-info">
-                <span class="reviewer-name">Mariam Gogitidze</span>
-                <span class="reviewer-degree">Computer Science</span>
-              </div>
-              <div class="review-rating" aria-label="Rated 5 out of 5">
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-                <span class="star star--full" aria-hidden="true">★</span>
-              </div>
-              <time class="review-date">Semester III · 2024–25</time>
-            </div>
-            <p class="review-body">
-              The 120 hours of self-study is real — don't underestimate it. But by the end of the
-              semester I could write a complex multi-join query with window functions from scratch
-              without looking anything up. That's not something I can say after most KIU courses.
-              The minimum score gate (25/60 on interim) sounds scary but it's a very low bar if
-              you actually show up and do the labs. Just don't skip labs. Seriously. Don't.
-            </p>
-            <div class="review-helpful">
-              <button class="helpful-btn">↑ Helpful <span class="helpful-count">(34)</span></button>
-            </div>
-          </article>
-
-        </div>
       </div>
     </section>
 
-    <!-- RELATED COURSES -->
+    <!-- ============================================================
+         RELATED COURSES — same course name, different professor
+         Shown at the very bottom, after reviews.
+    ============================================================ -->
     <section class="related-courses" aria-labelledby="related-heading">
       <div class="related-inner">
         <h2 class="subsection-title" id="related-heading">Same Course, Other Professors</h2>
         <p class="subsection-sub">
-          This course was offered in other semesters under different professors. Each is rated independently.
+          This course has been offered in other semesters under different professors.
+          Each offering has its own rating and reviews.
         </p>
-
-        <div class="related-grid">
-
-          <article class="related-card">
-            <a href="course.html" class="related-card-link" aria-label="Database 1 with Lasha Iashvili, Semester III 2022–23">
-              <div class="related-poster card-poster--4"></div>
-              <div class="related-info">
-                <h3 class="related-title">Database 1</h3>
-                <p class="related-prof">Lasha Iashvili</p>
-                <p class="related-semester">Semester III · 2022–23</p>
-                <div class="star-display star-display--sm">
-                  <span class="star star--full">★</span>
-                  <span class="star star--full">★</span>
-                  <span class="star star--full">★</span>
-                  <span class="star star--half">★</span>
-                  <span class="star star--empty">★</span>
-                  <span class="rating-score">3.9</span>
-                </div>
-              </div>
-            </a>
-          </article>
-
-          <article class="related-card">
-            <a href="course.html" class="related-card-link" aria-label="Applied LLM Systems with Shota Elkanishvili">
-              <div class="related-poster card-poster--6"></div>
-              <div class="related-info">
-                <h3 class="related-title">Applied LLM Systems</h3>
-                <p class="related-prof">Shota Elkanishvili</p>
-                <p class="related-semester">Semester V · 2024–25</p>
-                <div class="star-display star-display--sm">
-                  <span class="star star--full">★</span>
-                  <span class="star star--full">★</span>
-                  <span class="star star--full">★</span>
-                  <span class="star star--full">★</span>
-                  <span class="star star--half">★</span>
-                  <span class="rating-score">4.6</span>
-                </div>
-              </div>
-            </a>
-          </article>
-
-          <article class="related-card">
-            <a href="course.html" class="related-card-link" aria-label="Theory of Computation with George Nadareishvili">
-              <div class="related-poster card-poster--3"></div>
-              <div class="related-info">
-                <h3 class="related-title">Theory of Computation</h3>
-                <p class="related-prof">George Nadareishvili</p>
-                <p class="related-semester">Semester IV · 2024–25</p>
-                <div class="star-display star-display--sm">
-                  <span class="star star--full">★</span>
-                  <span class="star star--full">★</span>
-                  <span class="star star--full">★</span>
-                  <span class="star star--full">★</span>
-                  <span class="star star--full">★</span>
-                  <span class="rating-score">4.9</span>
-                </div>
-              </div>
-            </a>
-          </article>
-
+        <div class="related-grid" id="related-grid">
+          <!-- Populated by JS based on courseData -->
         </div>
       </div>
     </section>
@@ -481,25 +310,384 @@
     </div>
   </footer>
 
+  <!-- ============================================================
+       JAVASCRIPT
+       Reads ?course= param, looks up courseData, populates the page.
+       No framework — vanilla JS only.
+  ============================================================ -->
   <script>
-    const writeBtn = document.getElementById('write-review-btn');
-    const cancelBtn = document.getElementById('cancel-review-btn');
-    const panel = document.getElementById('review-form-panel');
+    /* ------------------------------------------------------------------
+       COURSE DATA
+       All 6 courses with full syllabus info, assessment, materials.
+       poster image URLs kept exactly as provided.
+    ------------------------------------------------------------------ */
+    const courseData = {
+      'blockchain-cryptography': {
+        title: 'Blockchain & Cryptography Introduction',
+        department: 'Computer Science',
+        degree: 'Bachelor',
+        code: 'AC_PROG_FORM 001',
+        credits: '6 ECTS',
+        professor: 'Davit Kipshidze',
+        posterClass: 'card-poster--1',
+        posterUrl: 'blob:https://gemini.google.com/c4f133a6-1ea2-45bb-8a73-57aec55d2317',
+        posterLabel: 'Blockchain & Cryptography course poster',
+        description: 'This course explores the fundamental concepts of Blockchain technology and Distributed Ledger Systems, with a heavy focus on the role of cryptography in security. You will study symmetric and asymmetric encryption, digital signatures, and hash functions while analyzing blockchain internals and consensus models like Proof of Work and Proof of Stake. The curriculum also examines real-world applications in cryptocurrencies, smart contracts, and Decentralized Finance (DeFi), alongside regulatory trends and emerging technologies.',
+        prerequisites: 'Fundamentals of Programming',
+        assessment: [
+          { component: 'Continuous Evaluation (Quizzes)', weight: '30%', details: '5 individual quiz tests — 1.2 points each, 6 points total', minimum: 'Min. 9 / 30 to stay eligible' },
+          { component: 'Midterm Project',                 weight: '30%', details: '30 points total',                                              minimum: 'Min. 12 / 30 to stay eligible' },
+          { component: 'Final Project',                   weight: '30%', details: '30 points total',                                              minimum: 'Min. 21 / 40 to pass',          highlight: true },
+          { component: 'Project Presentation',            weight: '10%', details: '10 points total',                                              minimum: '—' }
+        ],
+        workflow: '30 hours of Lectures · 30 hours of Central Exercises.',
+        survival: 'You must earn a minimum of 9/30 points on Quizzes and 12/30 points on the Midterm to remain eligible. A total of 21 points is required to access the Final Exam, where you must score at least 21/40 points to pass the course.',
+        materials: [
+          { name: 'Blockchain Midterm Guide.pdf',      meta: 'Midterm · Davit Kipshidze' },
+          { name: 'Consensus Models Notes.pdf',        meta: 'Lecture notes · Blockchain' },
+          { name: 'Digital Signatures Worksheet.pdf',  meta: 'Exercises · Cryptography' },
+          { name: 'Final Project Brief.pdf',           meta: 'Project · Blockchain & Cryptography' }
+        ],
+        related: ['database-1', 'advanced-java-in-practice']
+      },
 
-    writeBtn.addEventListener('click', () => {
-      const isHidden = panel.hidden;
-      panel.hidden = !isHidden;
-      writeBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-      if (isHidden) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      'database-1': {
+        title: 'Database 1',
+        department: 'Computer Science',
+        degree: 'BSc',
+        code: 'AC_PROG_FORM 001',
+        credits: '6 ECTS',
+        professor: 'Eva Knirsch',
+        posterClass: 'card-poster--2',
+        posterUrl: 'blob:https://gemini.google.com/843d239a-7a38-47be-9b44-97a8b5e81ba0',
+        posterLabel: 'Database 1 course poster',
+        description: 'This course focuses on the systematic application of relational database concepts, ranging from conceptual design to physical implementation. You will master the ER model to conceptually model databases and learn to map those models into database schemes. The curriculum emphasizes practical application, requiring you to implement databases using SQL DDL, apply normalization rules, and ensure referential integrity. Additionally, you will gain a command of complex SQL querying — including CTEs and window functions — while learning to optimize query execution through an understanding of physical data organization and index structures.',
+        prerequisites: 'English 2 (International B2 level equivalence)',
+        assessment: [
+          { component: 'Midterm Exam',         weight: '40%', details: 'Written exam covering database theory and SQL',                                                minimum: '—' },
+          { component: 'Active Participation', weight: '20%', details: 'Lecture contributions (7 pts) · Learning Journals (7 pts) · Lab tasks (7 pts)',               minimum: '—' },
+          { component: 'Final Exam',           weight: '40%', details: 'Comprehensive final exam',                                                                     minimum: 'Min. 21 / 40 to pass', highlight: true }
+        ],
+        workflow: '60 contact hours — 2 hours of lectures + 2 hours of labs per week. 120 hours of self-study.',
+        survival: 'You must earn a minimum of 25/60 points on your interim assessment (Midterm + Participation) to remain eligible, and you need at least 21/40 points on the final exam to pass the course.',
+        materials: [
+          { name: 'DB1 Midterm 2024.pdf',   meta: 'Midterm · Eva Knirsch' },
+          { name: 'SQL Lab Exercises.pdf',  meta: 'Labs · Database 1' },
+          { name: 'ER Model Notes S3.pdf',  meta: 'Notes · Conceptual Design' },
+          { name: 'DB1 Final 2023.pdf',     meta: 'Final Exam · Review' }
+        ],
+        related: ['theory-of-computation', 'scripting-languages']
+      },
+
+      'theory-of-computation': {
+        title: 'Introduction to Theory of Computation',
+        department: 'Computer Science',
+        degree: 'BSc',
+        code: 'CS6740',
+        credits: '6 ECTS',
+        professor: 'George Nadareishvili',
+        posterClass: 'card-poster--3',
+        posterUrl: 'blob:https://gemini.google.com/bc3c4224-017e-49df-8abe-4cf2a96fcb32',
+        posterLabel: 'Theory of Computation course poster',
+        description: 'This course explores the fundamental limits of what computers can and cannot do. You will master four major theoretical areas: Formal Languages and machine models, Recursion Theory (computability), Formal Logic, and Complexity Theory. The curriculum is built around proving technical statements through diagonalization and simulation, covering essential concepts like Turing machines, Gödel\'s incompleteness theorems, and the P-versus-NP problem. You will learn to determine the computational difficulty of a problem and recognize when an algorithmic solution is mathematically impossible to construct.',
+        prerequisites: 'Discrete Structures, Linear Algebra for Informatics, and Analysis for Informatics',
+        assessment: [
+          { component: 'Exercises',     weight: '20%', details: 'Submitting and presenting problem sets', minimum: '—' },
+          { component: 'Midterm Exam',  weight: '40%', details: 'Mid-semester written exam',             minimum: '—' },
+          { component: 'Final Exam',    weight: '40%', details: 'Final written exam',                    minimum: 'Min. 21 / 40 to pass', highlight: true }
+        ],
+        workflow: '30 hours of Lectures · 15 hours of Central Exercises · 15 hours of Exercise classes. Students are expected to spend at least 1 hour of self-study for every hour of class.',
+        survival: 'You must earn a minimum of 21/60 points across your exercises and midterm to stay on track, and you need at least 21/40 points on the final exam to pass the course.',
+        materials: [
+          { name: 'Turing Machines Notes.pdf',    meta: 'Lecture notes · Theory of Computation' },
+          { name: 'Logic & Proofs Worksheet.pdf', meta: 'Exercises · Formal Logic' },
+          { name: 'Complexity Theory Review.pdf', meta: 'Study guide · P vs NP' },
+          { name: 'Final Exam Prep.pdf',          meta: 'Review · Computability' }
+        ],
+        related: ['database-1', 'advanced-java-in-practice']
+      },
+
+      'scripting-languages': {
+        title: 'Scripting Languages',
+        department: 'Computer Science',
+        degree: 'BSc',
+        code: 'CS6626',
+        credits: '6 ECTS',
+        professor: 'Lasha Iashvili',
+        posterClass: 'card-poster--4',
+        posterUrl: 'blob:https://gemini.google.com/f58465aa-f883-401d-b3aa-5442a6a451a2',
+        posterLabel: 'Scripting Languages course poster',
+        description: 'This course focuses on practical front-end development, covering HTML fundamentals, CSS techniques (Flexbox, animations, and responsive design), and JavaScript (DOM manipulation, ES6+, and asynchronous programming). You will learn to build interactive web applications by creating templates, modules, and components using React. The curriculum is strictly project-based, requiring you to integrate these technologies into a team midterm and an individual final software package.',
+        prerequisites: 'None',
+        assessment: [
+          { component: 'Quizzes',          weight: '35%', details: 'Regular quizzes on web fundamentals', minimum: 'Min. 21 pts to access final' },
+          { component: 'Midterm Project',  weight: '25%', details: 'Project-based team midterm',          minimum: '—' },
+          { component: 'Final Project',    weight: '40%', details: 'Individual final software package',   minimum: 'Min. 21 / 40 on interview to pass', highlight: true }
+        ],
+        workflow: '15 hours of Lectures · 15 hours of Central Exercises · 30 hours of Practical Labs.',
+        survival: 'You must earn at least 21 points to be admitted to the final project. A minimum of 21/40 is required on the final project interview to pass; missing the interview results in an automatic failure.',
+        materials: [
+          { name: 'JS DOM Exercises.pdf',      meta: 'Exercises · Scripting Languages' },
+          { name: 'React Project Brief.pdf',   meta: 'Midterm · Front-end' },
+          { name: 'Responsive CSS Guide.pdf',  meta: 'Labs · CSS' },
+          { name: 'Final Project Checklist.pdf', meta: 'Project · UI/UX' }
+        ],
+        related: ['blockchain-cryptography', 'applied-llm-systems']
+      },
+
+      'advanced-java-in-practice': {
+        title: 'Advanced Java in Practice',
+        department: 'Computer Science',
+        degree: 'Bachelor',
+        code: 'AC_PROG_FORM 001',
+        credits: '6 ECTS',
+        professor: 'Zaal Beriashvili',
+        posterClass: 'card-poster--5',
+        posterUrl: 'blob:https://gemini.google.com/feb91e96-b7d4-4051-ab64-bc074c417f86',
+        posterLabel: 'Advanced Java course poster',
+        description: 'This course is designed for students seeking to deepen their understanding of Java through hands-on examples. You will explore advanced topics including multithreading and concurrency, functional programming with lambdas and streams, and the Java type system (generics, annotations, and reflection). The curriculum covers modern enhancements like records and sealed classes, alongside JVM internals, memory management, and practical applications in networking and database connectivity, all while emphasising real-world best practices.',
+        prerequisites: 'Introduction to Informatics and Fundamentals of Programming (Java)',
+        assessment: [
+          { component: 'Midterm Exam',  weight: '30%', details: '30 points total', minimum: 'Min. 11 / 30 to stay eligible' },
+          { component: 'Assignments',   weight: '30%', details: '30 points total', minimum: 'Min. 10 / 30 to stay eligible' },
+          { component: 'Final Exam',    weight: '40%', details: '40 points total', minimum: 'Min. 21 / 40 to pass', highlight: true }
+        ],
+        workflow: '30 hours of Lectures · 30 hours of Central Exercises · 30 hours of TTF.',
+        survival: 'You must earn a minimum of 11/30 points on the Midterm and 10/30 points from Assignments to remain eligible for the Final Exam. A minimum score of 21/40 points on the Final Exam is strictly required to pass the course.',
+        materials: [
+          { name: 'Java Midterm 2024.pdf',       meta: 'Midterm · Advanced Java' },
+          { name: 'Concurrency Examples.pdf',    meta: 'Assignments · Java' },
+          { name: 'Streams & Lambdas Guide.pdf', meta: 'Notes · Functional Java' },
+          { name: 'Final Exam Sample.pdf',       meta: 'Review · JVM Internals' }
+        ],
+        related: ['theory-of-computation', 'database-1']
+      },
+
+      'applied-llm-systems': {
+        title: 'Applied LLM Systems',
+        department: 'Computer Science',
+        degree: 'BSc',
+        code: 'AC_PROG_FORM 001',
+        credits: '6 ECTS',
+        professor: 'Shota Elkanishvili',
+        posterClass: 'card-poster--6',
+        posterUrl: 'blob:https://gemini.google.com/dbf0f563-f602-4f28-8277-a3411742ef35',
+        posterLabel: 'Applied LLM Systems course poster',
+        description: 'This hands-on course focuses on building LLM applications through a framework-agnostic lens. You will master prompting, structured outputs, tool/function calling, and Retrieval-Augmented Generation (RAG). The curriculum covers advanced workflows like agents with memory, evaluation techniques, and production concerns including cost, latency, and safety. While primarily practical, the course provides the necessary theoretical foundation in pretraining, alignment (RLHF/DPO), and fine-tuning (LoRA/PEFT) to help you make informed architectural decisions.',
+        prerequisites: 'Introduction to Software Engineering',
+        assessment: [
+          { component: 'Homework',                   weight: '20%', details: 'Two assignments',      minimum: '—' },
+          { component: 'Midterm Exam',               weight: '40%', details: 'Midterm exam',         minimum: 'Min. 21 / 40 to be eligible for finals' },
+          { component: 'Final Project',              weight: '35%', details: 'Final project',        minimum: 'Min. 21 / 40 to pass', highlight: true },
+          { component: 'Final Project Presentation', weight: '5%',  details: 'Live presentation',    minimum: '—' }
+        ],
+        workflow: '30 hours of Lectures · 30 hours of Lab sessions.',
+        survival: 'You must earn a minimum of 21/40 points on the Midterm to be eligible for the final components. Additionally, a minimum score of 21/40 points is strictly required to pass the Final Project.',
+        materials: [
+          { name: 'RAG Workshop Notes.pdf',   meta: 'Labs · Applied LLM' },
+          { name: 'Prompting Guide.pdf',      meta: 'Homework · LLM Systems' },
+          { name: 'Agent Examples.zip',       meta: 'Project · Tooling' },
+          { name: 'Final Project Spec.pdf',   meta: 'Project · Assessment' }
+        ],
+        related: ['scripting-languages', 'blockchain-cryptography']
+      }
+    };
+
+    /* ------------------------------------------------------------------
+       RESOLVE COURSE FROM URL PARAM
+    ------------------------------------------------------------------ */
+    const params    = new URLSearchParams(window.location.search);
+    const courseKey = params.get('course');
+    const course    = courseData[courseKey];
+
+    /* Grab DOM targets */
+    const detailDeptTag      = document.getElementById('detail-dept-tag');
+    const detailTitle        = document.getElementById('detail-heading');
+    const detailProfLink     = document.getElementById('detail-prof-link');
+    const detailDescription  = document.getElementById('detail-description');
+    const detailPrerequisite = document.getElementById('detail-prerequisite');
+    const assessmentDiv      = document.getElementById('assessment-breakdown');
+    const detailWorkflow     = document.getElementById('detail-workflow');
+    const detailSurvival     = document.getElementById('detail-survival-tip');
+    const detailPoster       = document.getElementById('detail-poster');
+    const backdropPoster     = document.getElementById('course-backdrop-poster');
+    const breadcrumbCurrent  = document.getElementById('breadcrumb-current');
+    const breadcrumbDegree   = document.getElementById('breadcrumb-degree');
+    const materialsCount     = document.getElementById('materials-count');
+    const materialsList      = document.getElementById('materials-list');
+    const relatedGrid        = document.getElementById('related-grid');
+
+    /* ------------------------------------------------------------------
+       NOT FOUND STATE
+    ------------------------------------------------------------------ */
+    if (!course) {
+      document.title = 'Course not found — SYLLABUS · KIU';
+      detailTitle.textContent        = 'Course not found';
+      detailDeptTag.textContent      = 'Computer Science · KIU';
+      detailProfLink.textContent     = 'Unknown instructor';
+      detailDescription.textContent  = 'The requested course could not be found. Return to the catalogue.';
+      detailPrerequisite.style.display = 'none';
+      assessmentDiv.innerHTML        = '<p class="detail-description">No assessment data available.</p>';
+      breadcrumbCurrent.textContent  = 'Not found';
+      breadcrumbDegree.textContent   = 'Catalogue';
+      // stop execution
+    } else {
+
+      /* ------------------------------------------------------------------
+         POPULATE PAGE METADATA
+      ------------------------------------------------------------------ */
+      document.title                   = `${course.title} — SYLLABUS · KIU`;
+      breadcrumbCurrent.textContent    = course.title;
+      breadcrumbDegree.textContent     = course.department;
+      detailDeptTag.textContent        = `${course.department} · ${course.degree} · ${course.code} · ${course.credits}`;
+      detailTitle.textContent          = course.title;
+      detailProfLink.textContent       = course.professor;
+      detailDescription.textContent    = course.description;
+
+      if (course.prerequisites && course.prerequisites !== 'None') {
+        detailPrerequisite.textContent = `Prerequisites: ${course.prerequisites}`;
+      } else {
+        detailPrerequisite.style.display = 'none';
+      }
+
+      detailWorkflow.textContent  = course.workflow;
+      detailSurvival.textContent  = course.survival;
+
+      /* ------------------------------------------------------------------
+         ASSESSMENT TABLE — 4 columns
+      ------------------------------------------------------------------ */
+      assessmentDiv.innerHTML = `
+        <table class="offering-table" aria-label="Assessment breakdown for ${course.title}">
+          <caption class="sr-only">Assessment components, weights, details and minimum scores</caption>
+          <thead>
+            <tr>
+              <th scope="col">Component</th>
+              <th scope="col">Weight</th>
+              <th scope="col">Details</th>
+              <th scope="col">Minimum to pass</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${course.assessment.map(item => `
+              <tr${item.highlight ? ' class="table-row--current"' : ''}>
+                <td>${item.component}</td>
+                <td class="table-rating">${item.weight}</td>
+                <td>${item.details}</td>
+                <td>${item.minimum || '—'}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+
+      /* ------------------------------------------------------------------
+         POSTER & BACKDROP
+      ------------------------------------------------------------------ */
+      detailPoster.className               = `detail-poster ${course.posterClass}`;
+      detailPoster.style.backgroundImage   = `url('${course.posterUrl}')`;
+      detailPoster.style.backgroundSize    = 'cover';
+      detailPoster.style.backgroundPosition = 'center';
+      detailPoster.setAttribute('aria-label', course.posterLabel);
+
+      backdropPoster.className               = `course-backdrop-poster ${course.posterClass}`;
+      backdropPoster.style.backgroundImage   = `url('${course.posterUrl}')`;
+      backdropPoster.style.backgroundSize    = 'cover';
+      backdropPoster.style.backgroundPosition = 'center';
+
+      /* ------------------------------------------------------------------
+         MATERIALS LIST
+      ------------------------------------------------------------------ */
+      const mats = course.materials || [];
+      materialsCount.textContent = `${mats.length} file${mats.length !== 1 ? 's' : ''}`;
+      materialsList.innerHTML = mats.length
+        ? mats.map(m => `
+            <li class="material-item">
+              <span class="material-icon" aria-hidden="true">📄</span>
+              <div class="material-info">
+                <span class="material-name">${m.name}</span>
+                <span class="material-meta">${m.meta}</span>
+              </div>
+              <a href="#" class="material-download" aria-label="Download ${m.name}">↓</a>
+            </li>
+          `).join('')
+        : `<li class="material-item">
+             <span class="material-icon" aria-hidden="true">📄</span>
+             <div class="material-info">
+               <span class="material-name">No materials yet</span>
+               <span class="material-meta">Upload the first file for your peers.</span>
+             </div>
+           </li>`;
+
+      /* ------------------------------------------------------------------
+         RELATED COURSES — same course title base, different professor
+      ------------------------------------------------------------------ */
+      const related = (course.related || []).map(key => courseData[key]).filter(Boolean);
+      if (related.length) {
+        relatedGrid.innerHTML = related.map(r => `
+          <article class="related-card">
+            <a href="course.html?course=${Object.keys(courseData).find(k => courseData[k] === r)}"
+               class="related-card-link">
+              <div class="related-poster ${r.posterClass}"></div>
+              <div class="related-info">
+                <h3 class="related-title">${r.title}</h3>
+                <p class="related-prof">${r.professor}</p>
+                <p class="related-semester">${r.department} · ${r.credits}</p>
+              </div>
+            </a>
+          </article>
+        `).join('');
+      } else {
+        relatedGrid.innerHTML = '<p class="detail-description">No related offerings found.</p>';
+      }
+
+    } /* end if (course) */
+
+    /* ------------------------------------------------------------------
+       REVIEW FORM TOGGLE
+    ------------------------------------------------------------------ */
+    const writeReviewBtn   = document.getElementById('write-review-btn');
+    const reviewFormPanel  = document.getElementById('review-form-panel');
+    const cancelReviewBtn  = document.getElementById('cancel-review-btn');
+    const reviewForm       = document.querySelector('.review-form');
+    const reviewEmpty      = document.getElementById('review-empty');
+
+    writeReviewBtn.addEventListener('click', () => {
+      const isOpen = !reviewFormPanel.hidden;
+      reviewFormPanel.hidden = isOpen;
+      writeReviewBtn.setAttribute('aria-expanded', String(!isOpen));
+      /* scroll form into view when opening */
+      if (!isOpen) {
+        reviewFormPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     });
 
-    cancelBtn.addEventListener('click', () => {
-      panel.hidden = true;
-      writeBtn.setAttribute('aria-expanded', 'false');
+    cancelReviewBtn.addEventListener('click', () => {
+      reviewFormPanel.hidden = true;
+      writeReviewBtn.setAttribute('aria-expanded', 'false');
+      reviewForm.reset();
     });
 
-    document.querySelectorAll('.helpful-btn').forEach(btn => {
-      btn.addEventListener('click', () => btn.classList.toggle('helpful-btn--active'));
+    reviewForm.addEventListener('submit', e => {
+      e.preventDefault();
+      reviewEmpty.querySelector('p').textContent =
+        'Thank you — your review has been submitted and will appear once processed.';
+      reviewForm.reset();
+      reviewFormPanel.hidden = true;
+      writeReviewBtn.setAttribute('aria-expanded', 'false');
+    });
+
+    /* ------------------------------------------------------------------
+       SEMESTER CHIPS (reused from index if any chips present)
+    ------------------------------------------------------------------ */
+    document.querySelectorAll('.sem-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.sem-chip').forEach(c => {
+          c.classList.remove('sem-chip--active');
+          c.setAttribute('aria-pressed', 'false');
+        });
+        chip.classList.add('sem-chip--active');
+        chip.setAttribute('aria-pressed', 'true');
+      });
     });
   </script>
 
