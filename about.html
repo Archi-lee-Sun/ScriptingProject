@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About SYLLABUS — KIU Academic Catalogue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="about.css" />
+</head>
+<body class="about-page">
+
+  <!-- ============================================================
+       HEADER — same nav as index, About link marked active
+  ============================================================ -->
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Primary navigation">
+      <a href="index.html" class="brand" aria-label="SYLLABUS home">
+        <span class="brand-icon">◈</span>
+        <span class="brand-name">SYLLABUS</span>
+        <span class="brand-sub">KIU</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">Catalogue</a></li>
+        <li><a href="index.html#professor-profiles" class="nav-link">Professors</a></li>
+        <li><a href="about.html" class="nav-link nav-link--active" aria-current="page">About</a></li>
+      </ul>
+      <div class="search-wrapper" role="search">
+        <label for="global-search" class="sr-only">Search courses or professors</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input type="search" id="global-search" class="search-input" placeholder="Search courses, professors…" autocomplete="off" />
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         ABOUT HERO
+         First thing any visitor sees. Answers in one sentence:
+         what is this, who is it for, why does it exist.
+    ============================================================ -->
+    <section class="about-hero" aria-label="About SYLLABUS">
+      <div class="about-hero-inner">
+
+        <div class="about-hero-text">
+          <p class="about-eyebrow">About the Project</p>
+          <h1 class="about-title">
+            SYLLABUS is a<br />
+            <em>student decision tool</em><br />
+            for KIU.
+          </h1>
+          <p class="about-lead">
+            Before you pick a course, you deserve to know what you're getting into.
+            SYLLABUS gives every KIU student one place to read honest course summaries,
+            browse past exams and materials, and see what students before them actually
+            thought — so you can choose with information, not guesswork.
+          </p>
+        </div>
+
+        <!-- Visual: the three core decision questions a student asks -->
+        <div class="about-hero-visual" aria-hidden="true">
+          <div class="decision-card decision-card--1">
+            <span class="decision-q">What is this course actually about?</span>
+            <span class="decision-a">→ Read the syllabus summary</span>
+          </div>
+          <div class="decision-card decision-card--2">
+            <span class="decision-q">What did past exams look like?</span>
+            <span class="decision-a">→ Browse student-uploaded materials</span>
+          </div>
+          <div class="decision-card decision-card--3">
+            <span class="decision-q">Is this course right for me?</span>
+            <span class="decision-a">→ Read reviews from peers who took it</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         THE PROBLEM SECTION
+         What was broken before SYLLABUS existed.
+    ============================================================ -->
+    <section class="about-section about-problem" aria-labelledby="problem-heading">
+      <div class="about-section-inner">
+        <div class="about-section-label">The Problem</div>
+        <h2 class="about-section-title" id="problem-heading">
+          How students chose courses<br />before SYLLABUS
+        </h2>
+        <div class="problem-grid">
+
+          <div class="problem-item">
+            <div class="problem-icon" aria-hidden="true">💬</div>
+            <h3 class="problem-name">WhatsApp groups</h3>
+            <p class="problem-desc">
+              Scattered across dozens of group chats. Advice is ephemeral —
+              a message from two semesters ago is buried under thousands of others
+              and impossible to find when you need it.
+            </p>
+          </div>
+
+          <div class="problem-item">
+            <div class="problem-icon" aria-hidden="true">🎲</div>
+            <h3 class="problem-name">Word of mouth</h3>
+            <p class="problem-desc">
+              You ask a friend. They ask their friend. The answer depends on
+              who you happen to know. Students with bigger networks get
+              better information — everyone else guesses.
+            </p>
+          </div>
+
+          <div class="problem-item">
+            <div class="problem-icon" aria-hidden="true">📋</div>
+            <h3 class="problem-name">The official portal</h3>
+            <p class="problem-desc">
+              Course codes and credit counts. No syllabus summary,
+              no student reviews, no past exams. Technically accurate,
+              completely useless for deciding whether a course is right for you.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         THE SOLUTION SECTION
+         What SYLLABUS actually does — feature by feature.
+    ============================================================ -->
+    <section class="about-section about-solution" aria-labelledby="solution-heading">
+      <div class="about-section-inner">
+        <div class="about-section-label">The Solution</div>
+        <h2 class="about-section-title" id="solution-heading">
+          Everything a student needs<br />before they enroll
+        </h2>
+
+        <div class="features-grid">
+
+          <article class="feature-card" aria-label="Syllabus summaries feature">
+            <div class="feature-number" aria-hidden="true">01</div>
+            <h3 class="feature-title">Syllabus Summaries</h3>
+            <p class="feature-desc">
+              Every course page contains a plain-language summary of what the
+              course covers — what topics, what structure, what the professor
+              expects from students. Not the official bureaucratic text.
+              A real summary written to be understood.
+            </p>
+          </article>
+
+          <article class="feature-card" aria-label="Student materials feature">
+            <div class="feature-number" aria-hidden="true">02</div>
+            <h3 class="feature-title">Past Exams &amp; Materials</h3>
+            <p class="feature-desc">
+              Students upload past midterms, homework sets, exercises, and notes
+              directly to the course page. If someone sat through this course two
+              years ago and saved the final exam — you can find it here.
+              Shared knowledge compounds over time.
+            </p>
+          </article>
+
+          <article class="feature-card" aria-label="Student reviews feature">
+            <div class="feature-number" aria-hidden="true">03</div>
+            <h3 class="feature-title">Honest Student Reviews</h3>
+            <p class="feature-desc">
+              After taking a course, students leave a review and a 1–5 star rating.
+              What was the workload really like? Was the grading fair?
+              What do you wish you knew before starting?
+              Real answers from real people who sat through it.
+            </p>
+          </article>
+
+          <article class="feature-card" aria-label="Professor context feature">
+            <div class="feature-number" aria-hidden="true">04</div>
+            <h3 class="feature-title">Professor Context</h3>
+            <p class="feature-desc">
+              The same course taught by a different professor is a different
+              experience. SYLLABUS keeps them separate — each
+              Course + Professor pairing has its own page, its own rating,
+              its own reviews. You see who is teaching this semester
+              and find every course they have taught before.
+            </p>
+          </article>
+
+          <article class="feature-card" aria-label="Semester history feature">
+            <div class="feature-number" aria-hidden="true">05</div>
+            <h3 class="feature-title">Semester-by-Semester History</h3>
+            <p class="feature-desc">
+              Courses run every semester. SYLLABUS tracks each offering
+              separately. See how the same course was rated under one professor
+              in Semester III two years ago versus a different professor
+              last semester. History teaches you what to expect.
+            </p>
+          </article>
+
+          <article class="feature-card" aria-label="Mandatory courses feature">
+            <div class="feature-number" aria-hidden="true">06</div>
+            <h3 class="feature-title">Works for Mandatory Courses Too</h3>
+            <p class="feature-desc">
+              You cannot always choose what you take. But you can still prepare.
+              Even if a course is required for your degree, knowing what past
+              students experienced helps you plan your semester, your study
+              strategy, and your expectations before day one.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HOW IT WORKS — a simple step-by-step flow
+    ============================================================ -->
+    <section class="about-section about-how" aria-labelledby="how-heading">
+      <div class="about-section-inner about-section-inner--narrow">
+        <div class="about-section-label">How It Works</div>
+        <h2 class="about-section-title" id="how-heading">From question to decision</h2>
+
+        <ol class="how-steps" role="list">
+
+          <li class="how-step">
+            <div class="step-num" aria-hidden="true">1</div>
+            <div class="step-content">
+              <h3 class="step-title">Search for your course</h3>
+              <p class="step-desc">
+                Type the course name or browse by degree and semester.
+                You will see every offering of that course — each professor
+                who has taught it listed separately.
+              </p>
+            </div>
+          </li>
+
+          <li class="how-step">
+            <div class="step-num" aria-hidden="true">2</div>
+            <div class="step-content">
+              <h3 class="step-title">Read the course page</h3>
+              <p class="step-desc">
+                The course page shows you a syllabus summary, the professor's
+                background, a history of how this course was rated in past
+                semesters, and student-uploaded materials like past exams
+                and exercise sheets.
+              </p>
+            </div>
+          </li>
+
+          <li class="how-step">
+            <div class="step-num" aria-hidden="true">3</div>
+            <div class="step-content">
+              <h3 class="step-title">Read student reviews</h3>
+              <p class="step-desc">
+                Scroll through what other KIU students wrote after taking
+                this exact course under this exact professor. Real experiences,
+                not marketing copy.
+              </p>
+            </div>
+          </li>
+
+          <li class="how-step">
+            <div class="step-num" aria-hidden="true">4</div>
+            <div class="step-content">
+              <h3 class="step-title">Make an informed decision</h3>
+              <p class="step-desc">
+                You now know what the course covers, how demanding it is,
+                what past exams looked like, and what students like you thought.
+                Choose with confidence — or prepare better for what's mandatory.
+              </p>
+            </div>
+          </li>
+
+          <li class="how-step">
+            <div class="step-num" aria-hidden="true">5</div>
+            <div class="step-content">
+              <h3 class="step-title">Give back after your semester</h3>
+              <p class="step-desc">
+                Once you finish the course, leave a review and upload anything
+                useful you saved — homework sheets, exam papers, your notes.
+                The next student will find it when they need it most.
+              </p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer — same as index -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-icon">◈</span>
+        <span class="brand-name">SYLLABUS</span>
+        <span class="footer-tagline">KIU Academic Catalogue · Built by students, for students</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html" class="footer-link">Catalogue</a>
+        <a href="index.html#professor-profiles" class="footer-link">Professors</a>
+        <a href="about.html" class="footer-link">About</a>
+      </nav>
+      <p class="footer-copy">© 2026 SYLLABUS · Not an official KIU product</p>
+    </div>
+  </footer>
+
+</body>
+</html>

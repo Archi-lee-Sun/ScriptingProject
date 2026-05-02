@@ -1,0 +1,503 @@
+/* ================================================================
+   about.css — Styles for the SYLLABUS About page
+   Imports on top of style.css (which handles base, nav, footer).
+================================================================ */
+
+
+/* ================================================================
+   ABOUT HERO
+   Split layout: text left, decision cards right.
+   Staggered animations on load.
+================================================================ */
+.about-hero {
+  padding: var(--sp-3xl) var(--sp-xl);
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 50%, rgba(0, 230, 118, 0.04) 0%, transparent 70%),
+    var(--bg-base);
+}
+
+.about-hero-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3xl);
+}
+
+/* Left: headline + lead text */
+.about-hero-text {
+  flex: 1;
+  max-width: 560px;
+  animation: fadeSlideUp 0.55s ease both;
+  animation-delay: 0.1s;
+}
+
+.about-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  margin-bottom: var(--sp-md);
+}
+
+.about-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-lg);
+}
+
+.about-lead {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  max-width: 500px;
+}
+
+/* Right: three decision question cards */
+.about-hero-visual {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+  width: 340px;
+}
+
+.decision-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--sp-lg);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  animation: fadeSlideUp 0.55s ease both;
+}
+
+.decision-card--1 { animation-delay: 0.25s; background: var(--bg-surface); }
+.decision-card--2 { animation-delay: 0.4s;  background: var(--bg-surface); }
+.decision-card--3 { animation-delay: 0.55s; background: var(--bg-surface); }
+
+.decision-q {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.decision-a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-green);
+}
+
+
+/* ================================================================
+   SHARED SECTION WRAPPER
+   All about sections use the same max-width container + spacing.
+================================================================ */
+.about-section {
+  padding: var(--sp-3xl) var(--sp-xl);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-section-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+/* Narrower column for text-heavy sections */
+.about-section-inner--narrow {
+  max-width: 760px;
+}
+
+/* Pill label above each section heading */
+.about-section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green-dim);
+  background: var(--accent-green-dim);
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  margin-bottom: var(--sp-md);
+}
+
+.about-section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: var(--sp-xl);
+  letter-spacing: -0.01em;
+}
+
+
+/* ================================================================
+   PROBLEM SECTION
+   Three problem items in a row with clear visual icons.
+================================================================ */
+.about-problem { background: var(--bg-surface); }
+
+.problem-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-xl);
+}
+
+.problem-item {
+  flex: 1 1 calc(33.333% - var(--sp-xl));
+  min-width: 220px;
+  padding: var(--sp-xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top accent line — each problem has a unique red tint to signal "broken" */
+.problem-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 82, 82, 0.6), transparent);
+}
+
+.problem-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.problem-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.problem-desc {
+  font-size: 0.88rem;
+  line-height: 1.78;
+}
+
+
+/* ================================================================
+   SOLUTION / FEATURES SECTION
+   6-feature grid — 3 columns, 2 rows.
+================================================================ */
+.about-solution { background: var(--bg-base); }
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-xl);
+}
+
+.feature-card {
+  flex: 1 1 calc(33.333% - var(--sp-xl));
+  min-width: 220px;
+  padding: var(--sp-xl);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--t-med), transform var(--t-med);
+}
+.feature-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+}
+
+/* Top accent — green, signaling "working/solved" */
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(0, 230, 118, 0.7), transparent);
+}
+
+.feature-number {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--accent-green);
+}
+
+.feature-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.feature-desc {
+  font-size: 0.88rem;
+  line-height: 1.78;
+  flex: 1;
+}
+
+
+/* ================================================================
+   HOW IT WORKS — numbered steps
+================================================================ */
+.about-how { background: var(--bg-surface); }
+
+.how-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+/* Vertical connector line between steps */
+.how-steps::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 48px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent-green), transparent 90%);
+  opacity: 0.3;
+}
+
+.how-step {
+  display: flex;
+  gap: var(--sp-lg);
+  padding: var(--sp-lg) 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.how-step:last-child { border-bottom: none; }
+
+/* Step number circle */
+.step-num {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--accent-green);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1; /* sits above the connector line */
+}
+
+.step-content {
+  padding-top: 8px;
+  flex: 1;
+}
+
+.step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  line-height: 1.78;
+}
+
+
+/* ================================================================
+   FOR LECTURERS / EVALUATORS BOX
+   A clearly delineated panel that explains the project
+   in academic / midterm context.
+   Design: gold accent to signal "official" / informational tone.
+================================================================ */
+.about-evaluator { background: var(--bg-base); }
+
+.evaluator-box {
+  background: var(--bg-surface);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: var(--r-lg);
+  padding: var(--sp-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top gold accent stripe */
+.evaluator-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-gold), transparent);
+}
+
+.evaluator-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  border: 1px solid rgba(245, 166, 35, 0.35);
+  background: rgba(245, 166, 35, 0.08);
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  margin-bottom: var(--sp-lg);
+}
+
+.evaluator-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: var(--sp-xl);
+}
+
+.evaluator-body {
+  font-size: 0.96rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-lg);
+  max-width: 660px;
+}
+
+/* Rubric compliance table */
+.rubric-table-wrapper {
+  margin-top: var(--sp-xl);
+  margin-bottom: var(--sp-xl);
+  overflow-x: auto;
+}
+
+.rubric-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-md);
+}
+
+.rubric-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.rubric-table thead {
+  background: var(--bg-card);
+}
+
+.rubric-table th {
+  padding: var(--sp-md) var(--sp-lg);
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.rubric-table td {
+  padding: 12px var(--sp-lg);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.rubric-table tbody tr:hover { background: var(--bg-card); }
+.rubric-table tbody tr:last-child td { border-bottom: none; }
+
+.rubric-check {
+  color: var(--accent-green);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.rubric-table code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--accent-blue);
+}
+
+.evaluator-footer {
+  padding-top: var(--sp-xl);
+  border-top: 1px solid var(--border);
+}
+
+
+/* ================================================================
+   NAV — active state for About link
+================================================================ */
+.nav-link--active {
+  color: var(--accent-green) !important;
+}
+
+
+/* ================================================================
+   RESPONSIVE — About page breakpoints
+================================================================ */
+@media (max-width: 768px) {
+
+  .about-hero { padding: var(--sp-xl) var(--sp-md); }
+
+  .about-hero-inner {
+    flex-direction: column;
+    gap: var(--sp-xl);
+  }
+
+  .about-hero-text { max-width: 100%; }
+
+  .about-hero-visual {
+    width: 100%;
+  }
+
+  .about-section { padding: var(--sp-xl) var(--sp-md); }
+
+  /* Problem and feature grids: 3-col → 1-col */
+  .problem-grid  { flex-direction: column; }
+  .problem-item  { flex: 1 1 100%; min-width: unset; }
+  .features-grid { flex-direction: column; }
+  .feature-card  { flex: 1 1 100%; min-width: unset; }
+
+  /* How it works */
+  .how-steps::before { display: none; } /* hide connector on mobile */
+
+  .how-step { gap: var(--sp-md); padding: var(--sp-md) 0; }
+  .step-num { width: 36px; height: 36px; font-size: 0.78rem; }
+
+  /* Evaluator box */
+  .evaluator-box { padding: var(--sp-lg); }
+  .rubric-table-wrapper { overflow-x: auto; }
+  .rubric-table { min-width: 500px; }
+
+}
