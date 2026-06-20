@@ -2,64 +2,96 @@
   {
     "name": "Eva Maria Knirsch",
     "slug": "eva-knirsch",
-    "matchNames": ["Eva Knirsch", "Eva Maria Knirsch"],
+    "matchNames": [
+      "Eva Knirsch",
+      "Eva Maria Knirsch"
+    ],
     "department": "Computer Science — Databases & Data Analytics",
     "bio": "Eva Maria Knirsch holds master's degrees in Computer Science and English, including an MA from the State University of New York as a DAAD scholar. With over 30 years of IT experience, she has served as Project Manager at the Robert Koch Institute, Senior Engineer at SRA International, and General Manager of the Information Security Forum. Since 2011, she has been an Adjunct Professor at HTW Berlin, specializing in databases and data analytics. Her teaching emphasizes practical, industry-ready skills designed to meet the high demands of the modern IT business world.",
     "photoUrl": "https://www.kiu.edu.ge/uploads_script/banner_carusel/dsc_5618_1.jpg",
-    "courses": ["database-1"]
+    "courses": [
+      "database-1",
+      "databases-2"
+    ]
   },
   {
     "name": "Giorgi Nadareishvili",
     "slug": "giorgi-nadareishvili",
-    "matchNames": ["Giorgi Nadareishvili", "George Nadareishvili"],
+    "matchNames": [
+      "Giorgi Nadareishvili",
+      "George Nadareishvili"
+    ],
     "department": "Computer Science — Theory & Foundations",
     "bio": "Giorgi Nadareishvili earned his PhD from the University of Göttingen in Germany, where he later continued as a postdoctoral researcher. He has also held a postdoctoral position at Tbilisi State University. His scientific research is primarily focused on the field of non-commutative topology, bridging abstract mathematics with theoretical computer science. At KIU, he teaches foundational theory courses that explore the mathematical limits of computation — covering Turing machines, Gödel's incompleteness theorems, and the P vs NP problem.",
     "photoUrl": "https://www.kiu.edu.ge/uploads_script/banner_carusel/g.n.jpg",
-    "courses": ["theory-of-computation"]
+    "courses": [
+      "theory-of-computation",
+      "fundamentals-of-algorithms-and-data-structures"
+    ]
   },
   {
     "name": "Walter Tichy",
     "slug": "walter-tichy",
-    "matchNames": ["Walter Tichy"],
+    "matchNames": [
+      "Walter Tichy"
+    ],
     "department": "Computer Science — Software Engineering",
     "bio": "Walter Tichy was a Professor of Software Engineering at the Karlsruhe Institute of Technology (KIT) from 1986 to 2021, where he also served as Dean of Computer Science (2002–2004). He previously held positions as a Senior Scientist at Carnegie Group Inc. and spent six years on the faculty at Purdue University. A graduate of Carnegie Mellon University with both an MS and a PhD, his research focuses on software engineering, parallelism, and language technologies. Beyond academia, he is the co-founder of ParTec and ESCde and a member of ACM, GI, and IEEE.",
     "photoUrl": "https://www.kiu.edu.ge/uploads_script/banner_carusel/walter1.new.jpg",
-    "courses": []
+    "courses": [
+      "introduction-software-engineering"
+    ]
   },
   {
     "name": "Davit Kipshidze",
     "slug": "davit-kipshidze",
-    "matchNames": ["Davit Kipshidze"],
+    "matchNames": [
+      "Davit Kipshidze"
+    ],
     "department": "Computer Science — Blockchain & Cryptography",
     "bio": "Davit Kipshidze teaches blockchain and cryptography topics at KIU, focusing on distributed ledgers, encryption, consensus models, and practical security concepts students need for modern decentralized systems.",
     "photoUrl": "",
-    "courses": ["blockchain-cryptography"]
+    "courses": [
+      "blockchain-cryptography"
+    ]
   },
   {
     "name": "Lasha Iashvili",
     "slug": "lasha-iashvili",
-    "matchNames": ["Lasha Iashvili"],
+    "matchNames": [
+      "Lasha Iashvili"
+    ],
     "department": "Computer Science — Web & Scripting Languages",
     "bio": "Lasha Iashvili teaches scripting and front-end development, guiding students through HTML, CSS, JavaScript, DOM work, and project-based web application practice.",
     "photoUrl": "",
-    "courses": ["scripting-languages"]
+    "courses": [
+      "scripting-languages"
+    ]
   },
   {
     "name": "Zaal Beriashvili",
     "slug": "zaal-beriashvili",
-    "matchNames": ["Zaal Beriashvili"],
+    "matchNames": [
+      "Zaal Beriashvili"
+    ],
     "department": "Computer Science — Advanced Java",
     "bio": "Zaal Beriashvili teaches advanced Java practice, with emphasis on concurrency, streams, generics, JVM concepts, and practical programming patterns for larger software systems.",
     "photoUrl": "assets/zaalberiashvili.jpg",
-    "courses": ["advanced-java-in-practice"]
+    "courses": [
+      "advanced-java-in-practice"
+    ]
   },
   {
     "name": "Shota Elkanishvili",
     "slug": "shota-elkanishvili",
-    "matchNames": ["Shota Elkanishvili"],
+    "matchNames": [
+      "Shota Elkanishvili"
+    ],
     "department": "Computer Science — Applied LLM Systems",
     "bio": "Shota Elkanishvili teaches applied LLM systems, helping students build practical AI applications with prompting, retrieval, agents, evaluation, and production-minded workflows.",
     "photoUrl": "",
-    "courses": ["applied-llm-systems"]
+    "courses": [
+      "applied-llm-systems"
+    ]
   }
 ]

@@ -62,6 +62,13 @@
     "related": [
       "database-1",
       "advanced-java-in-practice"
+    ],
+    "semesters": [
+      "IV",
+      "V",
+      "VI",
+      "VII",
+      "VIII"
     ]
   },
   "database-1": {
@@ -121,6 +128,9 @@
     "related": [
       "theory-of-computation",
       "scripting-languages"
+    ],
+    "semesters": [
+      "III"
     ]
   },
   "theory-of-computation": {
@@ -180,6 +190,9 @@
     "related": [
       "database-1",
       "advanced-java-in-practice"
+    ],
+    "semesters": [
+      "IV"
     ]
   },
   "scripting-languages": {
@@ -239,6 +252,9 @@
     "related": [
       "blockchain-cryptography",
       "applied-llm-systems"
+    ],
+    "semesters": [
+      "IV"
     ]
   },
   "advanced-java-in-practice": {
@@ -298,6 +314,9 @@
     "related": [
       "theory-of-computation",
       "database-1"
+    ],
+    "semesters": [
+      "I"
     ]
   },
   "applied-llm-systems": {
@@ -363,6 +382,146 @@
     "related": [
       "scripting-languages",
       "blockchain-cryptography"
+    ],
+    "semesters": [
+      "IV",
+      "V",
+      "VI",
+      "VII",
+      "VIII"
+    ]
+  },
+  "fundamentals-of-algorithms-and-data-structures": {
+    "title": "Fundamentals of Algorithms and Data Structures",
+    "department": "Computer Science",
+    "degree": "BSc",
+    "code": "AC_PROG_FORM 001",
+    "credits": "6 ECTS",
+    "professor": "Giorgi Nadareishvili",
+    "professorSlug": "giorgi-nadareishvili",
+    "posterClass": "card-poster--3",
+    "posterImage": "assets/FundamentalsofAlgorithmsandDataStructures.png",
+    "posterUrl": "assets/FundamentalsofAlgorithmsandDataStructures.png",
+    "posterLabel": "Fundamentals of Algorithms and Data Structures course poster",
+    "description": "This course bridges the gap between mathematical elegance and practical computational power, exploring the vital design patterns and data structures that drive efficient software. You will master foundational algorithmic paradigms—including divide-and-conquer, randomization, greedy strategies, and dynamic programming—while learning to rigorously evaluate resource consumption across worst-case, expected, and amortized settings. Moving beyond basic programming, you will unlock a powerful toolbox containing fast Fourier transforms, balanced trees, advanced graph concepts, and network algorithms. Through this mathematically grounded approach, you will discover how subtle, clever insights can drastically outpace straightforward solutions, transforming theoretical principles into high-performance computing realities.",
+    "prerequisites": "Introduction to Informatics I, Discrete Structures",
+    "assessment": [
+      {
+        "component": "Exercises",
+        "weight": "20%",
+        "details": "Solving 11–12 weekly or biweekly exercise worksheets and presenting solutions within exercise groups.",
+        "minimum": "Combined with the Midterm Exam, students must earn at least 21 / 60 points."
+      },
+      {
+        "component": "Midterm Exam",
+        "weight": "40%",
+        "details": "A mid-semester written examination assessing early theoretical and practical components.",
+        "minimum": "Combined with Exercises, students must earn at least 21 / 60 points."
+      },
+      {
+        "component": "Final Exam",
+        "weight": "40%",
+        "details": "A comprehensive final written examination covering the course content.",
+        "minimum": "Min. 21 / 40 points to pass the exam.",
+        "highlight": true
+      }
+    ],
+    "workflow": "30 hours of Lectures · 15 hours of Central Exercises · 15 hours of Exercise classes. Students are expected to dedicate 120 hours to independent self-study, spending at least 1 hour digesting course materials and studying the textbook for every hour of class or central exercise.",
+    "materials": [],
+    "related": [
+      "theory-of-computation"
+    ],
+    "semesters": [
+      "III"
+    ]
+  },
+  "databases-2": {
+    "title": "Databases 2",
+    "department": "Computer Science",
+    "degree": "BSc",
+    "code": "AC_PROG_FORM 001",
+    "credits": "6 ECTS",
+    "professor": "Eva Knirsch",
+    "professorSlug": "eva-knirsch",
+    "posterClass": "card-poster--2",
+    "posterImage": "assets/Databases2.png",
+    "posterUrl": "assets/Databases2.png",
+    "posterLabel": "Databases 2 course poster",
+    "description": "This course explores the evolution of data management, charting the shift from traditional central relational structures to modern, multi-node distributed environments designed to tackle the challenges of \"Big Data\". Using the relational model as a foundational benchmark, you will dive deeply into database architectures, advanced storage mechanics (such as Log-Structured Merge-trees), and modern distributed models. You will rigorously dissect the mechanics of multiuser concurrency, diagnosing transaction anomalies, evaluating serializability, and analyzing isolation levels alongside standard protocols like locking and MVCC. Moving into distributed territory, the curriculum confronts the technical complexities of replication, sharding, and the critical trade-offs between strong and eventual consistency. Through hands-on environments featuring PostgreSQL, ScyllaDB, and MongoDB, you will learn to evaluate architectural trade-offs and make highly informed database design choices for real-world application use cases.",
+    "prerequisites": "Fundamentals of Databases 1, International B2 English Competence level or equivalent",
+    "assessment": [
+      {
+        "component": "Active Participation",
+        "weight": "20%",
+        "details": "Evaluated via contributing to lectures (7 points), compiling an Individual Learning Journal (6 points), and executing weekly lab implementation assignments (7 points).",
+        "minimum": "Combined with the Midterm Exam, students must earn a minimum threshold of 25 / 60 points."
+      },
+      {
+        "component": "Midterm Exam",
+        "weight": "40%",
+        "details": "A written examination (paper, digital, or hybrid) administered during the university's predefined midterm week.",
+        "minimum": "Combined with Active Participation, students must earn a minimum threshold of 25 / 60 points."
+      },
+      {
+        "component": "Final Exam",
+        "weight": "40%",
+        "details": "A comprehensive written examination organized after the 15th week, potentially requiring a functional database system running live on student laptops.",
+        "minimum": "Min. 21 / 40 points to pass the exam.",
+        "highlight": true
+      }
+    ],
+    "workflow": "60 Contact Hours, evenly distributed across lecture and lab sessions over a 15-week schedule, balanced alongside 120 hours of mandatory independent self-study, bringing the semester commitment to a total of 180 hours. Students are expected to systematically review lesson scripts, document personal learning journals weekly, and actively complete all laboratory assignments to internalize practical system errors and traps.",
+    "materials": [],
+    "related": [
+      "database-1"
+    ],
+    "semesters": [
+      "IV"
+    ]
+  },
+  "introduction-software-engineering": {
+    "title": "Introduction Software Engineering",
+    "department": "Computer Science",
+    "degree": "BSc",
+    "code": "AC_PROG_FORM 001",
+    "credits": "6 ECTS",
+    "professor": "Walter Tichy",
+    "professorSlug": "walter-tichy",
+    "posterClass": "card-poster--5",
+    "posterImage": "assets/IntroductionSoftwareEngineering.png",
+    "posterUrl": "assets/IntroductionSoftwareEngineering.png",
+    "posterLabel": "Introduction Software Engineering course poster",
+    "description": "This course transcends basic programming to explore the structural principles and systematic methodologies required to build, scale, and maintain medium-to-large software ecosystems. Moving through the complete software development lifecycle—from strategic project planning and algorithmic cost estimation to systemic analysis, design, implementation, and long-term maintenance—you will learn how to transform abstract human requirements into robust engineering blueprints. You will master the visual blueprints of the industry by constructing an expansive array of UML diagrams, using them to craft highly modular, object-oriented designs fortified by proven architectural styles and classic design patterns. Furthermore, the curriculum evaluates competing engineering lifecycles, contrasting traditional Waterfall and V-Models with contemporary Agile frameworks like Scrum and Extreme Programming, while establishing rigorous validation standards through controlflow-oriented testing methodologies.",
+    "prerequisites": "Fundamentals of Programming",
+    "assessment": [
+      {
+        "component": "Homework Assignments (TTF)",
+        "weight": "40%",
+        "details": "10 assignments (4 points each) designed to transition from theoretical understanding to true mastery. Late submissions incur a 10% penalty per day. Solutions are subject to strict anti-plagiarism and AI-generation policies (0 points for violations). Students are randomly selected by tutors to present and explain their work; failure to accurately explain a solution results in a 0 for the entire assignment.",
+        "minimum": "Combined with the Midterm Exam, students must achieve a minimum competence threshold of 21 / 60 points."
+      },
+      {
+        "component": "Midterm Exam",
+        "weight": "20%",
+        "details": "A 2-hour, closed-book, closed-computer mid-semester examination covering early software lifecycle phases, concepts, and modeling techniques.",
+        "minimum": "Combined with Homework (TTF), students must achieve a minimum competence threshold of 21 / 60 points."
+      },
+      {
+        "component": "Final Exam",
+        "weight": "40%",
+        "details": "A comprehensive, 2-hour, closed-book, closed-computer final written examination evaluating the entire breadth of the course material.",
+        "minimum": "Min. 21 / 40 points to pass the exam.",
+        "highlight": true
+      }
+    ],
+    "workflow": "75 Contact Hours divided weekly into 3 hours of Lectures and 2 hours of Central Exercises (TTF) balanced alongside 115 hours of independent self-study, totaling a 190-hour semester commitment. Students are highly encouraged to attend all classes, eliminate digital distractions in the lecture hall, and systematically study slides and textbook chapters on the exact same day the material is presented.",
+    "materials": [],
+    "related": [
+      "advanced-java-in-practice",
+      "applied-llm-systems"
+    ],
+    "semesters": [
+      "V"
     ]
   }
 }

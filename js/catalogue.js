@@ -17,7 +17,7 @@
     query: '',
     degree: 'all',
     sort: 'alphabetical',
-    semester: 'I'
+    semester: 'all'
   };
 
   const grid = document.getElementById('course-grid');
@@ -30,7 +30,7 @@
     department === 'Computer Science' ? 'cs' : department.toLowerCase()
   );
 
-  const courseSemester = course => course.semester || 'I';
+  const courseSemesters = course => course.semesters || [course.semester || 'I'];
 
   const renderCourseCard = course => {
     const { title, professor, professorSlug, posterClass, degree, department, credits, code, slug } = course;
@@ -42,7 +42,7 @@
         <a href="${href}" class="card-poster-link">
           <div class="card-poster ${escapeHTML(posterClass)}" style="${posterBackgroundStyle(course)}">
             <div class="poster-overlay">
-              <div class="poster-meta"><span class="poster-dept">CS · ${escapeHTML(code)}</span></div>
+              <div class="poster-meta"><span class="poster-dept">CS &middot;· ${escapeHTML(code)}</span></div>
               <div class="poster-body">
                 <h3 class="poster-title">${plainAmpersands(title)}</h3>
                 <p class="poster-professor">${escapeHTML(professor)}</p>
@@ -82,7 +82,7 @@
       const matchesQuery = [course.title, course.professor]
         .some(value => value.toLowerCase().includes(query));
       const matchesDegree = state.degree === 'all' || degreeValue(course) === state.degree;
-      const matchesSemester = courseSemester(course) === state.semester;
+      const matchesSemester = state.semester === 'all' || courseSemesters(course).includes(state.semester);
 
       return matchesQuery && matchesDegree && matchesSemester;
     }));

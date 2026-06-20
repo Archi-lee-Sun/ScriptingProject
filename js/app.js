@@ -63,24 +63,24 @@
 
   async function loadCourses() {
     try {
-      const res = await fetch(dataPath('courses.json'));
+      const res = await fetch(dataPath('courses.json'), { cache: 'no-store' });
       if (!res.ok) throw new Error(`Courses request failed: ${res.status}`);
       const courses = await res.json();
       return courses;
     } catch (error) {
-      showError('#course-grid, #assessment-breakdown', "Couldn't load courses — please refresh.");
+      showError('#course-grid, #assessment-breakdown', "Couldn't load courses - please refresh.");
       throw error;
     }
   }
 
   function loadProfessors() {
-    return fetch(dataPath('professors.json'))
+    return fetch(dataPath('professors.json'), { cache: 'no-store' })
       .then(res => {
         if (!res.ok) throw new Error(`Professors request failed: ${res.status}`);
         return res.json();
       })
       .catch(error => {
-        showError('#professors-grid', "Couldn't load professors — please refresh.");
+        showError('#professors-grid', "Couldn't load professors - please refresh.");
         throw error;
       });
   }
@@ -89,10 +89,15 @@
     const chips = [...document.querySelectorAll('.sem-chip')];
     chips.forEach(chip => {
       chip.addEventListener('click', () => {
+        const isActive = chip.classList.contains('sem-chip--active');
         chips.forEach(item => {
           item.classList.remove('sem-chip--active');
           item.setAttribute('aria-pressed', 'false');
         });
+        if (isActive) {
+          onChange('all');
+          return;
+        }
         chip.classList.add('sem-chip--active');
         chip.setAttribute('aria-pressed', 'true');
         onChange(chip.textContent.trim());
