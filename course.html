@@ -18,18 +18,18 @@
   <header class="site-header">
     <nav class="nav-inner" aria-label="Primary navigation">
       <a href="index.html" class="brand" aria-label="SYLLABUS home">
-        <span class="brand-icon">◈</span>
+        <span class="brand-icon">&#9670;</span>
         <span class="brand-name">SYLLABUS</span>
         <span class="brand-sub">KIU</span>
       </a>
       <ul class="nav-links" role="list">
         <li><a href="index.html" class="nav-link">Catalogue</a></li>
-        <li><a href="index.html#professor-profiles" class="nav-link">Professors</a></li>
+        <li><a href="professors.html" class="nav-link">Professors</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
       </ul>
       <div class="search-wrapper" role="search">
         <label for="global-search" class="sr-only">Search courses or professors</label>
-        <span class="search-icon" aria-hidden="true">⌕</span>
+        <span class="search-icon" aria-hidden="true">&#8981;</span>
         <input type="search" id="global-search" class="search-input" placeholder="Search courses, professors…" autocomplete="off" />
       </div>
     </nav>
@@ -77,15 +77,15 @@
               <!-- Stars listed 5→1 in DOM; flex row-reverse makes them display 1→5 visually.
                    This lets the CSS sibling selector fill stars correctly on hover/check. -->
               <input type="radio" id="r5" name="rate" value="5" class="sr-only" />
-              <label for="r5" class="rate-star" aria-label="5 stars">★</label>
+              <label for="r5" class="rate-star" aria-label="5 stars">&#9733;</label>
               <input type="radio" id="r4" name="rate" value="4" class="sr-only" />
-              <label for="r4" class="rate-star" aria-label="4 stars">★</label>
+              <label for="r4" class="rate-star" aria-label="4 stars">&#9733;</label>
               <input type="radio" id="r3" name="rate" value="3" class="sr-only" />
-              <label for="r3" class="rate-star" aria-label="3 stars">★</label>
+              <label for="r3" class="rate-star" aria-label="3 stars">&#9733;</label>
               <input type="radio" id="r2" name="rate" value="2" class="sr-only" />
-              <label for="r2" class="rate-star" aria-label="2 stars">★</label>
+              <label for="r2" class="rate-star" aria-label="2 stars">&#9733;</label>
               <input type="radio" id="r1" name="rate" value="1" class="sr-only" />
-              <label for="r1" class="rate-star" aria-label="1 star">★</label>
+              <label for="r1" class="rate-star" aria-label="1 star">&#9733;</label>
             </div>
             <p class="rate-hint">Click a star to rate</p>
           </div>
@@ -98,7 +98,7 @@
             </div>
             <ul id="materials-list" class="materials-list" role="list">
               <li class="material-item">
-                <span class="material-icon" aria-hidden="true">📄</span>
+                <span class="material-icon" aria-hidden="true">&#128196;</span>
                 <div class="material-info">
                   <span class="material-name">No materials yet</span>
                   <span class="material-meta">Files will appear once uploaded.</span>
@@ -121,14 +121,14 @@
 
           <!-- Professor line — clicking leads to their profile section -->
           <p class="detail-with-prof">
-            with <a id="detail-prof-link" href="index.html#professor-profiles"
+            with <a id="detail-prof-link" href="professors.html"
                     class="detail-professor-link">Professor name</a>
           </p>
 
           <!-- ── ABOUT THIS COURSE ──
                Letterboxd approach: a punchy short summary at the very top,
                then the full detailed syllabus description below it.
-               Both are filled from the same description field in courseData.
+               Both are filled from the same description field in the fetched course JSON.
           -->
           <div class="detail-syllabus">
             <h2 class="detail-section-label">About this course</h2>
@@ -148,14 +148,6 @@
             <p id="detail-workflow" class="detail-description"></p>
           </div>
 
-          <!-- ── SURVIVAL TIP ── highlighted callout box -->
-          <div class="detail-syllabus">
-            <h2 class="detail-section-label">Survival Tip</h2>
-            <div class="survival-tip-box">
-              <span class="survival-tip-icon" aria-hidden="true">⚠</span>
-              <p id="detail-survival-tip" class="detail-description"></p>
-            </div>
-          </div>
 
         </div><!-- /detail-meta -->
       </div><!-- /detail-layout -->
@@ -180,7 +172,7 @@
             aria-controls="review-form-panel"
             type="button"
           >
-            <span aria-hidden="true">✏</span> Write a Review
+            <span aria-hidden="true">&#9999;</span> Write a Review
           </button>
         </div>
 
@@ -231,15 +223,15 @@
               <div class="star-radio-group" role="group" aria-label="Rate 1 to 5 stars">
                 <!-- Stars in reverse DOM order + flex row-reverse = correct left-to-right fill -->
                 <input type="radio" id="fs5" name="rating" value="5" class="sr-only" required />
-                <label for="fs5" class="star-radio-label" aria-label="5 stars">★</label>
+                <label for="fs5" class="star-radio-label" aria-label="5 stars">&#9733;</label>
                 <input type="radio" id="fs4" name="rating" value="4" class="sr-only" />
-                <label for="fs4" class="star-radio-label" aria-label="4 stars">★</label>
+                <label for="fs4" class="star-radio-label" aria-label="4 stars">&#9733;</label>
                 <input type="radio" id="fs3" name="rating" value="3" class="sr-only" />
-                <label for="fs3" class="star-radio-label" aria-label="3 stars">★</label>
+                <label for="fs3" class="star-radio-label" aria-label="3 stars">&#9733;</label>
                 <input type="radio" id="fs2" name="rating" value="2" class="sr-only" />
-                <label for="fs2" class="star-radio-label" aria-label="2 stars">★</label>
+                <label for="fs2" class="star-radio-label" aria-label="2 stars">&#9733;</label>
                 <input type="radio" id="fs1" name="rating" value="1" class="sr-only" />
-                <label for="fs1" class="star-radio-label" aria-label="1 star">★</label>
+                <label for="fs1" class="star-radio-label" aria-label="1 star">&#9733;</label>
               </div>
             </fieldset>
 
@@ -298,408 +290,20 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <span class="brand-icon">◈</span>
+        <span class="brand-icon">&#9670;</span>
         <span class="brand-name">SYLLABUS</span>
         <span class="footer-tagline">KIU Academic Catalogue · Built by students, for students</span>
       </div>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="index.html" class="footer-link">Catalogue</a>
-        <a href="index.html#professor-profiles" class="footer-link">Professors</a>
+        <a href="professors.html" class="footer-link">Professors</a>
         <a href="about.html" class="footer-link">About</a>
       </nav>
-      <p class="footer-copy">© 2026 SYLLABUS · Not an official KIU product</p>
+      <p class="footer-copy">&#169; 2026 SYLLABUS · Not an official KIU product</p>
     </div>
   </footer>
-
-  <!-- ============================================================
-       JAVASCRIPT
-       Reads ?course= param, looks up courseData, populates the page.
-       No framework — vanilla JS only.
-  ============================================================ -->
-  <script>
-    /* ------------------------------------------------------------------
-       COURSE DATA
-       All 6 courses with full syllabus info, assessment, materials.
-       poster image URLs kept exactly as provided.
-    ------------------------------------------------------------------ */
-    const courseData = {
-      'blockchain-cryptography': {
-        title: 'Blockchain & Cryptography Introduction',
-        department: 'Computer Science',
-        degree: 'Bachelor',
-        code: 'AC_PROG_FORM 001',
-        credits: '6 ECTS',
-        professor: 'Davit Kipshidze',
-        posterClass: 'card-poster--1',
-        posterUrl: 'blob:https://gemini.google.com/c4f133a6-1ea2-45bb-8a73-57aec55d2317',
-        posterLabel: 'Blockchain & Cryptography course poster',
-        description: 'This course explores the fundamental concepts of Blockchain technology and Distributed Ledger Systems, with a heavy focus on the role of cryptography in security. You will study symmetric and asymmetric encryption, digital signatures, and hash functions while analyzing blockchain internals and consensus models like Proof of Work and Proof of Stake. The curriculum also examines real-world applications in cryptocurrencies, smart contracts, and Decentralized Finance (DeFi), alongside regulatory trends and emerging technologies.',
-        prerequisites: 'Fundamentals of Programming',
-        assessment: [
-          { component: 'Continuous Evaluation (Quizzes)', weight: '30%', details: '5 individual quiz tests — 1.2 points each, 6 points total', minimum: 'Min. 9 / 30 to stay eligible' },
-          { component: 'Midterm Project',                 weight: '30%', details: '30 points total',                                              minimum: 'Min. 12 / 30 to stay eligible' },
-          { component: 'Final Project',                   weight: '30%', details: '30 points total',                                              minimum: 'Min. 21 / 40 to pass',          highlight: true },
-          { component: 'Project Presentation',            weight: '10%', details: '10 points total',                                              minimum: '—' }
-        ],
-        workflow: '30 hours of Lectures · 30 hours of Central Exercises.',
-        survival: 'You must earn a minimum of 9/30 points on Quizzes and 12/30 points on the Midterm to remain eligible. A total of 21 points is required to access the Final Exam, where you must score at least 21/40 points to pass the course.',
-        materials: [
-          { name: 'Blockchain Midterm Guide.pdf',      meta: 'Midterm · Davit Kipshidze' },
-          { name: 'Consensus Models Notes.pdf',        meta: 'Lecture notes · Blockchain' },
-          { name: 'Digital Signatures Worksheet.pdf',  meta: 'Exercises · Cryptography' },
-          { name: 'Final Project Brief.pdf',           meta: 'Project · Blockchain & Cryptography' }
-        ],
-        related: ['database-1', 'advanced-java-in-practice']
-      },
-
-      'database-1': {
-        title: 'Database 1',
-        department: 'Computer Science',
-        degree: 'BSc',
-        code: 'AC_PROG_FORM 001',
-        credits: '6 ECTS',
-        professor: 'Eva Knirsch',
-        posterClass: 'card-poster--2',
-        posterUrl: 'blob:https://gemini.google.com/843d239a-7a38-47be-9b44-97a8b5e81ba0',
-        posterLabel: 'Database 1 course poster',
-        description: 'This course focuses on the systematic application of relational database concepts, ranging from conceptual design to physical implementation. You will master the ER model to conceptually model databases and learn to map those models into database schemes. The curriculum emphasizes practical application, requiring you to implement databases using SQL DDL, apply normalization rules, and ensure referential integrity. Additionally, you will gain a command of complex SQL querying — including CTEs and window functions — while learning to optimize query execution through an understanding of physical data organization and index structures.',
-        prerequisites: 'English 2 (International B2 level equivalence)',
-        assessment: [
-          { component: 'Midterm Exam',         weight: '40%', details: 'Written exam covering database theory and SQL',                                                minimum: '—' },
-          { component: 'Active Participation', weight: '20%', details: 'Lecture contributions (7 pts) · Learning Journals (7 pts) · Lab tasks (7 pts)',               minimum: '—' },
-          { component: 'Final Exam',           weight: '40%', details: 'Comprehensive final exam',                                                                     minimum: 'Min. 21 / 40 to pass', highlight: true }
-        ],
-        workflow: '60 contact hours — 2 hours of lectures + 2 hours of labs per week. 120 hours of self-study.',
-        survival: 'You must earn a minimum of 25/60 points on your interim assessment (Midterm + Participation) to remain eligible, and you need at least 21/40 points on the final exam to pass the course.',
-        materials: [
-          { name: 'DB1 Midterm 2024.pdf',   meta: 'Midterm · Eva Knirsch' },
-          { name: 'SQL Lab Exercises.pdf',  meta: 'Labs · Database 1' },
-          { name: 'ER Model Notes S3.pdf',  meta: 'Notes · Conceptual Design' },
-          { name: 'DB1 Final 2023.pdf',     meta: 'Final Exam · Review' }
-        ],
-        related: ['theory-of-computation', 'scripting-languages']
-      },
-
-      'theory-of-computation': {
-        title: 'Introduction to Theory of Computation',
-        department: 'Computer Science',
-        degree: 'BSc',
-        code: 'CS6740',
-        credits: '6 ECTS',
-        professor: 'George Nadareishvili',
-        posterClass: 'card-poster--3',
-        posterUrl: 'blob:https://gemini.google.com/bc3c4224-017e-49df-8abe-4cf2a96fcb32',
-        posterLabel: 'Theory of Computation course poster',
-        description: 'This course explores the fundamental limits of what computers can and cannot do. You will master four major theoretical areas: Formal Languages and machine models, Recursion Theory (computability), Formal Logic, and Complexity Theory. The curriculum is built around proving technical statements through diagonalization and simulation, covering essential concepts like Turing machines, Gödel\'s incompleteness theorems, and the P-versus-NP problem. You will learn to determine the computational difficulty of a problem and recognize when an algorithmic solution is mathematically impossible to construct.',
-        prerequisites: 'Discrete Structures, Linear Algebra for Informatics, and Analysis for Informatics',
-        assessment: [
-          { component: 'Exercises',     weight: '20%', details: 'Submitting and presenting problem sets', minimum: '—' },
-          { component: 'Midterm Exam',  weight: '40%', details: 'Mid-semester written exam',             minimum: '—' },
-          { component: 'Final Exam',    weight: '40%', details: 'Final written exam',                    minimum: 'Min. 21 / 40 to pass', highlight: true }
-        ],
-        workflow: '30 hours of Lectures · 15 hours of Central Exercises · 15 hours of Exercise classes. Students are expected to spend at least 1 hour of self-study for every hour of class.',
-        survival: 'You must earn a minimum of 21/60 points across your exercises and midterm to stay on track, and you need at least 21/40 points on the final exam to pass the course.',
-        materials: [
-          { name: 'Turing Machines Notes.pdf',    meta: 'Lecture notes · Theory of Computation' },
-          { name: 'Logic & Proofs Worksheet.pdf', meta: 'Exercises · Formal Logic' },
-          { name: 'Complexity Theory Review.pdf', meta: 'Study guide · P vs NP' },
-          { name: 'Final Exam Prep.pdf',          meta: 'Review · Computability' }
-        ],
-        related: ['database-1', 'advanced-java-in-practice']
-      },
-
-      'scripting-languages': {
-        title: 'Scripting Languages',
-        department: 'Computer Science',
-        degree: 'BSc',
-        code: 'CS6626',
-        credits: '6 ECTS',
-        professor: 'Lasha Iashvili',
-        posterClass: 'card-poster--4',
-        posterUrl: 'blob:https://gemini.google.com/f58465aa-f883-401d-b3aa-5442a6a451a2',
-        posterLabel: 'Scripting Languages course poster',
-        description: 'This course focuses on practical front-end development, covering HTML fundamentals, CSS techniques (Flexbox, animations, and responsive design), and JavaScript (DOM manipulation, ES6+, and asynchronous programming). You will learn to build interactive web applications by creating templates, modules, and components using React. The curriculum is strictly project-based, requiring you to integrate these technologies into a team midterm and an individual final software package.',
-        prerequisites: 'None',
-        assessment: [
-          { component: 'Quizzes',          weight: '35%', details: 'Regular quizzes on web fundamentals', minimum: 'Min. 21 pts to access final' },
-          { component: 'Midterm Project',  weight: '25%', details: 'Project-based team midterm',          minimum: '—' },
-          { component: 'Final Project',    weight: '40%', details: 'Individual final software package',   minimum: 'Min. 21 / 40 on interview to pass', highlight: true }
-        ],
-        workflow: '15 hours of Lectures · 15 hours of Central Exercises · 30 hours of Practical Labs.',
-        survival: 'You must earn at least 21 points to be admitted to the final project. A minimum of 21/40 is required on the final project interview to pass; missing the interview results in an automatic failure.',
-        materials: [
-          { name: 'JS DOM Exercises.pdf',      meta: 'Exercises · Scripting Languages' },
-          { name: 'React Project Brief.pdf',   meta: 'Midterm · Front-end' },
-          { name: 'Responsive CSS Guide.pdf',  meta: 'Labs · CSS' },
-          { name: 'Final Project Checklist.pdf', meta: 'Project · UI/UX' }
-        ],
-        related: ['blockchain-cryptography', 'applied-llm-systems']
-      },
-
-      'advanced-java-in-practice': {
-        title: 'Advanced Java in Practice',
-        department: 'Computer Science',
-        degree: 'Bachelor',
-        code: 'AC_PROG_FORM 001',
-        credits: '6 ECTS',
-        professor: 'Zaal Beriashvili',
-        posterClass: 'card-poster--5',
-        posterUrl: 'blob:https://gemini.google.com/feb91e96-b7d4-4051-ab64-bc074c417f86',
-        posterLabel: 'Advanced Java course poster',
-        description: 'This course is designed for students seeking to deepen their understanding of Java through hands-on examples. You will explore advanced topics including multithreading and concurrency, functional programming with lambdas and streams, and the Java type system (generics, annotations, and reflection). The curriculum covers modern enhancements like records and sealed classes, alongside JVM internals, memory management, and practical applications in networking and database connectivity, all while emphasising real-world best practices.',
-        prerequisites: 'Introduction to Informatics and Fundamentals of Programming (Java)',
-        assessment: [
-          { component: 'Midterm Exam',  weight: '30%', details: '30 points total', minimum: 'Min. 11 / 30 to stay eligible' },
-          { component: 'Assignments',   weight: '30%', details: '30 points total', minimum: 'Min. 10 / 30 to stay eligible' },
-          { component: 'Final Exam',    weight: '40%', details: '40 points total', minimum: 'Min. 21 / 40 to pass', highlight: true }
-        ],
-        workflow: '30 hours of Lectures · 30 hours of Central Exercises · 30 hours of TTF.',
-        survival: 'You must earn a minimum of 11/30 points on the Midterm and 10/30 points from Assignments to remain eligible for the Final Exam. A minimum score of 21/40 points on the Final Exam is strictly required to pass the course.',
-        materials: [
-          { name: 'Java Midterm 2024.pdf',       meta: 'Midterm · Advanced Java' },
-          { name: 'Concurrency Examples.pdf',    meta: 'Assignments · Java' },
-          { name: 'Streams & Lambdas Guide.pdf', meta: 'Notes · Functional Java' },
-          { name: 'Final Exam Sample.pdf',       meta: 'Review · JVM Internals' }
-        ],
-        related: ['theory-of-computation', 'database-1']
-      },
-
-      'applied-llm-systems': {
-        title: 'Applied LLM Systems',
-        department: 'Computer Science',
-        degree: 'BSc',
-        code: 'AC_PROG_FORM 001',
-        credits: '6 ECTS',
-        professor: 'Shota Elkanishvili',
-        posterClass: 'card-poster--6',
-        posterUrl: 'blob:https://gemini.google.com/dbf0f563-f602-4f28-8277-a3411742ef35',
-        posterLabel: 'Applied LLM Systems course poster',
-        description: 'This hands-on course focuses on building LLM applications through a framework-agnostic lens. You will master prompting, structured outputs, tool/function calling, and Retrieval-Augmented Generation (RAG). The curriculum covers advanced workflows like agents with memory, evaluation techniques, and production concerns including cost, latency, and safety. While primarily practical, the course provides the necessary theoretical foundation in pretraining, alignment (RLHF/DPO), and fine-tuning (LoRA/PEFT) to help you make informed architectural decisions.',
-        prerequisites: 'Introduction to Software Engineering',
-        assessment: [
-          { component: 'Homework',                   weight: '20%', details: 'Two assignments',      minimum: '—' },
-          { component: 'Midterm Exam',               weight: '40%', details: 'Midterm exam',         minimum: 'Min. 21 / 40 to be eligible for finals' },
-          { component: 'Final Project',              weight: '35%', details: 'Final project',        minimum: 'Min. 21 / 40 to pass', highlight: true },
-          { component: 'Final Project Presentation', weight: '5%',  details: 'Live presentation',    minimum: '—' }
-        ],
-        workflow: '30 hours of Lectures · 30 hours of Lab sessions.',
-        survival: 'You must earn a minimum of 21/40 points on the Midterm to be eligible for the final components. Additionally, a minimum score of 21/40 points is strictly required to pass the Final Project.',
-        materials: [
-          { name: 'RAG Workshop Notes.pdf',   meta: 'Labs · Applied LLM' },
-          { name: 'Prompting Guide.pdf',      meta: 'Homework · LLM Systems' },
-          { name: 'Agent Examples.zip',       meta: 'Project · Tooling' },
-          { name: 'Final Project Spec.pdf',   meta: 'Project · Assessment' }
-        ],
-        related: ['scripting-languages', 'blockchain-cryptography']
-      }
-    };
-
-    /* ------------------------------------------------------------------
-       RESOLVE COURSE FROM URL PARAM
-    ------------------------------------------------------------------ */
-    const params    = new URLSearchParams(window.location.search);
-    const courseKey = params.get('course');
-    const course    = courseData[courseKey];
-
-    /* Grab DOM targets */
-    const detailDeptTag      = document.getElementById('detail-dept-tag');
-    const detailTitle        = document.getElementById('detail-heading');
-    const detailProfLink     = document.getElementById('detail-prof-link');
-    const detailDescription  = document.getElementById('detail-description');
-    const detailPrerequisite = document.getElementById('detail-prerequisite');
-    const assessmentDiv      = document.getElementById('assessment-breakdown');
-    const detailWorkflow     = document.getElementById('detail-workflow');
-    const detailSurvival     = document.getElementById('detail-survival-tip');
-    const detailPoster       = document.getElementById('detail-poster');
-    const backdropPoster     = document.getElementById('course-backdrop-poster');
-    const breadcrumbCurrent  = document.getElementById('breadcrumb-current');
-    const breadcrumbDegree   = document.getElementById('breadcrumb-degree');
-    const materialsCount     = document.getElementById('materials-count');
-    const materialsList      = document.getElementById('materials-list');
-    const relatedGrid        = document.getElementById('related-grid');
-
-    /* ------------------------------------------------------------------
-       NOT FOUND STATE
-    ------------------------------------------------------------------ */
-    if (!course) {
-      document.title = 'Course not found — SYLLABUS · KIU';
-      detailTitle.textContent        = 'Course not found';
-      detailDeptTag.textContent      = 'Computer Science · KIU';
-      detailProfLink.textContent     = 'Unknown instructor';
-      detailDescription.textContent  = 'The requested course could not be found. Return to the catalogue.';
-      detailPrerequisite.style.display = 'none';
-      assessmentDiv.innerHTML        = '<p class="detail-description">No assessment data available.</p>';
-      breadcrumbCurrent.textContent  = 'Not found';
-      breadcrumbDegree.textContent   = 'Catalogue';
-      // stop execution
-    } else {
-
-      /* ------------------------------------------------------------------
-         POPULATE PAGE METADATA
-      ------------------------------------------------------------------ */
-      document.title                   = `${course.title} — SYLLABUS · KIU`;
-      breadcrumbCurrent.textContent    = course.title;
-      breadcrumbDegree.textContent     = course.department;
-      detailDeptTag.textContent        = `${course.department} · ${course.degree} · ${course.code} · ${course.credits}`;
-      detailTitle.textContent          = course.title;
-      detailProfLink.textContent       = course.professor;
-      detailDescription.textContent    = course.description;
-
-      if (course.prerequisites && course.prerequisites !== 'None') {
-        detailPrerequisite.textContent = `Prerequisites: ${course.prerequisites}`;
-      } else {
-        detailPrerequisite.style.display = 'none';
-      }
-
-      detailWorkflow.textContent  = course.workflow;
-      detailSurvival.textContent  = course.survival;
-
-      /* ------------------------------------------------------------------
-         ASSESSMENT TABLE — 4 columns
-      ------------------------------------------------------------------ */
-      assessmentDiv.innerHTML = `
-        <table class="offering-table" aria-label="Assessment breakdown for ${course.title}">
-          <caption class="sr-only">Assessment components, weights, details and minimum scores</caption>
-          <thead>
-            <tr>
-              <th scope="col">Component</th>
-              <th scope="col">Weight</th>
-              <th scope="col">Details</th>
-              <th scope="col">Minimum to pass</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${course.assessment.map(item => `
-              <tr${item.highlight ? ' class="table-row--current"' : ''}>
-                <td>${item.component}</td>
-                <td class="table-rating">${item.weight}</td>
-                <td>${item.details}</td>
-                <td>${item.minimum || '—'}</td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
-      `;
-
-      /* ------------------------------------------------------------------
-         POSTER & BACKDROP
-      ------------------------------------------------------------------ */
-      detailPoster.className               = `detail-poster ${course.posterClass}`;
-      detailPoster.style.backgroundImage   = `url('${course.posterUrl}')`;
-      detailPoster.style.backgroundSize    = 'cover';
-      detailPoster.style.backgroundPosition = 'center';
-      detailPoster.setAttribute('aria-label', course.posterLabel);
-
-      backdropPoster.className               = `course-backdrop-poster ${course.posterClass}`;
-      backdropPoster.style.backgroundImage   = `url('${course.posterUrl}')`;
-      backdropPoster.style.backgroundSize    = 'cover';
-      backdropPoster.style.backgroundPosition = 'center';
-
-      /* ------------------------------------------------------------------
-         MATERIALS LIST
-      ------------------------------------------------------------------ */
-      const mats = course.materials || [];
-      materialsCount.textContent = `${mats.length} file${mats.length !== 1 ? 's' : ''}`;
-      materialsList.innerHTML = mats.length
-        ? mats.map(m => `
-            <li class="material-item">
-              <span class="material-icon" aria-hidden="true">📄</span>
-              <div class="material-info">
-                <span class="material-name">${m.name}</span>
-                <span class="material-meta">${m.meta}</span>
-              </div>
-              <a href="#" class="material-download" aria-label="Download ${m.name}">↓</a>
-            </li>
-          `).join('')
-        : `<li class="material-item">
-             <span class="material-icon" aria-hidden="true">📄</span>
-             <div class="material-info">
-               <span class="material-name">No materials yet</span>
-               <span class="material-meta">Upload the first file for your peers.</span>
-             </div>
-           </li>`;
-
-      /* ------------------------------------------------------------------
-         RELATED COURSES
-         A course is "related" only if it shares the EXACT same title
-         but belongs to a different courseData key (i.e. different professor
-         or semester). Right now all 6 courses have unique titles, so this
-         will correctly produce no results and keep the section hidden.
-         When the data grows and a second professor teaches the same course,
-         this logic will surface them automatically.
-      ------------------------------------------------------------------ */
-      const relatedSection = document.getElementById('related-section');
-      const sameTitleCourses = Object.entries(courseData).filter(
-        ([key, c]) => key !== courseKey && c.title === course.title
-      );
-
-      if (sameTitleCourses.length > 0) {
-        relatedSection.hidden = false;
-        relatedGrid.innerHTML = sameTitleCourses.map(([key, r]) => `
-          <article class="related-card">
-            <a href="course.html?course=${key}" class="related-card-link">
-              <div class="related-poster ${r.posterClass}"></div>
-              <div class="related-info">
-                <h3 class="related-title">${r.title}</h3>
-                <p class="related-prof">${r.professor}</p>
-                <p class="related-semester">${r.department} · ${r.credits}</p>
-              </div>
-            </a>
-          </article>
-        `).join('');
-      }
-      /* Section stays hidden (default) when no same-title courses exist */
-
-    } /* end if (course) */
-
-    /* ------------------------------------------------------------------
-       REVIEW FORM TOGGLE
-    ------------------------------------------------------------------ */
-    const writeReviewBtn   = document.getElementById('write-review-btn');
-    const reviewFormPanel  = document.getElementById('review-form-panel');
-    const cancelReviewBtn  = document.getElementById('cancel-review-btn');
-    const reviewForm       = document.querySelector('.review-form');
-    const reviewEmpty      = document.getElementById('review-empty');
-
-    writeReviewBtn.addEventListener('click', () => {
-      const isOpen = !reviewFormPanel.hidden;
-      reviewFormPanel.hidden = isOpen;
-      writeReviewBtn.setAttribute('aria-expanded', String(!isOpen));
-      /* scroll form into view when opening */
-      if (!isOpen) {
-        reviewFormPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    });
-
-    cancelReviewBtn.addEventListener('click', () => {
-      reviewFormPanel.hidden = true;
-      writeReviewBtn.setAttribute('aria-expanded', 'false');
-      reviewForm.reset();
-    });
-
-    reviewForm.addEventListener('submit', e => {
-      e.preventDefault();
-      reviewEmpty.querySelector('p').textContent =
-        'Thank you — your review has been submitted and will appear once processed.';
-      reviewForm.reset();
-      reviewFormPanel.hidden = true;
-      writeReviewBtn.setAttribute('aria-expanded', 'false');
-    });
-
-    /* ------------------------------------------------------------------
-       SEMESTER CHIPS (reused from index if any chips present)
-    ------------------------------------------------------------------ */
-    document.querySelectorAll('.sem-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        document.querySelectorAll('.sem-chip').forEach(c => {
-          c.classList.remove('sem-chip--active');
-          c.setAttribute('aria-pressed', 'false');
-        });
-        chip.classList.add('sem-chip--active');
-        chip.setAttribute('aria-pressed', 'true');
-      });
-    });
-  </script>
+  <script src="js/app.js" charset="UTF-8"></script>
+  <script src="js/course.js" charset="UTF-8"></script>
 
 </body>
 </html>

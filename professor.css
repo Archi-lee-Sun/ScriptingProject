@@ -1,0 +1,107 @@
+/* ================================================================
+   PROFESSOR DETAIL PAGE
+   Uses the existing dark academic design tokens and course-card system.
+================================================================ */
+
+.professor-detail {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--sp-2xl) var(--sp-xl) var(--sp-3xl);
+}
+
+.professor-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+  gap: var(--sp-3xl);
+  align-items: flex-start;
+}
+
+.professor-bio-col {
+  position: sticky;
+  top: calc(var(--header-h) + var(--sp-xl));
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.professor-avatar {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.professor-avatar .prof-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.professor-avatar .prof-initials-fallback {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  color: var(--text-muted);
+  align-items: center;
+  justify-content: center;
+}
+
+.professor-detail-name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 0.95;
+  color: var(--text-primary);
+}
+
+.professor-detail-dept {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+}
+
+.professor-detail-bio {
+  font-size: 0.94rem;
+  line-height: 1.82;
+  color: var(--text-secondary);
+}
+
+.professor-filmography-header {
+  margin-bottom: var(--sp-xl);
+}
+
+.professor-course-grid {
+  align-items: flex-start;
+}
+
+.prof-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.prof-card-link:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 4px;
+}
+
+@media (max-width: 860px) {
+  .professor-detail-layout {
+    grid-template-columns: 1fr;
+    gap: var(--sp-2xl);
+  }
+
+  .professor-bio-col {
+    position: static;
+  }
+
+  .professor-avatar {
+    max-width: 320px;
+  }
+}

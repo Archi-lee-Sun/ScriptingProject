@@ -6,12 +6,11 @@
    2.  Breadcrumb
    3.  Course Detail Layout (2-col Letterboxd)
    4.  Left Column: Poster · Rate Block · Materials
-   5.  Right Column: Meta, Description, Table, Survival
+   5.  Right Column: Meta, Description, Table
    6.  Offerings / Assessment Table
-   7.  Survival Tip Callout
-   8.  Student Reviews & Form
-   9.  Related Courses
-   10. Responsive
+   7.  Student Reviews & Form
+   8.  Related Courses
+   9.  Responsive
 ================================================================ */
 
 
@@ -432,32 +431,6 @@
 }
 
 
-/* ================================================================
-   7. SURVIVAL TIP CALLOUT
-   A visually distinct warning box — not a plain paragraph.
-================================================================ */
-.survival-tip-box {
-  display: flex;
-  gap: var(--sp-md);
-  align-items: flex-start;
-  background: rgba(245, 166, 35, 0.07);
-  border: 1px solid rgba(245, 166, 35, 0.25);
-  border-left: 3px solid var(--accent-gold);
-  border-radius: 0 var(--r-md) var(--r-md) 0;
-  padding: var(--sp-md) var(--sp-lg);
-}
-
-.survival-tip-icon {
-  font-size: 1.1rem;
-  line-height: 1.9;
-  color: var(--accent-gold);
-  flex-shrink: 0;
-}
-
-.survival-tip-box .detail-description {
-  color: var(--text-secondary);
-}
-
 
 /* ================================================================
    8. STUDENT REVIEWS & REVIEW FORM
@@ -738,6 +711,11 @@
   color: var(--text-muted);
 }
 
+.reviewer-degree .star-display {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
 .review-date {
   font-family: var(--font-mono);
   font-size: 0.66rem;
@@ -899,5 +877,4 @@
 
 @media (max-width: 480px) {
   .course-backdrop { height: 180px; }
-  .survival-tip-box { flex-direction: column; gap: var(--sp-sm); }
 }

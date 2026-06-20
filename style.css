@@ -398,10 +398,12 @@ em { font-style: italic; color: var(--accent-green); }
   height: 195px;
   border-radius: var(--r-md);
   box-shadow: var(--shadow-deep);
+  background-size: cover, cover;
+  background-position: center, center;
 }
 
 .hero-poster--1 {
-  background: linear-gradient(155deg, #0d2a18 0%, #091408 100%);
+  background-image: url("assets/Blockchain & Cryptography Introduction.png"), linear-gradient(155deg, #0d2a18 0%, #091408 100%);
   border: 1px solid rgba(0, 230, 118, 0.18);
   transform: rotate(-3deg);
   animation: fadeIn 0.7s ease both;
@@ -419,7 +421,7 @@ em { font-style: italic; color: var(--accent-green); }
   white-space: pre;
   position: absolute;
   bottom: 14px; left: 12px; right: 12px;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 0.68rem;
   font-weight: 700;
   color: var(--accent-green);
@@ -427,7 +429,7 @@ em { font-style: italic; color: var(--accent-green); }
 }
 
 .hero-poster--2 {
-  background: linear-gradient(155deg, #0a1a2e 0%, #060e1c 100%);
+  background-image: url("assets/Database1.png"), linear-gradient(155deg, #0a1a2e 0%, #060e1c 100%);
   border: 1px solid rgba(64, 200, 244, 0.18);
   transform: rotate(1.5deg) translateY(-14px);
   animation: fadeIn 0.7s ease both;
@@ -453,7 +455,7 @@ em { font-style: italic; color: var(--accent-green); }
 }
 
 .hero-poster--3 {
-  background: linear-gradient(155deg, #271800 0%, #140c00 100%);
+  background-image: url("assets/AppliedLLMSystems.png"), linear-gradient(155deg, #271800 0%, #140c00 100%);
   border: 1px solid rgba(245, 166, 35, 0.18);
   transform: rotate(4deg);
   animation: fadeIn 0.7s ease both;
@@ -488,6 +490,12 @@ em { font-style: italic; color: var(--accent-green); }
 }
 
 .section-title { margin-bottom: var(--sp-sm); }
+
+.ampersand-plain {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: inherit;
+}
 
 .section-sub {
   font-size: 0.98rem;
@@ -611,6 +619,15 @@ em { font-style: italic; color: var(--accent-green); }
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-xl);
+}
+
+.catalogue-empty {
+  width: 100%;
+  padding: var(--sp-xl) var(--sp-xl) var(--sp-2xl);
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: var(--r-md);
+  color: var(--text-secondary);
 }
 
 .course-card {

@@ -1,0 +1,368 @@
+{
+  "blockchain-cryptography": {
+    "title": "Blockchain & Cryptography Introduction",
+    "department": "Computer Science",
+    "degree": "Bachelor",
+    "code": "AC_PROG_FORM 001",
+    "credits": "6 ECTS",
+    "professor": "Davit Kipshidze",
+    "professorSlug": "davit-kipshidze",
+    "posterClass": "card-poster--1",
+    "posterImage": "assets/Blockchain & Cryptography Introduction.png",
+    "posterUrl": "blob:https://gemini.google.com/c4f133a6-1ea2-45bb-8a73-57aec55d2317",
+    "posterLabel": "Blockchain & Cryptography course poster",
+    "description": "This course explores the fundamental concepts of Blockchain technology and Distributed Ledger Systems, with a heavy focus on the role of cryptography in security. You will study symmetric and asymmetric encryption, digital signatures, and hash functions while analyzing blockchain internals and consensus models like Proof of Work and Proof of Stake. The curriculum also examines real-world applications in cryptocurrencies, smart contracts, and Decentralized Finance (DeFi), alongside regulatory trends and emerging technologies.",
+    "prerequisites": "Fundamentals of Programming",
+    "assessment": [
+      {
+        "component": "Continuous Evaluation (Quizzes)",
+        "weight": "30%",
+        "details": "5 individual quiz tests — 1.2 points each, 6 points total",
+        "minimum": "Min. 9 / 30 to stay eligible"
+      },
+      {
+        "component": "Midterm Project",
+        "weight": "30%",
+        "details": "30 points total",
+        "minimum": "Min. 12 / 30 to stay eligible"
+      },
+      {
+        "component": "Final Project",
+        "weight": "30%",
+        "details": "30 points total",
+        "minimum": "Min. 21 / 40 to pass",
+        "highlight": true
+      },
+      {
+        "component": "Project Presentation",
+        "weight": "10%",
+        "details": "10 points total",
+        "minimum": "—"
+      }
+    ],
+    "workflow": "30 hours of Lectures · 30 hours of Central Exercises.",
+    "materials": [
+      {
+        "name": "Blockchain Midterm Guide.pdf",
+        "meta": "Midterm · Davit Kipshidze"
+      },
+      {
+        "name": "Consensus Models Notes.pdf",
+        "meta": "Lecture notes · Blockchain"
+      },
+      {
+        "name": "Digital Signatures Worksheet.pdf",
+        "meta": "Exercises · Cryptography"
+      },
+      {
+        "name": "Final Project Brief.pdf",
+        "meta": "Project · Blockchain & Cryptography"
+      }
+    ],
+    "related": [
+      "database-1",
+      "advanced-java-in-practice"
+    ]
+  },
+  "database-1": {
+    "title": "Database 1",
+    "department": "Computer Science",
+    "degree": "BSc",
+    "code": "AC_PROG_FORM 001",
+    "credits": "6 ECTS",
+    "professor": "Eva Knirsch",
+    "professorSlug": "eva-knirsch",
+    "posterClass": "card-poster--2",
+    "posterImage": "assets/Database1.png",
+    "posterUrl": "blob:https://gemini.google.com/843d239a-7a38-47be-9b44-97a8b5e81ba0",
+    "posterLabel": "Database 1 course poster",
+    "description": "This course focuses on the systematic application of relational database concepts, ranging from conceptual design to physical implementation. You will master the ER model to conceptually model databases and learn to map those models into database schemes. The curriculum emphasizes practical application, requiring you to implement databases using SQL DDL, apply normalization rules, and ensure referential integrity. Additionally, you will gain a command of complex SQL querying — including CTEs and window functions — while learning to optimize query execution through an understanding of physical data organization and index structures.",
+    "prerequisites": "English 2 (International B2 level equivalence)",
+    "assessment": [
+      {
+        "component": "Midterm Exam",
+        "weight": "40%",
+        "details": "Written exam covering database theory and SQL",
+        "minimum": "—"
+      },
+      {
+        "component": "Active Participation",
+        "weight": "20%",
+        "details": "Lecture contributions (7 pts) · Learning Journals (7 pts) · Lab tasks (7 pts)",
+        "minimum": "—"
+      },
+      {
+        "component": "Final Exam",
+        "weight": "40%",
+        "details": "Comprehensive final exam",
+        "minimum": "Min. 21 / 40 to pass",
+        "highlight": true
+      }
+    ],
+    "workflow": "60 contact hours — 2 hours of lectures + 2 hours of labs per week. 120 hours of self-study.",
+    "materials": [
+      {
+        "name": "DB1 Midterm 2024.pdf",
+        "meta": "Midterm · Eva Knirsch"
+      },
+      {
+        "name": "SQL Lab Exercises.pdf",
+        "meta": "Labs · Database 1"
+      },
+      {
+        "name": "ER Model Notes S3.pdf",
+        "meta": "Notes · Conceptual Design"
+      },
+      {
+        "name": "DB1 Final 2023.pdf",
+        "meta": "Final Exam · Review"
+      }
+    ],
+    "related": [
+      "theory-of-computation",
+      "scripting-languages"
+    ]
+  },
+  "theory-of-computation": {
+    "title": "Introduction to Theory of Computation",
+    "department": "Computer Science",
+    "degree": "BSc",
+    "code": "CS6740",
+    "credits": "6 ECTS",
+    "professor": "George Nadareishvili",
+    "professorSlug": "giorgi-nadareishvili",
+    "posterClass": "card-poster--3",
+    "posterImage": "assets/Introduction_to_Theory_of_Computation.png",
+    "posterUrl": "blob:https://gemini.google.com/bc3c4224-017e-49df-8abe-4cf2a96fcb32",
+    "posterLabel": "Theory of Computation course poster",
+    "description": "This course explores the fundamental limits of what computers can and cannot do. You will master four major theoretical areas: Formal Languages and machine models, Recursion Theory (computability), Formal Logic, and Complexity Theory. The curriculum is built around proving technical statements through diagonalization and simulation, covering essential concepts like Turing machines, Gödel's incompleteness theorems, and the P-versus-NP problem. You will learn to determine the computational difficulty of a problem and recognize when an algorithmic solution is mathematically impossible to construct.",
+    "prerequisites": "Discrete Structures, Linear Algebra for Informatics, and Analysis for Informatics",
+    "assessment": [
+      {
+        "component": "Exercises",
+        "weight": "20%",
+        "details": "Submitting and presenting problem sets",
+        "minimum": "—"
+      },
+      {
+        "component": "Midterm Exam",
+        "weight": "40%",
+        "details": "Mid-semester written exam",
+        "minimum": "—"
+      },
+      {
+        "component": "Final Exam",
+        "weight": "40%",
+        "details": "Final written exam",
+        "minimum": "Min. 21 / 40 to pass",
+        "highlight": true
+      }
+    ],
+    "workflow": "30 hours of Lectures · 15 hours of Central Exercises · 15 hours of Exercise classes. Students are expected to spend at least 1 hour of self-study for every hour of class.",
+    "materials": [
+      {
+        "name": "Turing Machines Notes.pdf",
+        "meta": "Lecture notes · Theory of Computation"
+      },
+      {
+        "name": "Logic & Proofs Worksheet.pdf",
+        "meta": "Exercises · Formal Logic"
+      },
+      {
+        "name": "Complexity Theory Review.pdf",
+        "meta": "Study guide · P vs NP"
+      },
+      {
+        "name": "Final Exam Prep.pdf",
+        "meta": "Review · Computability"
+      }
+    ],
+    "related": [
+      "database-1",
+      "advanced-java-in-practice"
+    ]
+  },
+  "scripting-languages": {
+    "title": "Scripting Languages",
+    "department": "Computer Science",
+    "degree": "BSc",
+    "code": "CS6626",
+    "credits": "6 ECTS",
+    "professor": "Lasha Iashvili",
+    "professorSlug": "lasha-iashvili",
+    "posterClass": "card-poster--4",
+    "posterImage": "assets/ScriptingLanguages.png",
+    "posterUrl": "blob:https://gemini.google.com/f58465aa-f883-401d-b3aa-5442a6a451a2",
+    "posterLabel": "Scripting Languages course poster",
+    "description": "This course focuses on practical front-end development, covering HTML fundamentals, CSS techniques (Flexbox, animations, and responsive design), and JavaScript (DOM manipulation, ES6+, and asynchronous programming). You will learn to build interactive web applications by creating templates, modules, and components using React. The curriculum is strictly project-based, requiring you to integrate these technologies into a team midterm and an individual final software package.",
+    "prerequisites": "None",
+    "assessment": [
+      {
+        "component": "Quizzes",
+        "weight": "35%",
+        "details": "Regular quizzes on web fundamentals",
+        "minimum": "Min. 21 pts to access final"
+      },
+      {
+        "component": "Midterm Project",
+        "weight": "25%",
+        "details": "Project-based team midterm",
+        "minimum": "—"
+      },
+      {
+        "component": "Final Project",
+        "weight": "40%",
+        "details": "Individual final software package",
+        "minimum": "Min. 21 / 40 on interview to pass",
+        "highlight": true
+      }
+    ],
+    "workflow": "15 hours of Lectures · 15 hours of Central Exercises · 30 hours of Practical Labs.",
+    "materials": [
+      {
+        "name": "JS DOM Exercises.pdf",
+        "meta": "Exercises · Scripting Languages"
+      },
+      {
+        "name": "React Project Brief.pdf",
+        "meta": "Midterm · Front-end"
+      },
+      {
+        "name": "Responsive CSS Guide.pdf",
+        "meta": "Labs · CSS"
+      },
+      {
+        "name": "Final Project Checklist.pdf",
+        "meta": "Project · UI/UX"
+      }
+    ],
+    "related": [
+      "blockchain-cryptography",
+      "applied-llm-systems"
+    ]
+  },
+  "advanced-java-in-practice": {
+    "title": "Advanced Java in Practice",
+    "department": "Computer Science",
+    "degree": "Bachelor",
+    "code": "AC_PROG_FORM 001",
+    "credits": "6 ECTS",
+    "professor": "Zaal Beriashvili",
+    "professorSlug": "zaal-beriashvili",
+    "posterClass": "card-poster--5",
+    "posterImage": "assets/AdvancedJavainPractice.png",
+    "posterUrl": "blob:https://gemini.google.com/feb91e96-b7d4-4051-ab64-bc074c417f86",
+    "posterLabel": "Advanced Java course poster",
+    "description": "This course is designed for students seeking to deepen their understanding of Java through hands-on examples. You will explore advanced topics including multithreading and concurrency, functional programming with lambdas and streams, and the Java type system (generics, annotations, and reflection). The curriculum covers modern enhancements like records and sealed classes, alongside JVM internals, memory management, and practical applications in networking and database connectivity, all while emphasising real-world best practices.",
+    "prerequisites": "Introduction to Informatics and Fundamentals of Programming (Java)",
+    "assessment": [
+      {
+        "component": "Midterm Exam",
+        "weight": "30%",
+        "details": "30 points total",
+        "minimum": "Min. 11 / 30 to stay eligible"
+      },
+      {
+        "component": "Assignments",
+        "weight": "30%",
+        "details": "30 points total",
+        "minimum": "Min. 10 / 30 to stay eligible"
+      },
+      {
+        "component": "Final Exam",
+        "weight": "40%",
+        "details": "40 points total",
+        "minimum": "Min. 21 / 40 to pass",
+        "highlight": true
+      }
+    ],
+    "workflow": "30 hours of Lectures · 30 hours of Central Exercises · 30 hours of TTF.",
+    "materials": [
+      {
+        "name": "Java Midterm 2024.pdf",
+        "meta": "Midterm · Advanced Java"
+      },
+      {
+        "name": "Concurrency Examples.pdf",
+        "meta": "Assignments · Java"
+      },
+      {
+        "name": "Streams & Lambdas Guide.pdf",
+        "meta": "Notes · Functional Java"
+      },
+      {
+        "name": "Final Exam Sample.pdf",
+        "meta": "Review · JVM Internals"
+      }
+    ],
+    "related": [
+      "theory-of-computation",
+      "database-1"
+    ]
+  },
+  "applied-llm-systems": {
+    "title": "Applied LLM Systems",
+    "department": "Computer Science",
+    "degree": "BSc",
+    "code": "AC_PROG_FORM 001",
+    "credits": "6 ECTS",
+    "professor": "Shota Elkanishvili",
+    "professorSlug": "shota-elkanishvili",
+    "posterClass": "card-poster--6",
+    "posterImage": "assets/AppliedLLMSystems.png",
+    "posterUrl": "blob:https://gemini.google.com/dbf0f563-f602-4f28-8277-a3411742ef35",
+    "posterLabel": "Applied LLM Systems course poster",
+    "description": "This hands-on course focuses on building LLM applications through a framework-agnostic lens. You will master prompting, structured outputs, tool/function calling, and Retrieval-Augmented Generation (RAG). The curriculum covers advanced workflows like agents with memory, evaluation techniques, and production concerns including cost, latency, and safety. While primarily practical, the course provides the necessary theoretical foundation in pretraining, alignment (RLHF/DPO), and fine-tuning (LoRA/PEFT) to help you make informed architectural decisions.",
+    "prerequisites": "Introduction to Software Engineering",
+    "assessment": [
+      {
+        "component": "Homework",
+        "weight": "20%",
+        "details": "Two assignments",
+        "minimum": "—"
+      },
+      {
+        "component": "Midterm Exam",
+        "weight": "40%",
+        "details": "Midterm exam",
+        "minimum": "Min. 21 / 40 to be eligible for finals"
+      },
+      {
+        "component": "Final Project",
+        "weight": "35%",
+        "details": "Final project",
+        "minimum": "Min. 21 / 40 to pass",
+        "highlight": true
+      },
+      {
+        "component": "Final Project Presentation",
+        "weight": "5%",
+        "details": "Live presentation",
+        "minimum": "—"
+      }
+    ],
+    "workflow": "30 hours of Lectures · 30 hours of Lab sessions.",
+    "materials": [
+      {
+        "name": "RAG Workshop Notes.pdf",
+        "meta": "Labs · Applied LLM"
+      },
+      {
+        "name": "Prompting Guide.pdf",
+        "meta": "Homework · LLM Systems"
+      },
+      {
+        "name": "Agent Examples.zip",
+        "meta": "Project · Tooling"
+      },
+      {
+        "name": "Final Project Spec.pdf",
+        "meta": "Project · Assessment"
+      }
+    ],
+    "related": [
+      "scripting-languages",
+      "blockchain-cryptography"
+    ]
+  }
+}

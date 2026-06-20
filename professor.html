@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professor — SYLLABUS · KIU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="course.css" />
+  <link rel="stylesheet" href="professor.css" />
+</head>
+<body class="professor-page">
+
+  <header class="site-header">
+    <nav class="nav-inner" aria-label="Primary navigation">
+      <a href="index.html" class="brand" aria-label="SYLLABUS home">
+        <span class="brand-icon">&#9670;</span>
+        <span class="brand-name">SYLLABUS</span>
+        <span class="brand-sub">KIU</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">Catalogue</a></li>
+        <li><a href="professors.html" class="nav-link nav-link--active" aria-current="page">Professors</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+      </ul>
+      <div class="search-wrapper" role="search">
+        <label for="global-search" class="sr-only">Search courses or professors</label>
+        <span class="search-icon" aria-hidden="true">&#8981;</span>
+        <input type="search" id="global-search" class="search-input" placeholder="Search courses, professors…" autocomplete="off" />
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <div class="breadcrumb-inner">
+        <a href="professors.html" class="bc-link">Professors</a>
+        <span class="bc-sep" aria-hidden="true">›</span>
+        <span id="breadcrumb-department" class="bc-link bc-link--degree">Department</span>
+        <span class="bc-sep" aria-hidden="true">›</span>
+        <span id="breadcrumb-current" class="bc-current" aria-current="page">Professor</span>
+      </div>
+    </nav>
+
+    <section class="professor-detail" aria-labelledby="professor-heading">
+      <div class="professor-detail-layout">
+        <aside class="professor-bio-col">
+          <div id="professor-avatar" class="professor-avatar prof-avatar--photo" aria-hidden="true"></div>
+          <h1 class="professor-detail-name" id="professor-heading">Professor</h1>
+          <p class="professor-detail-dept" id="professor-department">Department</p>
+          <p class="professor-detail-bio" id="professor-bio"></p>
+        </aside>
+
+        <div class="professor-courses-col">
+          <div class="section-header professor-filmography-header">
+            <h2 class="section-title">Courses</h2>
+            <p class="section-sub" id="professor-course-count">Offerings taught at KIU.</p>
+          </div>
+          <div class="course-grid professor-course-grid" id="professor-course-grid"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-icon">&#9670;</span>
+        <span class="brand-name">SYLLABUS</span>
+        <span class="footer-tagline">KIU Academic Catalogue · Built by students, for students</span>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html" class="footer-link">Catalogue</a>
+        <a href="professors.html" class="footer-link">Professors</a>
+        <a href="about.html" class="footer-link">About</a>
+      </nav>
+      <p class="footer-copy">&#169; 2026 SYLLABUS · Not an official KIU product</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js" charset="UTF-8"></script>
+  <script src="js/professor.js" charset="UTF-8"></script>
+
+</body>
+</html>
