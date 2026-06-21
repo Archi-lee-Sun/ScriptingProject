@@ -318,6 +318,179 @@ em { font-style: italic; color: var(--accent-green); }
   box-shadow: 0 0 0 3px var(--accent-green-dim);
 }
 
+.auth-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  flex-shrink: 0;
+  min-height: 34px;
+  padding: 4px 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+}
+
+.auth-pill__name {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-primary);
+}
+
+.auth-link {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 9px;
+  border-radius: var(--r-pill);
+  transition: color var(--t-fast), background var(--t-fast);
+}
+
+.auth-link:hover {
+  color: var(--accent-green);
+  background: var(--accent-green-dim);
+}
+
+.auth-link--accent {
+  color: var(--text-inverse);
+  background: var(--accent-green);
+}
+
+.auth-link--accent:hover {
+  color: var(--text-inverse);
+  background: #33eb91;
+}
+
+.auth-modal[hidden] { display: none; }
+
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  padding: var(--sp-lg);
+}
+
+.auth-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 11, 14, 0.74);
+  backdrop-filter: blur(12px);
+}
+
+.auth-modal__panel {
+  position: relative;
+  width: min(100%, 430px);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-deep);
+  padding: var(--sp-xl);
+  animation: fadeSlideUp 0.24s ease both;
+}
+
+.auth-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.auth-modal__close:hover {
+  color: var(--accent-green);
+  border-color: var(--accent-green);
+}
+
+.auth-modal__title {
+  font-size: 1.65rem;
+  margin-bottom: var(--sp-sm);
+}
+
+.auth-modal__message {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-lg);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-md);
+}
+
+.auth-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.auth-form .form-label {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.auth-form .form-input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  padding: 9px 13px;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.auth-form .form-input:focus {
+  outline: none;
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px var(--accent-green-dim);
+}
+
+.auth-actions {
+  display: flex;
+  gap: var(--sp-md);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.auth-error {
+  color: #ff5252;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.auth-demo-note {
+  margin-top: var(--sp-md);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.bio-placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 
 /* ================================================================
    7. HERO SECTION
@@ -856,6 +1029,20 @@ em { font-style: italic; color: var(--accent-green); }
   color: var(--text-muted);
 }
 
+.card-rating-summary {
+  margin-top: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.card-rating-summary--empty {
+  color: var(--text-muted);
+  font-style: italic;
+  font-weight: 400;
+}
+
 
 /* ================================================================
    11. PROFESSOR PROFILES
@@ -1099,7 +1286,10 @@ em { font-style: italic; color: var(--accent-green); }
 
   .nav-inner { padding: 0 var(--sp-md); gap: var(--sp-md); }
   .nav-links  { display: none; }
-  .search-wrapper { max-width: 180px; }
+  .search-wrapper { max-width: 160px; }
+  .auth-pill { gap: 2px; padding: 3px; }
+  .auth-link { font-size: 0.72rem; padding: 4px 7px; }
+  .auth-pill__name { max-width: 74px; padding-left: 6px; }
   .brand-sub { display: none; }
 
   .hero {

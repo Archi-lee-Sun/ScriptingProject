@@ -9,6 +9,7 @@
     loadCourses,
     plainAmpersands,
     posterBackgroundStyle,
+    ratingSummaryText,
     showError
   } = window.Syllabus;
 
@@ -36,6 +37,7 @@
     const { title, professor, professorSlug, posterClass, degree, department, credits, code, slug } = course;
     const href = `course.html?course=${encodeURIComponent(slug)}`;
     const professorHref = professorSlug ? `professor.html?prof=${encodeURIComponent(professorSlug)}` : href;
+    const ratingText = ratingSummaryText(slug);
 
     return `
       <article class="course-card" aria-label="${escapeHTML(title)} with ${escapeHTML(professor)}">
@@ -53,7 +55,8 @@
         <div class="card-info">
           <h3 class="card-title"><a href="${href}" class="card-title-link">${plainAmpersands(title)}</a></h3>
           <p class="card-professor"><a href="${professorHref}" class="prof-link">${escapeHTML(professor)}</a></p>
-          <p class="card-degree-tag">${escapeHTML(department)} · ${escapeHTML(degree)} · ${escapeHTML(credits)}</p>
+          <p class="card-degree-tag">${escapeHTML(department)} \u00b7 ${escapeHTML(degree)} \u00b7 ${escapeHTML(credits)}</p>
+          <p class="card-rating-summary${ratingText === 'Not yet rated' ? ' card-rating-summary--empty' : ''}">${escapeHTML(ratingText)}</p>
         </div>
       </article>
     `;
@@ -127,6 +130,7 @@
       state.courses = Object.entries(coursesBySlug).map(([slug, course]) => ({ slug, ...course }));
       renderCourses();
       wireFilters();
+      window.addEventListener('syllabus:ratings-change', renderCourses);
     } catch (error) {
       showError(grid, "Couldn't load courses — please refresh.");
     }

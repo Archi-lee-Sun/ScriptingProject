@@ -57,6 +57,9 @@
   const renderProfessorCard = professor => {
     const { name, slug, department, bio } = professor;
     const taught = coursesForProfessor(professor);
+    const bioMarkup = bio
+      ? `<p class="prof-bio">${escapeHTML(bio)}</p>`
+      : '<p class="prof-bio bio-placeholder">Biography not yet added.</p>';
     const coursesMarkup = taught.length
       ? `
         <ul class="prof-courses-list" role="list">
@@ -77,7 +80,7 @@
         <div class="prof-body">
           <h2 class="prof-name">${escapeHTML(name)}</h2>
           <p class="prof-dept">${plainAmpersands(department)}</p>
-          <p class="prof-bio">${escapeHTML(bio)}</p>
+          ${bioMarkup}
           <div class="prof-courses-label">${taught.length ? 'Courses taught at KIU' : 'Current KIU offerings'}</div>
           ${coursesMarkup}
         </div>

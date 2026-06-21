@@ -113,9 +113,6 @@
         <!-- ── RIGHT COLUMN ── -->
         <div class="detail-meta">
 
-          <!-- Dept / degree / code / credits badge -->
-          <span id="detail-dept-tag" class="detail-dept-tag">Computer Science · BSc · 6 ECTS</span>
-
           <!-- Course title — primary H1 of the page -->
           <h1 class="detail-title" id="detail-heading">Course title</h1>
 
@@ -124,6 +121,8 @@
             with <a id="detail-prof-link" href="professors.html"
                     class="detail-professor-link">Professor name</a>
           </p>
+
+          <div id="average-rating" class="course-average-rating course-average-rating--empty" aria-live="polite">Average rating: Not yet rated</div>
 
           <!-- ── ABOUT THIS COURSE ──
                Letterboxd approach: a punchy short summary at the very top,
@@ -180,44 +179,7 @@
         <div class="review-form-panel" id="review-form-panel" hidden>
           <form class="review-form" action="#" method="post" aria-label="Write a course review">
 
-            <!-- Row 1: name · email · degree -->
-            <div class="review-form-top">
-              <div class="form-group">
-                <label for="reviewer-name" class="form-label">Your Name</label>
-                <input
-                  type="text"
-                  id="reviewer-name"
-                  name="name"
-                  class="form-input"
-                  placeholder="Ana Beridze"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="reviewer-email" class="form-label">KIU Email</label>
-                <input
-                  type="email"
-                  id="reviewer-email"
-                  name="email"
-                  class="form-input"
-                  placeholder="you@kiu.edu.ge"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="reviewer-degree" class="form-label">Your Degree</label>
-                <select id="reviewer-degree" name="degree" class="form-select" required>
-                  <option value="" disabled selected>Select degree</option>
-                  <option value="cs">Computer Science</option>
-                  <option value="management">Management</option>
-                  <option value="psychology">Psychology</option>
-                  <option value="law">Law</option>
-                  <option value="medicine">Medicine</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Row 2: 1–5 star CSS radio fieldset -->
+            <!-- Row 1: 1–5 star CSS radio fieldset -->
             <fieldset class="star-fieldset">
               <legend class="form-label">Your Rating</legend>
               <div class="star-radio-group" role="group" aria-label="Rate 1 to 5 stars">
@@ -292,7 +254,7 @@
       <div class="footer-brand">
         <span class="brand-icon">&#9670;</span>
         <span class="brand-name">SYLLABUS</span>
-        <span class="footer-tagline">KIU Academic Catalogue · Built by students, for students</span>
+        <span class="footer-tagline">KIU Academic Catalogue · Built by a student, for students</span>
       </div>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="index.html" class="footer-link">Catalogue</a>

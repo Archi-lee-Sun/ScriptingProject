@@ -111,7 +111,13 @@
     breadcrumbCurrent.textContent = professor.name;
     nameNode.textContent = professor.name;
     departmentNode.innerHTML = plainAmpersands(professor.department);
-    bioNode.textContent = professor.bio;
+    if (professor.bio) {
+      bioNode.textContent = professor.bio;
+      bioNode.classList.remove('bio-placeholder');
+    } else {
+      bioNode.textContent = 'Biography not yet added.';
+      bioNode.classList.add('bio-placeholder');
+    }
     courseCountNode.textContent = courses.length
       ? `${courses.length} course${courses.length !== 1 ? 's' : ''} taught at KIU.`
       : 'No current course assignments available.';

@@ -49,7 +49,7 @@
       "Davit Kipshidze"
     ],
     "department": "Computer Science — Blockchain & Cryptography",
-    "bio": "Davit Kipshidze teaches blockchain and cryptography topics at KIU, focusing on distributed ledgers, encryption, consensus models, and practical security concepts students need for modern decentralized systems.",
+    "bio": "",
     "photoUrl": "",
     "courses": [
       "blockchain-cryptography"
@@ -62,7 +62,7 @@
       "Lasha Iashvili"
     ],
     "department": "Computer Science — Web & Scripting Languages",
-    "bio": "Lasha Iashvili teaches scripting and front-end development, guiding students through HTML, CSS, JavaScript, DOM work, and project-based web application practice.",
+    "bio": "",
     "photoUrl": "",
     "courses": [
       "scripting-languages"
@@ -75,7 +75,7 @@
       "Zaal Beriashvili"
     ],
     "department": "Computer Science — Advanced Java",
-    "bio": "Zaal Beriashvili teaches advanced Java practice, with emphasis on concurrency, streams, generics, JVM concepts, and practical programming patterns for larger software systems.",
+    "bio": "",
     "photoUrl": "assets/zaalberiashvili.jpg",
     "courses": [
       "advanced-java-in-practice"
@@ -88,7 +88,7 @@
       "Shota Elkanishvili"
     ],
     "department": "Computer Science — Applied LLM Systems",
-    "bio": "Shota Elkanishvili teaches applied LLM systems, helping students build practical AI applications with prompting, retrieval, agents, evaluation, and production-minded workflows.",
+    "bio": "",
     "photoUrl": "",
     "courses": [
       "applied-llm-systems"

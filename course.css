@@ -307,14 +307,6 @@
   animation-delay: 0.1s;
 }
 
-.detail-dept-tag {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent-green);
-}
-
 .detail-title {
   font-size: clamp(2rem, 4.5vw, 3.2rem);
   font-weight: 900;
@@ -370,12 +362,46 @@
 
 .detail-prerequisite {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  padding: 6px 12px;
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  padding: 10px 14px;
   background: var(--bg-card);
-  border-left: 2px solid var(--accent-green);
+  border-left: 3px solid var(--accent-green);
   border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+
+.detail-prerequisite-label {
+  color: var(--accent-green);
+  font-weight: 700;
+}
+
+.course-average-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-sm);
+  width: fit-content;
+  margin-top: calc(var(--sp-xl) * -0.55);
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.course-average-rating strong,
+.course-average-rating .star {
+  color: var(--accent-gold);
+}
+
+.course-average-rating strong {
+  font-weight: 700;
+}
+
+.course-average-rating--empty {
+  color: var(--text-muted);
+  font-style: italic;
 }
 
 
@@ -414,6 +440,11 @@
   line-height: 1.55;
 }
 
+.offering-table td:nth-child(4) {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
 .offering-table tbody tr { transition: background var(--t-fast); }
 .offering-table tbody tr:hover { background: var(--bg-card); }
 .offering-table tbody tr:last-child td { border-bottom: none; }
@@ -421,6 +452,7 @@
 /* Highlighted row — final exam / most critical component */
 .table-row--current { background: var(--accent-green-dim); }
 .table-row--current td { color: var(--text-primary); }
+.table-row--current td:nth-child(4) { color: var(--accent-gold); }
 
 .table-rating {
   font-family: var(--font-mono);
@@ -716,6 +748,12 @@
   vertical-align: middle;
 }
 
+.reviewer-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .review-date {
   font-family: var(--font-mono);
   font-size: 0.66rem;
@@ -730,13 +768,14 @@
 }
 
 .helpful-btn {
-  background: none;
-  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hover);
   border-radius: var(--r-pill);
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-family: var(--font-body);
   font-size: 0.76rem;
-  padding: 4px 13px;
+  font-weight: 600;
+  padding: 5px 14px;
   cursor: pointer;
   margin-top: var(--sp-md);
   transition: all var(--t-fast);
@@ -745,6 +784,29 @@
   border-color: var(--accent-green);
   color: var(--accent-green);
   background: var(--accent-green-dim);
+}
+
+.helpful-btn--active {
+  background: var(--accent-green-dim);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+.helpful-btn:disabled {
+  cursor: default;
+  opacity: 0.68;
+}
+
+.helpful-btn:disabled:hover {
+  background: var(--bg-surface);
+  border-color: var(--border-hover);
+  color: var(--text-secondary);
+}
+
+.helpful-btn--active:disabled:hover {
+  background: var(--accent-green-dim);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
 }
 
 

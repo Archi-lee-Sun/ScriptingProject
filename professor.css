@@ -73,6 +73,11 @@
   color: var(--text-secondary);
 }
 
+.professor-detail-bio.bio-placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 .professor-filmography-header {
   margin-bottom: var(--sp-xl);
 }

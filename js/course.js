@@ -3,14 +3,19 @@
 ------------------------------------------------------------------ */
 (() => {
   const {
+    calculateAverageRating,
     classNames,
     escapeHTML,
+    getCurrentUser,
+    getUserRating,
     initSemesterChips,
     loadCourses,
     plainAmpersands,
     posterBackground,
     posterBackgroundStyle,
     readStoredArray,
+    requireAuth,
+    saveCourseRating,
     writeStoredArray
   } = window.Syllabus;
 
@@ -21,7 +26,6 @@
 
   const storageKey = type => `syllabus_${type}_${courseKey}`;
 
-  const detailDeptTag = document.getElementById('detail-dept-tag');
   const detailTitle = document.getElementById('detail-heading');
   const detailProfLink = document.getElementById('detail-prof-link');
   const detailDescription = document.getElementById('detail-description');
@@ -43,14 +47,7 @@
   const reviewForm = document.querySelector('.review-form');
   const reviewsList = document.getElementById('reviews-list');
   const rateHint = document.querySelector('.rate-hint');
-
-  const degreeLabel = value => ({
-    cs: 'Computer Science',
-    management: 'Management',
-    psychology: 'Psychology',
-    law: 'Law',
-    medicine: 'Medicine'
-  }[value] || value);
+  const averageRatingNode = document.getElementById('average-rating');
 
   const formatDate = iso => new Intl.DateTimeFormat('en', {
     month: 'short',
@@ -79,7 +76,6 @@
   const renderNotFound = () => {
     document.title = 'Course not found — SYLLABUS · KIU';
     detailTitle.textContent = 'Course not found';
-    detailDeptTag.textContent = 'Computer Science · KIU';
     detailProfLink.textContent = 'Unknown instructor';
     detailDescription.textContent = 'The requested course could not be found. Return to the catalogue.';
     detailPrerequisite.style.display = 'none';
@@ -106,7 +102,7 @@
               <td>${escapeHTML(item.component)}</td>
               <td class="table-rating">${escapeHTML(item.weight)}</td>
               <td>${escapeHTML(item.details)}</td>
-              <td>${escapeHTML(item.minimum || '—')}</td>
+              <td>${escapeHTML(item.minimum || '?')}</td>
             </tr>
           `).join('')}
         </tbody>
@@ -164,11 +160,19 @@
     `).join('');
   };
 
+  const renderAverageRating = () => {
+    if (!averageRatingNode) return;
+    const { average, count } = calculateAverageRating(courseKey);
+    averageRatingNode.classList.toggle('course-average-rating--empty', !count);
+    averageRatingNode.innerHTML = count
+      ? `Average rating: <strong>${average.toFixed(1)}</strong> <span class="star" aria-hidden="true">\u2605</span> (${count} rating${count !== 1 ? 's' : ''})`
+      : 'Average rating: Not yet rated';
+  };
+
   const renderCourse = course => {
-    document.title = `${course.title} — SYLLABUS · KIU`;
+    document.title = `${course.title} ? SYLLABUS ? KIU`;
     breadcrumbCurrent.innerHTML = plainAmpersands(course.title);
     breadcrumbDegree.textContent = course.department;
-    detailDeptTag.textContent = `${course.department} · ${course.degree} · ${course.code} · ${course.credits}`;
     detailTitle.innerHTML = plainAmpersands(course.title);
     detailProfLink.textContent = course.professor;
     detailProfLink.href = course.professorSlug
@@ -178,12 +182,13 @@
     detailWorkflow.textContent = course.workflow;
 
     if (course.prerequisites && course.prerequisites !== 'None') {
-      detailPrerequisite.textContent = `Prerequisites: ${course.prerequisites}`;
+      detailPrerequisite.innerHTML = `<span class="detail-prerequisite-label">Prerequisites:</span> ${escapeHTML(course.prerequisites)}`;
     } else {
       detailPrerequisite.style.display = 'none';
     }
 
     renderAssessment(course);
+    renderAverageRating();
     detailPoster.className = `detail-poster ${course.posterClass}`;
     detailPoster.style.backgroundImage = posterBackground(course);
     detailPoster.style.backgroundSize = 'cover, cover';
@@ -202,20 +207,29 @@
   const getReviews = () => readStoredArray(storageKey('reviews'));
 
   const renderReviewCard = review => {
-    const { id, name, degree, rating, body, date, helpfulCount = 0 } = review;
+    const { id, userId, nickname, name, rating, body, date, helpfulCount = 0 } = review;
+    const displayName = nickname || name || 'Student';
+    const currentUser = getCurrentUser();
+    const helpfulUserIds = review.helpfulUserIds || [];
+    const count = Math.max(helpfulUserIds.length, helpfulCount);
+    const isOwnReview = currentUser && userId === currentUser.id;
+    const isMarkedHelpful = currentUser && helpfulUserIds.includes(currentUser.id);
+    const buttonStateClass = isMarkedHelpful ? ' helpful-btn--active' : '';
+    const disabledAttr = isOwnReview || isMarkedHelpful ? ' disabled' : '';
+    const label = isOwnReview ? 'Your review' : 'Helpful';
     return `
       <article class="review-card" data-review-id="${escapeHTML(id)}">
         <div class="review-header">
-          <div class="reviewer-avatar" aria-hidden="true">${escapeHTML(reviewerInitials(name))}</div>
+          <div class="reviewer-avatar" aria-hidden="true">${escapeHTML(reviewerInitials(displayName))}</div>
           <div class="reviewer-info">
-            <span class="reviewer-name">${escapeHTML(name)}</span>
-            <span class="reviewer-degree">${escapeHTML(degreeLabel(degree))} · ${renderRatingStars(rating)}</span>
+            <span class="reviewer-name">${escapeHTML(displayName)}</span>
+            <span class="reviewer-rating">${renderRatingStars(rating)}</span>
           </div>
           <span class="review-date">${escapeHTML(formatDate(date))}</span>
         </div>
         <p class="review-body">${escapeHTML(body)}</p>
-        <button class="helpful-btn" type="button" data-review-id="${escapeHTML(id)}">
-          Helpful (<span class="helpful-count">${helpfulCount}</span>)
+        <button class="helpful-btn${buttonStateClass}" type="button" data-review-id="${escapeHTML(id)}"${disabledAttr}>
+          ${escapeHTML(label)} (<span class="helpful-count">${count}</span>)
         </button>
       </article>
     `;
@@ -234,45 +248,79 @@
 
   const saveReview = event => {
     event.preventDefault();
+    const user = requireAuth('Log in to submit a review.');
+    if (!user) return;
+
     const formData = new FormData(reviewForm);
     const now = new Date().toISOString();
-    const { name, email, degree, rating, review } = Object.fromEntries(formData.entries());
+    const { rating, review } = Object.fromEntries(formData.entries());
     const newReview = {
       id: String(Date.now()),
-      name,
-      email,
-      degree,
+      userId: user.id,
+      nickname: user.nickname,
       rating,
       body: review,
       date: now,
-      helpfulCount: 0
+      helpfulCount: 0,
+      helpfulUserIds: []
     };
     const updated = [...getReviews(), newReview];
 
     writeStoredArray(storageKey('reviews'), updated);
+    saveCourseRating(courseKey, user.id, rating);
     renderReviews();
+    renderAverageRating();
+    restoreRating();
     reviewForm.reset();
     reviewFormPanel.hidden = true;
     writeReviewBtn.setAttribute('aria-expanded', 'false');
   };
 
   const incrementHelpful = button => {
+    const user = requireAuth('Log in to mark a review helpful.');
+    if (!user) return;
+
     const reviewId = button.dataset.reviewId;
     const reviews = getReviews();
-    const updated = reviews.map(review => (
-      review.id === reviewId
-        ? { ...review, helpfulCount: (review.helpfulCount || 0) + 1 }
-        : review
-    ));
-    const selected = updated.find(review => review.id === reviewId);
+    let didUpdate = false;
+    const updated = reviews.map(review => {
+      if (review.id !== reviewId) return review;
+      if (review.userId === user.id) return review;
 
+      const helpfulUserIds = review.helpfulUserIds || [];
+      if (helpfulUserIds.includes(user.id)) return review;
+
+      const nextHelpfulUserIds = [...helpfulUserIds, user.id];
+      const nextHelpfulCount = Math.max(helpfulUserIds.length, review.helpfulCount || 0) + 1;
+      didUpdate = true;
+      return {
+        ...review,
+        helpfulUserIds: nextHelpfulUserIds,
+        helpfulCount: nextHelpfulCount
+      };
+    });
+
+    if (!didUpdate) return;
     writeStoredArray(storageKey('reviews'), updated);
-    button.querySelector('.helpful-count').textContent = String(selected.helpfulCount);
+    renderReviews();
   };
 
   const restoreRating = () => {
-    const savedRating = localStorage.getItem(storageKey('rating'));
-    if (!savedRating) return;
+    document.querySelectorAll('.rate-stars input[name="rate"]').forEach(input => {
+      input.checked = false;
+    });
+
+    const user = getCurrentUser();
+    if (!user) {
+      if (rateHint) rateHint.textContent = 'Log in to rate this course';
+      return;
+    }
+
+    const savedRating = getUserRating(courseKey, user.id);
+    if (!savedRating) {
+      if (rateHint) rateHint.textContent = 'Click a star to rate';
+      return;
+    }
 
     const input = document.querySelector(`.rate-stars input[value="${savedRating}"]`);
     if (input) input.checked = true;
@@ -281,6 +329,8 @@
 
   const wireCourseEvents = () => {
     writeReviewBtn.addEventListener('click', () => {
+      const user = requireAuth('Log in to write a review.');
+      if (!user) return;
       const isOpen = !reviewFormPanel.hidden;
       reviewFormPanel.hidden = isOpen;
       writeReviewBtn.setAttribute('aria-expanded', String(!isOpen));
@@ -302,10 +352,20 @@
 
     document.querySelectorAll('.rate-stars input[name="rate"]').forEach(input => {
       input.addEventListener('change', event => {
-        localStorage.setItem(storageKey('rating'), event.target.value);
+        const user = requireAuth('Log in to rate this course.');
+        if (!user) {
+          event.target.checked = false;
+          restoreRating();
+          return;
+        }
+        saveCourseRating(courseKey, user.id, event.target.value);
+        renderAverageRating();
         if (rateHint) rateHint.textContent = `You rated this course ${event.target.value}/5`;
       });
     });
+
+    window.addEventListener('syllabus:auth-change', restoreRating);
+    window.addEventListener('syllabus:auth-change', renderReviews);
 
     uploadButton.addEventListener('click', () => {
       const filename = window.prompt('File name to add to Course Materials:');
