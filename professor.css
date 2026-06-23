@@ -89,6 +89,7 @@
 .prof-card-link {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .prof-card-link:focus-visible {

@@ -1145,6 +1145,13 @@ em { font-style: italic; color: var(--accent-green); }
 
 .prof-name { font-size: 1.2rem; font-weight: 700; }
 
+.prof-name-link {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.prof-name-link:hover { color: var(--accent-green); }
+
 .prof-dept {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -1169,6 +1176,17 @@ em { font-style: italic; color: var(--accent-green); }
 }
 
 .prof-bio { font-size: 0.86rem; line-height: 1.78; }
+
+.prof-view-link {
+  display: inline-flex;
+  width: fit-content;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.prof-view-link:hover { color: var(--accent-green); }
 
 .prof-courses-label {
   font-family: var(--font-mono);

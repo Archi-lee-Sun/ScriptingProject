@@ -20,6 +20,7 @@
   const nameNode = document.getElementById('professor-heading');
   const departmentNode = document.getElementById('professor-department');
   const bioNode = document.getElementById('professor-bio');
+  const sourceLink = document.getElementById('professor-source-link');
   const courseCountNode = document.getElementById('professor-course-count');
   const courseGrid = document.getElementById('professor-course-grid');
 
@@ -27,6 +28,7 @@
 
   const initialsFor = name => name
     .split(' ')
+    .filter(part => part.replace('.', '').length > 1)
     .map(part => part[0])
     .join('')
     .slice(0, 3)
@@ -95,6 +97,7 @@
     nameNode.textContent = 'Professor not found';
     departmentNode.textContent = 'Professors';
     bioNode.innerHTML = 'The requested professor could not be found. <a href="professors.html" class="prof-link">Return to professors</a>.';
+    sourceLink.hidden = true;
     courseCountNode.textContent = 'No course offerings available.';
     courseGrid.innerHTML = `
       <div class="review-empty">
@@ -117,6 +120,13 @@
     } else {
       bioNode.textContent = 'Biography not yet added.';
       bioNode.classList.add('bio-placeholder');
+    }
+    if (professor.kiuProfileUrl) {
+      sourceLink.href = professor.kiuProfileUrl;
+      sourceLink.hidden = false;
+    } else {
+      sourceLink.hidden = true;
+      sourceLink.removeAttribute('href');
     }
     courseCountNode.textContent = courses.length
       ? `${courses.length} course${courses.length !== 1 ? 's' : ''} taught at KIU.`

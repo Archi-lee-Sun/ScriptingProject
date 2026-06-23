@@ -7,12 +7,13 @@
       "Eva Maria Knirsch"
     ],
     "department": "Computer Science — Databases & Data Analytics",
-    "bio": "Eva Maria Knirsch holds master's degrees in Computer Science and English, including an MA from the State University of New York as a DAAD scholar. With over 30 years of IT experience, she has served as Project Manager at the Robert Koch Institute, Senior Engineer at SRA International, and General Manager of the Information Security Forum. Since 2011, she has been an Adjunct Professor at HTW Berlin, specializing in databases and data analytics. Her teaching emphasizes practical, industry-ready skills designed to meet the high demands of the modern IT business world.",
+    "bio": "Eva Maria Knirsch, M.A. graduated in Computer Science and English. A DAAD full scholarship allowed her to get her Master at the State University of New York. For more than 30 years she held different positions in the IT business, among those IT Project Manager at the Robert Koch-Institut in Berlin, Senior Engineer with SRA International in Fairfax, Virginia, and General Manager for the Forum für Informationssicherheit, Berlin – Dresden. Since 2011 she has been teaching as an Adjunct Professor at the Hochschule für Technik und Wirtschaft (HTW), Berlin. Databases and data analysis are her focus. Her teaching is application-oriented, driving students to build up knowledge that is in high demand in the IT business world.",
     "photoUrl": "https://www.kiu.edu.ge/uploads_script/banner_carusel/dsc_5618_1.jpg",
     "courses": [
       "database-1",
       "databases-2"
-    ]
+    ],
+    "kiuProfileUrl": "https://www.kiu.edu.ge/?m=320"
   },
   {
     "name": "Giorgi Nadareishvili",
@@ -22,12 +23,13 @@
       "George Nadareishvili"
     ],
     "department": "Computer Science — Theory & Foundations",
-    "bio": "Giorgi Nadareishvili earned his PhD from the University of Göttingen in Germany, where he later continued as a postdoctoral researcher. He has also held a postdoctoral position at Tbilisi State University. His scientific research is primarily focused on the field of non-commutative topology, bridging abstract mathematics with theoretical computer science. At KIU, he teaches foundational theory courses that explore the mathematical limits of computation — covering Turing machines, Gödel's incompleteness theorems, and the P vs NP problem.",
+    "bio": "George Nadareishvili received his PhD degree in Mathematics from University of Göttingen, Germany. Later he worked as a postdoctoral researcher at Göttingen and Tbilisi State universities. His research interests lie in the field of noncommutative topology.",
     "photoUrl": "https://www.kiu.edu.ge/uploads_script/banner_carusel/g.n.jpg",
     "courses": [
       "theory-of-computation",
       "fundamentals-of-algorithms-and-data-structures"
-    ]
+    ],
+    "kiuProfileUrl": "https://www.kiu.edu.ge/?m=318"
   },
   {
     "name": "Walter Tichy",
@@ -36,11 +38,12 @@
       "Walter Tichy"
     ],
     "department": "Computer Science — Software Engineering",
-    "bio": "Walter Tichy was a Professor of Software Engineering at the Karlsruhe Institute of Technology (KIT) from 1986 to 2021, where he also served as Dean of Computer Science (2002–2004). He previously held positions as a Senior Scientist at Carnegie Group Inc. and spent six years on the faculty at Purdue University. A graduate of Carnegie Mellon University with both an MS and a PhD, his research focuses on software engineering, parallelism, and language technologies. Beyond academia, he is the co-founder of ParTec and ESCde and a member of ACM, GI, and IEEE.",
+    "bio": "Walter F. Tichy has been a Professor of Software Engineering at the Karlsruhe Institute of Technology (formerly University Karlsruhe), Germany, from 1986 to 2021, and served as a Dean of the faculty of Computer Science from 2002 to 2004. Previously, he was a Senior Scientist at Carnegie Group, Inc., an AI startup in Pittsburgh, Pennsylvania and served six years on the faculty of Computer Science at Purdue University in West Lafayette, Indiana. His primary research interests are software engineering, parallelism, and language technologies. He is currently concentrating on empirical software engineering, tools and languages for multicore computers, and making computers more accessible by using natural programming language. He earned an M.S. and a PhD in Computer Science from Carnegie-Mellon University in 1976 and 1980, resp. He is a co-founder of ParTec, a company specializing in cluster computing, and ESCde, a consulting company. He has published almost 200 peer reviewed papers and graduated 35 Ph.Ds. He has been given two impact awards, several teaching awards and the Intel Award for the Advancement of Parallel Computing. Dr. Tichy is a fellow of the ACM and a member of ACM, GI and the IEEE.",
     "photoUrl": "https://www.kiu.edu.ge/uploads_script/banner_carusel/walter1.new.jpg",
     "courses": [
       "introduction-software-engineering"
-    ]
+    ],
+    "kiuProfileUrl": "https://www.kiu.edu.ge/?m=395"
   },
   {
     "name": "Davit Kipshidze",
@@ -93,5 +96,19 @@
     "courses": [
       "applied-llm-systems"
     ]
+  },
+  {
+    "name": "Wolfgang J. Paul",
+    "slug": "wolfgang-paul",
+    "matchNames": [
+      "Wolfgang Paul",
+      "Wolfgang J. Paul",
+      "Prof. Dr. Wolfgang J. Paul"
+    ],
+    "department": "Computer Science — Computer Architecture & Formal Verification",
+    "photoUrl": "https://www.kiu.edu.ge/uploads_script/banner_carusel/paul_1.jpg",
+    "kiuProfileUrl": "https://www.kiu.edu.ge/?m=312",
+    "bio": "Prof. Dr. Wolfgang J. Paul was born in 1951. At age 22 he completed his PhD in Theoretical Computer Science at Saarland University. He was a post doc at Cornell University working in complexity theory and then became a tenured associate professor of mathematics at the University of Bielefeld at age 25. After finishing a professional cooking degree at a Michelin 1-star restaurant he worked from 1982 to 1986 as a Research Staff Member in the Theory Group and the Physics Department of IBM's Almaden Research Lab. From 1986 to 2016 he was a full professor for Computer Architecture and Parallel Computing at Saarland University, where he served as the Chairman of Computer Science, Dean of Engineering and Acting Head of the university's computing center. From 2003 to 2007 he was the Scientific Coordinator of the projects 'Verisoft' and 'Verisoft-XT', two large projects aiming at the pervasive formal verification of entire computer systems. From 2016 to 2020 he was a Senior Professor at Saarland University. Since August 2020 he is a Professor of Computer Science at Kutaisi International University. Wolfgang Paul holds an IBM invention achievement award, a Leibniz Award, an honorary doctorate degree from Pacific State University, and is a member of Academia Europaea. He has successfully supervised 65 PhD students.",
+    "courses": []
   }
 ]

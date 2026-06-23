@@ -18,6 +18,7 @@
 
   const initialsFor = name => name
     .split(' ')
+    .filter(part => part.replace('.', '').length > 1)
     .map(part => part[0])
     .join('')
     .slice(0, 3)
@@ -55,11 +56,15 @@
   };
 
   const renderProfessorCard = professor => {
-    const { name, slug, department, bio } = professor;
+    const { name, slug, department, bio, kiuProfileUrl } = professor;
     const taught = coursesForProfessor(professor);
     const bioMarkup = bio
       ? `<p class="prof-bio">${escapeHTML(bio)}</p>`
       : '<p class="prof-bio bio-placeholder">Biography not yet added.</p>';
+    const profileHref = `professor.html?prof=${encodeURIComponent(slug)}`;
+    const sourceLink = kiuProfileUrl
+      ? `<a href="${escapeHTML(kiuProfileUrl)}" class="prof-view-link" target="_blank" rel="noopener noreferrer">Official KIU profile &#8594;</a>`
+      : '';
     const coursesMarkup = taught.length
       ? `
         <ul class="prof-courses-list" role="list">
@@ -73,18 +78,19 @@
       : '<p class="prof-course-name" style="font-size:0.92rem; color:var(--text-secondary);">No current course assignments available.</p>';
 
     return `
-      <a href="professor.html?prof=${encodeURIComponent(slug)}" class="prof-card prof-card-link" aria-label="Professor: ${escapeHTML(name)}">
+      <article class="prof-card prof-card-link" data-prof-href="${profileHref}" tabindex="0" role="link" aria-label="Professor: ${escapeHTML(name)}">
         <div class="prof-avatar prof-avatar--photo" aria-hidden="true">
           ${renderAvatar(professor)}
         </div>
         <div class="prof-body">
-          <h2 class="prof-name">${escapeHTML(name)}</h2>
+          <h2 class="prof-name"><a href="${profileHref}" class="prof-name-link">${escapeHTML(name)}</a></h2>
           <p class="prof-dept">${plainAmpersands(department)}</p>
           ${bioMarkup}
+          ${sourceLink}
           <div class="prof-courses-label">${taught.length ? 'Courses taught at KIU' : 'Current KIU offerings'}</div>
           ${coursesMarkup}
         </div>
-      </a>
+      </article>
     `;
   };
 
@@ -98,6 +104,11 @@
       `;
   };
 
+  const openProfessorCard = card => {
+    const href = card?.dataset.profHref;
+    if (href) window.location.href = href;
+  };
+
   const wireSearch = () => {
     if (!searchInput) return;
 
@@ -109,6 +120,22 @@
       ));
       renderProfessors(filtered);
     }, 220));
+  };
+
+  const wireProfessorCards = () => {
+    grid.addEventListener('click', event => {
+      if (event.target.closest('a')) return;
+      const card = event.target.closest('[data-prof-href]');
+      if (card) openProfessorCard(card);
+    });
+
+    grid.addEventListener('keydown', event => {
+      if (!['Enter', ' '].includes(event.key)) return;
+      const card = event.target.closest('[data-prof-href]');
+      if (!card) return;
+      event.preventDefault();
+      openProfessorCard(card);
+    });
   };
 
   const initProfessors = async () => {
@@ -129,6 +156,7 @@
       professors = professorData;
       renderProfessors(professors);
       wireSearch();
+      wireProfessorCards();
     } catch (error) {
       showError(grid, "Couldn't load professors — please refresh.");
     }
